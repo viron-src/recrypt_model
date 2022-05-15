@@ -1,11 +1,11 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
-package recrypt;
+package recrypt.account;
 
 // gRPC definitions for providing account services.
 // i.e. Account creation, logging in.
-service Account {
-  rpc CreateAccount (CreateAccountRequest) returns (CreateAccountResponse) {}
+service Creation {
+  rpc Create (CreateAccountRequest) returns (CreateAccountResponse) {}
 }
 
 message CreateAccountRequest {
