@@ -1,6 +1,6 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
-package recrypt.system;
+package recrypt;
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 

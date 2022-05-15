@@ -1,6 +1,6 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
-package recrypt.account;
+package recrypt;
 
 // gRPC definitions for providing account services.
 // i.e. Account creation, logging in.
