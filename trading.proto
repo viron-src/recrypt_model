@@ -3,13 +3,13 @@ syntax = "proto3";
 package recrypt.trading;
 
 service OrderBook {
-  rpc Feed (OrderBookStreamRequest) returns (stream OrderBookStreamResponse) {}
+  rpc Feed (OrderBookFeedRequest) returns (stream OrderBookFeedResponse) {}
 }
 
-message OrderBookStreamRequest {
+message OrderBookFeedRequest {
   string market_name = 1;
 }
 
-message OrderBookStreamResponse {
+message OrderBookFeedResponse {
   int32 resp = 1;
 }
