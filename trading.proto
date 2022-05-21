@@ -1,0 +1,15 @@
+// Copyright © Viron Software ⨈
+syntax = "proto3";
+package recrypt.trading;
+
+service OrderBook {
+  rpc Stream (OrderBookStreamRequest) returns (stream OrderBookStreamResponse) {}
+}
+
+message OrderBookStreamRequest {
+  string market_name = 1;
+}
+
+message OrderBookStreamResponse {
+  int32 resp = 1;
+}
