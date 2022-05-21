@@ -3,7 +3,7 @@ syntax = "proto3";
 package recrypt.trading;
 
 service OrderBook {
-  rpc Stream (OrderBookStreamRequest) returns (stream OrderBookStreamResponse) {}
+  rpc Feed (OrderBookStreamRequest) returns (stream OrderBookStreamResponse) {}
 }
 
 message OrderBookStreamRequest {
