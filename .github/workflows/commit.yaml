@@ -1,0 +1,21 @@
+# Copyright © Viron Software ⨈
+
+name: Commit
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Commit
+    steps:
+      - name: Discord Commit Notification
+        if: github.head_ref == '' && github.event_name == 'push'
+        uses: sarisia/actions-status-discord@v1.8.6
+        with:
+          webhook: ${{secrets.V_DISCORD_CI_HOOK}}
+          title: "${{github.repository}} was just modified by ${{github.actor}}"
+          noprefix: true
+          color: 0x0095ff
