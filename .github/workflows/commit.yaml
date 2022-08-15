@@ -10,6 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Commit
+    environment: discord-hook
     steps:
       - name: Discord Commit Notification
         if: github.head_ref == '' && github.event_name == 'push'
