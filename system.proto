@@ -4,7 +4,7 @@ package recrypt.system;
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
-service Time {
-  rpc Node (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
-  rpc Core (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
+service System {
+  rpc NodeTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
+  rpc CoreTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
 }

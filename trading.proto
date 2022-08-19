@@ -2,8 +2,8 @@
 syntax = "proto3";
 package recrypt.trading;
 
-service OrderBook {
-  rpc Feed (OrderBookFeedRequest) returns (stream OrderBookFeed) {}
+service Trading {
+  rpc OrderBookFeed (OrderBookFeedRequest) returns (stream OrderBookFeed) {}
 }
 
 message OrderBookFeedRequest {
