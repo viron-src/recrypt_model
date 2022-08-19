@@ -2,7 +2,7 @@
 // Entire gRPC API surface for Recrypt.
 syntax = "proto3";
 package recrypt;
-import "@recrypt/account.proto";
+import "recrypt/account.proto";
 import "recrypt/system.proto";
 import "recrypt/trading.proto";
 import "google/protobuf/empty.proto";
