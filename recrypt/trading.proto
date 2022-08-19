@@ -2,10 +2,6 @@
 syntax = "proto3";
 package recrypt.trading;
 
-service Trading {
-  rpc OrderBookFeed (OrderBookFeedRequest) returns (stream OrderBookFeedData) {}
-}
-
 message OrderBookFeedRequest {
   string market_name = 1;
 }

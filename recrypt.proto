@@ -1,0 +1,25 @@
+// Copyright © Viron Software ⨈
+// Entire gRPC API surface for Recrypt.
+syntax = "proto3";
+package recrypt;
+import "@recrypt/account.proto";
+import "recrypt/system.proto";
+import "recrypt/trading.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+// Account services.
+service Account {
+  rpc Create (Account.CreateRequest) returns (Account.CreateResponse) {}
+}
+
+// System services.
+service System {
+  rpc NodeTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
+  rpc CoreTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
+}
+
+// Trading services.
+service Trading {
+  rpc OrderBookFeed (Trading.OrderBookFeedRequest) returns (stream Trading.OrderBookFeedData) {}
+}
