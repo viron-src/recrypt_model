@@ -1,6 +1,6 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
-package recrypt.account;
+package recrypt.types;
 
 message CreateRequest {
   string email = 1; // Must be valid email. Max 254 characters.

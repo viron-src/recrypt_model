@@ -1,0 +1,9 @@
+// Copyright © Viron Software ⨈
+syntax = "proto3";
+package recrypt;
+import "types/trading.proto";
+
+// Trading services.
+service Trading {
+  rpc OrderBookFeed (types.OrderBookFeedRequest) returns (stream types.OrderBookFeedData) {}
+}

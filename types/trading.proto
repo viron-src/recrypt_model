@@ -1,6 +1,6 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
-package recrypt.trading;
+package recrypt.types;
 
 message OrderBookFeedRequest {
   string market_name = 1;
