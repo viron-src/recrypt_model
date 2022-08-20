@@ -1,0 +1,10 @@
+// Copyright © Viron Software ⨈
+// Entire gRPC API surface for Recrypt.
+syntax = "proto3";
+package recrypt;
+import "types/account.proto";
+
+// Account services.
+service Account {
+  rpc Create (types.CreateRequest) returns (types.CreateResponse) {}
+}
