@@ -6,5 +6,5 @@ import "types/account.proto";
 
 // Account services.
 service Account {
-  rpc Create (types.CreateRequest) returns (types.CreateResponse) {}
+  rpc Create (types.CreateAccountRequest) returns (types.CreateAccountResponse) {}
 }
