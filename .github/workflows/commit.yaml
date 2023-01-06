@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Discord Commit Notification
         if: github.head_ref == '' && github.event_name == 'push'
-        uses: sarisia/actions-status-discord@v1.8.6
+        uses: sarisia/actions-status-discord@v1.10.2
         with:
           webhook: ${{secrets.V_DISCORD_CI_HOOK}}
           title: "${{github.repository}} was just modified by ${{github.actor}}"
