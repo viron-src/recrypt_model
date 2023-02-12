@@ -1,7 +1,7 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
 package recrypt;
-import "types/trading.proto";
+import "types/trading_types.proto";
 
 // Trading services.
 service Trading {

@@ -2,7 +2,7 @@
 // Entire gRPC API surface for Recrypt.
 syntax = "proto3";
 package recrypt;
-import "types/account.proto";
+import "types/account_types.proto";
 
 // Account services.
 service Account {
