@@ -1,0 +1,16 @@
+// Copyright © Viron Software ⨈
+// Entire gRPC API surface for Recrypt.
+syntax = "proto3";
+package recrypt;
+import "types/auth_types.proto";
+
+// Auth services.
+service Auth {
+  // Mainly used for gRPC Web frontend. Since session cookies are hidden from the browser we make a request to determine
+  // our session state.
+  rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
+  // This request sets a cookie if successful. Again if using native gRPC API use API keys instead.
+  rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
+  // This response will tell the browser to forget the cookie. Again if using native gRPC API use API keys instead.
+  rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
+}
