@@ -5,3 +5,4 @@ package recrypt;
 import "system.proto";
 import "account.proto";
 import "trading.proto";
+import "auth.proto";
