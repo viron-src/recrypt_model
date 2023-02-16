@@ -13,4 +13,6 @@ service Auth {
   rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
   // This response will tell the browser to forget the cookie. Again if using native gRPC API use API keys instead.
   rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
+  // Consumes a limit time token. e.g. verifying an email.
+  rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
 }

@@ -12,14 +12,3 @@ message CreateAccountRequest {
 message CreateAccountResponse {
   bool email_sent = 1; // If false then email address is already in use or email verification already pending.
 }
-
-message ConsumeTokenRequest {
-  string token = 1; // Must be a valid UUID string. Lowercase or uppercase with dashes.
-  oneof op {
-    string password = 2; // Min 8 characters. Max 64 characters. Requires zxcvbn score of atleast 3.
-  }
-}
-
-message ConsumeTokenResponse {
-  int32 state = 1; // 0 = invalid token, 1 = success, 2 = try again with password (verify email).
-}
