@@ -7,6 +7,7 @@ message CreateAccountRequest {
   string first_name = 2; // Min 1 character. Max 64 characters
   string last_name = 3; // Min 1 character. Max 64 characters. Not used if is_business is true.
   bool is_business = 5;
+  string recaptcha_token = 6; /*I wouldn't advise trying to automate creation of accounts. This is provided by the recaptcha frontend.*/
 }
 
 message CreateAccountResponse {
