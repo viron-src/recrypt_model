@@ -37,9 +37,10 @@ message LogoutResponse {
 }
 
 message ConsumeTokenRequest {
-  string token = 1; // Must be a valid UUID string. Lowercase or uppercase with dashes.
+  string token = 1; // Must be a 64-character hexadecimal string.
+  int64 seq = 2; // Must be zero or higher.
   oneof op {
-    string password = 2; // Min 8 characters. Max 64 characters. Requires zxcvbn score of atleast 3.
+    string password = 3; // Min 8 characters. Max 64 characters. Requires zxcvbn score of atleast 3.
   }
 }
 
