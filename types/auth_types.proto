@@ -17,7 +17,6 @@ message LoginRequest {
   string email = 1; // Must be valid email. Min 3 characters. Max 254 characters.
   string password = 2; // Min 8 characters. Max 64 characters.
   string totp = 3; // 6 characters only (numbers)
-  bool stay_signed_in = 4; // Adjusts the Set-Cookie session_key response to be more persistent (30 days). Note, this only prevents totp.
 }
 
 message LoginResponse {
