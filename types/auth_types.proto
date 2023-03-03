@@ -37,8 +37,8 @@ message LogoutResponse {
 }
 
 message ConsumeTokenRequest {
-  string token = 1; // Must be a 64-character hexadecimal string.
-  int64 seq = 2; // Must be zero or higher.
+  int64 seq = 1; // Must be zero or higher.
+  string token = 2; // Must be a 64-character hexadecimal string.
   oneof op {
     string password = 3; // Min 8 characters. Max 64 characters. Requires zxcvbn score of atleast 3.
   }
