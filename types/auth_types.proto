@@ -20,7 +20,7 @@ message LoginRequest {
 }
 
 message LoginResponse {
-  // If 1 then there will be Set-Cookie in the header/metadata with the session_key.
+  // If 1 then there will be Set-Cookie in the header/metadata with the sessionkey.
   // If 2 then totp is required.
   // If 0 then failure.
   int32 result = 1;
