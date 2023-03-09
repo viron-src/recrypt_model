@@ -4,13 +4,15 @@ package recrypt.types;
 
 message SessionStateRequest {
   // Blank request, cookie data will be included by default for browser web requests at metadata.
-  // Cookie name: session_key
+  // Cookie name: sessionkey
 }
 
 message SessionStateResponse {
-  string email = 1; // Empty email means we're not logged in. In which case the other fields are ignored.
-  string first_name = 2;
-  string last_name = 3;
+  int64 seq = 1; // Seq = 0 means failure. All other defaults will be default initialized.
+  string email = 2;
+  string name = 3;
+  string last_name = 4;
+  int32 type = 5; /* 0 = personal/end-user account, 1 = business/corporate account */
 }
 
 message LoginRequest {
@@ -44,5 +46,8 @@ message ConsumeTokenRequest {
 }
 
 message ConsumeTokenResponse {
-  int32 state = 1; // 0 = invalid token, 1 = success, 2 = try again with password (verify email).
+  // If 0 then invalid token.
+  // If 1 then success.
+  // If 2 then token iS OK but try again with password provided (verify email/password reset).
+  int32 state = 1;
 }
