@@ -29,7 +29,7 @@ message LoginResponse {
 }
 
 message LogoutRequest {
-  // If the "session_key" cookie is provided with this request, it will be cleared from the listed of sessions for this user.
+  // If the "sessionkey" cookie is provided with this request, it will be cleared from the listed of sessions for this user.
 }
 
 message LogoutResponse {
