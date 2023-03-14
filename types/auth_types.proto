@@ -33,8 +33,9 @@ message LogoutRequest {
 }
 
 message LogoutResponse {
-  // Specifically the cookie session_key will be told to expire on the response.
+  // Specifically the cookie sessionkey will be told to expire on the response if success is true.
   // This response will always clear session_key cookies from the browser.
+  bool success = 1;
 }
 
 message ConsumeTokenRequest {
