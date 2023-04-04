@@ -52,3 +52,10 @@ message ConsumeTokenResponse {
   // If 2 then token iS OK but try again with password provided (verify email/password reset).
   int32 state = 1;
 }
+
+message SetGuardKeyCookieRequest {
+  string value = 1;
+}
+
+message SetGuardKeyCookieResponse {
+}
