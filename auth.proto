@@ -17,5 +17,5 @@ service Auth {
   rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
   // Mainly used for gRPC Web mobile frontends.
   // Provides a callback for properly setting secure guard key cookies from a HTTPS remote due to browser restrictions.
-  rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) return (types.SetGuardKeyCookieResponse) {}
+  rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) returns (types.SetGuardKeyCookieResponse) {}
 }
