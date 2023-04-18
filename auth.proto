@@ -6,16 +6,40 @@ import "types/auth_types.proto";
 
 // Auth services.
 service Auth {
-  // Mainly used for gRPC Web frontend. Since session cookies are hidden from the browser we make a request to determine
-  // our session state (if we are logged in or not).
-  rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
-  // This request sets a cookie if successful. Again if using automation or the native gRPC API use API keys instead.
+  // This request sets a cookie (session key) if successful.
+  // --- FRONTEND RPC.
   rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
-  // This response will tell the browser to forget the cookie. Again if using automation or the native gRPC API use API keys instead.
+
+  // This response will tell the browser to forget the cookie and invalidates the session key in the backend.
+  // If using an API key this will expire the API key indefinitely.
+  // --- FRONTEND or API AUTHENTICATED RPC. Please provide session key or API key.
   rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
+
   // Consumes a limit time token. e.g. verifying an email.
+  // --- FRONTEND RPC.
   rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
+
   // Mainly used for gRPC Web mobile frontends.
   // Provides a callback for properly setting secure guard key cookies from a HTTPS remote due to browser restrictions.
+  // --- FRONTEND RPC.
   rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) returns (types.SetGuardKeyCookieResponse) {}
+
+  // ConfigureAuthorizationAuthenticate and ConfigureAuthorizationAuthenticateValidate must be called first before calling ConfigureAuthorization.
+  // Internal: Undocumented.
+  // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
+  rpc ConfigureAuthorizationAuthenticate(types.ConfigureAuthorizationAuthenticateRequest) returns (types.ConfigureAuthorizationAuthenticateResponse) {}
+
+  // Internal: Undocumented.
+  // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
+  rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateRequest) returns (types.ConfigureAuthorizationAuthenticateResponse) {}
+
+  // Internal: Undocumented.
+  // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
+  rpc ConfigureAuthorization(types.ConfigureAuthorizationRequest) returns (types.ConfigureAuthorizationResponse) {}
+
+  // Mainly used for gRPC Web frontend. Since session cookies are hidden from the browser we make a request to determine
+  // our session state (if we are logged in or not). Can also be used by API keys to determine if the key is valid and
+  // retrieve some account information associated with the key.
+  // --- FRONTEND or API AUTHENTICATED RPC. Please provide session key or API key.
+  rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
 }

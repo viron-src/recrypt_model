@@ -59,3 +59,40 @@ message SetGuardKeyCookieRequest {
 
 message SetGuardKeyCookieResponse {
 }
+
+message ConfigureAuthorizationAuthenticateRequest {
+}
+
+message ConfigureAuthorizationAuthenticateResponse {
+  bool password = 1;
+  bool email = 2;
+  bool totp = 3;
+}
+
+message ConfigureAuthorizationAuthenticateValidateRequest {
+  string password = 1;
+  string emailCode = 2;
+  string totpCode = 3;
+}
+
+message ConfigureAuthorizationAuthenticateValidateResponse {
+  string authorizationCode = 1;
+}
+
+message ConfigureAuthorizationRequest {
+  string authorizationCode = 1;
+  oneof action {
+    bool authorizationLoginPassword = 4; // This will always be set as true by the backend.
+    bool authorizationLoginEmail = 5;
+    bool authorizationLoginTotp = 6;
+    bool authorizationMarketOrderPassword = 7;
+    bool authorizationMarketOrderEmail = 8;
+    bool authorizationMarketOrderTotp = 9;
+    bool authorizationWithdrawalPassword = 10;
+    bool authorizationWithdrawalEmail = 11; // This will always be set as true by the backend.
+    bool authorizationWithdrawalTotp = 12;
+  }
+}
+
+message ConfigureAuthorizationResponse {
+}
