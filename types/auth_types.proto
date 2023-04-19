@@ -64,15 +64,17 @@ message ConfigureAuthorizationAuthenticateRequest {
 }
 
 message ConfigureAuthorizationAuthenticateResponse {
-  bool password = 1;
-  bool email = 2;
-  bool totp = 3;
+  int64 requestSeq = 1;
+  bool password = 2;
+  bool email = 3;
+  bool totp = 4;
 }
 
 message ConfigureAuthorizationAuthenticateValidateRequest {
-  string password = 1;
-  string emailCode = 2;
-  string totpCode = 3;
+  int64 requestSeq = 1;
+  string password = 2;
+  string emailCode = 3;
+  string totpCode = 4;
 }
 
 message ConfigureAuthorizationAuthenticateValidateResponse {
