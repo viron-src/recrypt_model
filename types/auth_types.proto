@@ -82,15 +82,15 @@ message ConfigureAuthorizationAuthenticateValidateResponse {
 message ConfigureAuthorizationRequest {
   string authorizationCode = 1;
   oneof action {
-    bool authorizationLoginPassword = 4; // This will always be set as true by the backend.
-    bool authorizationLoginEmail = 5;
-    bool authorizationLoginTotp = 6;
-    bool authorizationMarketOrderPassword = 7;
-    bool authorizationMarketOrderEmail = 8;
-    bool authorizationMarketOrderTotp = 9;
-    bool authorizationWithdrawalPassword = 10;
-    bool authorizationWithdrawalEmail = 11; // This will always be set as true by the backend.
-    bool authorizationWithdrawalTotp = 12;
+    bool authorizationLoginPassword = 2; // This will always be set as true by the backend.
+    bool authorizationLoginEmail = 3;
+    bool authorizationLoginTotp = 4;
+    bool authorizationMarketOrderPassword = 5;
+    bool authorizationMarketOrderEmail = 6;
+    bool authorizationMarketOrderTotp = 7;
+    bool authorizationWithdrawalPassword = 8;
+    bool authorizationWithdrawalEmail = 9; // This will always be set as true by the backend.
+    bool authorizationWithdrawalTotp = 10;
   }
 }
 
