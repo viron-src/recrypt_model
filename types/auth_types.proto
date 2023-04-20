@@ -64,35 +64,36 @@ message ConfigureAuthorizationAuthenticateRequest {
 }
 
 message ConfigureAuthorizationAuthenticateResponse {
-  int64 requestSeq = 1;
+  int64 request_seq = 1;
   bool password = 2;
   bool email = 3;
   bool totp = 4;
 }
 
 message ConfigureAuthorizationAuthenticateValidateRequest {
-  int64 requestSeq = 1;
-  string password = 2;
-  string emailCode = 3;
-  string totpCode = 4;
+  int64 request_seq = 1;
+  string recaptcha_token = 2;
+  string password = 3;
+  string email_code = 4;
+  string totp_code = 5;
 }
 
 message ConfigureAuthorizationAuthenticateValidateResponse {
-  string authorizationCode = 1;
+  string authorization_code = 1;
 }
 
 message ConfigureAuthorizationRequest {
-  string authorizationCode = 1;
+  string authorization_code = 1;
   oneof action {
-    bool authorizationLoginPassword = 2; // This will always be set as true by the backend.
-    bool authorizationLoginEmail = 3;
-    bool authorizationLoginTotp = 4;
-    bool authorizationMarketOrderPassword = 5;
-    bool authorizationMarketOrderEmail = 6;
-    bool authorizationMarketOrderTotp = 7;
-    bool authorizationWithdrawalPassword = 8;
-    bool authorizationWithdrawalEmail = 9; // This will always be set as true by the backend.
-    bool authorizationWithdrawalTotp = 10;
+    bool authorization_login_password = 2; // This will always be set as true by the backend.
+    bool authorization_login_email = 3;
+    bool authorization_login_totp = 4;
+    bool authorization_market_order_password = 5;
+    bool authorization_market_order_email = 6;
+    bool authorization_market_order_totp = 7;
+    bool authorization_withdrawal_password = 8;
+    bool authorization_withdrawal_Email = 9; // This will always be set as true by the backend.
+    bool authorization_withdrawal_Totp = 10;
   }
 }
 
