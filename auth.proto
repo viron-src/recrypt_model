@@ -31,7 +31,7 @@ service Auth {
 
   // Internal: Undocumented.
   // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
-  rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateRequest) returns (types.ConfigureAuthorizationAuthenticateResponse) {}
+  rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateValidateRequest) returns (types.ConfigureAuthorizationAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
   // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
