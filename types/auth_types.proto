@@ -3,12 +3,13 @@ syntax = "proto3";
 package recrypt.types;
 
 message SessionStateRequest {
-  // Blank request, cookie data will be included by default for browser web requests at metadata.
-  // Cookie name: sessionkey
+  // Cookie data will be included by default for browser web requests at metadata.
+  // Cookie/metadata name: sessionkey
+  int64 session_seq = 1;
 }
 
 message SessionStateResponse {
-  int64 seq = 1; // Seq = 0 means failure. All other defaults will be default initialized.
+  int64 session_seq = 1; // Seq = 0 means failure. All other defaults will be default initialized.
   string email = 2;
   string name = 3;
   string last_name = 4;
@@ -26,10 +27,12 @@ message LoginResponse {
   // If 2 then totp is required.
   // If 0 then failure.
   int32 result = 1;
+  int64 session_seq = 2; // This will be positive non-zero when result is 1.
 }
 
 message LogoutRequest {
-  // If the "sessionkey" cookie is provided with this request, it will be cleared from the listed of sessions for this user.
+  // sessionkey must be provided with this request, it will be cleared from the list of active sessions for this user.
+  int64 session_seq = 1;
 }
 
 message LogoutResponse {
@@ -61,6 +64,7 @@ message SetGuardKeyCookieResponse {
 }
 
 message ConfigureAuthorizationAuthenticateRequest {
+  int64 session_seq = 1;
 }
 
 message ConfigureAuthorizationAuthenticateResponse {
@@ -71,11 +75,12 @@ message ConfigureAuthorizationAuthenticateResponse {
 }
 
 message ConfigureAuthorizationAuthenticateValidateRequest {
-  int64 request_seq = 1;
-  string recaptcha_token = 2;
-  string password = 3;
-  string email_code = 4;
-  string totp_code = 5;
+  int64 session_seq = 1;
+  int64 request_seq = 2;
+  string recaptcha_token = 3;
+  string password = 4;
+  string email_code = 5;
+  string totp_code = 6;
 }
 
 message ConfigureAuthorizationAuthenticateValidateResponse {
@@ -83,17 +88,18 @@ message ConfigureAuthorizationAuthenticateValidateResponse {
 }
 
 message ConfigureAuthorizationRequest {
-  string authorization_code = 1;
+  int64 session_seq = 1;
+  string authorization_code = 2;
   oneof action {
-    bool authorization_login_password = 2; // This will always be set as true by the backend.
-    bool authorization_login_email = 3;
-    bool authorization_login_totp = 4;
-    bool authorization_market_order_password = 5;
-    bool authorization_market_order_email = 6;
-    bool authorization_market_order_totp = 7;
-    bool authorization_withdrawal_password = 8;
-    bool authorization_withdrawal_Email = 9; // This will always be set as true by the backend.
-    bool authorization_withdrawal_Totp = 10;
+    bool authorization_login_password = 3; // This will always be set as true by the backend.
+    bool authorization_login_email = 4;
+    bool authorization_login_totp = 5;
+    bool authorization_market_order_password = 6;
+    bool authorization_market_order_email = 7;
+    bool authorization_market_order_totp = 8;
+    bool authorization_withdrawal_password = 9;
+    bool authorization_withdrawal_Email = 10; // This will always be set as true by the backend.
+    bool authorization_withdrawal_Totp = 11;
   }
 }
 
