@@ -12,4 +12,5 @@ message CreateAccountRequest {
 
 message CreateAccountResponse {
   bool email_sent = 1; // If false then email address is already in use or email verification already pending.
+  string normalized_email = 2; /* Only populated if email_sent is true. */
 }
