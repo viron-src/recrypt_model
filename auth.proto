@@ -6,40 +6,62 @@ import "types/auth_types.proto";
 
 // Auth services.
 service Auth {
-  // This request sets a cookie (session key) if successful.
-  // --- FRONTEND RPC.
+  // AUTH KEY:
+  // Anonymous RPC - No authentication required.
+  // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
+  // API Key RPC - API key associated with the account.
+  // Restricted API Key RPC - API key associated with the account (with single IP restrictions).
+
+  // Mainly used for gRPC Web frontend. Since session cookies are hidden from the browser we make a request to determine
+  // our session state (if we are logged in or not). Can also be used by API keys to determine if the key is valid and
+  // Retrieve some account information associated with the key.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [X]       [X]
+  rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
+
+  // Consumes a limit time token. e.g. verifying an email.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
+
+  // This request sets a client session cookie (client session key) if successful.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
   rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
 
   // This response will tell the browser to forget the cookie and invalidates the session key in the backend.
   // If using an API key this will expire the API key indefinitely.
-  // --- FRONTEND or API AUTHENTICATED RPC. Please provide session key or API key.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [X]       [X]
   rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
-
-  // Consumes a limit time token. e.g. verifying an email.
-  // --- FRONTEND RPC.
-  rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
 
   // Mainly used for gRPC Web mobile frontends.
   // Provides a callback for properly setting secure guard key cookies from a HTTPS remote due to browser restrictions.
-  // --- FRONTEND RPC.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
   rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) returns (types.SetGuardKeyCookieResponse) {}
 
   // ConfigureAuthorizationAuthenticate and ConfigureAuthorizationAuthenticateValidate must be called first before calling ConfigureAuthorization.
   // Internal: Undocumented.
-  // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureAuthorizationAuthenticate(types.ConfigureAuthorizationAuthenticateRequest) returns (types.ConfigureAuthorizationAuthenticateResponse) {}
 
-  // Internal: Undocumented.
-  // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
+  // Internal: Undocumented. reCAPTCHA protected.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateValidateRequest) returns (types.ConfigureAuthorizationAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
-  // --- FRONTEND AUTHENTICATED RPC. Please provide session key only.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureAuthorization(types.ConfigureAuthorizationRequest) returns (types.ConfigureAuthorizationResponse) {}
-
-  // Mainly used for gRPC Web frontend. Since session cookies are hidden from the browser we make a request to determine
-  // our session state (if we are logged in or not). Can also be used by API keys to determine if the key is valid and
-  // retrieve some account information associated with the key.
-  // --- FRONTEND or API AUTHENTICATED RPC. Please provide session key or API key.
-  rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
 }

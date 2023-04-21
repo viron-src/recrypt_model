@@ -5,12 +5,12 @@ package recrypt.types;
 message CreateAccountRequest {
   string email = 1; // Must be valid email. Min 3 characters. Max 254 characters. This string will be normalized.
   string name = 2; // Min 1 character. Max 64 characters
-  string last_name = 3; // Min 1 character. Max 64 characters. Not used if is_business is true.
+  string last_name = 3; // Min 1 character. Max 72 characters. Not used if is_business is true.
   bool is_business = 5;
   string recaptcha_token = 6; /*I wouldn't advise trying to automate creation of accounts. This is provided by the recaptcha frontend.*/
 }
 
 message CreateAccountResponse {
   bool email_sent = 1; // If false then email address is already in use or email verification already pending.
-  string normalized_email = 2; /* Only populated if email_sent is true. */
+  string normalized_email = 2;
 }

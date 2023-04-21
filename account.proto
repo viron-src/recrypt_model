@@ -6,7 +6,15 @@ import "types/account_types.proto";
 
 // Account services.
 service Account {
-  // Creates a new account.
-  // --- FRONTEND RPC.
+  // AUTH KEY:
+  // Anonymous RPC - No authentication required.
+  // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
+  // API Key RPC - API key associated with the account.
+  // Restricted API Key RPC - API key associated with the account (with single IP restrictions).
+
+  // Creates a new account. reCAPTCHA protected. Requires valid email.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
   rpc Create (types.CreateAccountRequest) returns (types.CreateAccountResponse) {}
 }
