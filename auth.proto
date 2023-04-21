@@ -26,7 +26,7 @@ service Auth {
   // [X]         [ ]                  [ ]       [ ]
   rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
 
-  // This request sets a client session cookie (client session key) if successful.
+  // This request sets a client session cookie (client session key) if successful. reCAPTCHA protected.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [ ]                  [ ]       [ ]
