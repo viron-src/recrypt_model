@@ -107,3 +107,19 @@ message ConfigureAuthorizationRequest {
 
 message ConfigureAuthorizationResponse {
 }
+
+message GetAuthorizationConfigurationRequest {
+  int64 session_seq = 1;
+}
+
+message GetAuthorizationConfigurationResponse {
+  bool authorization_login_password = 2;
+  bool authorization_login_email = 3;
+  bool authorization_login_totp = 4;
+  bool authorization_market_order_password = 5;
+  bool authorization_market_order_email = 6;
+  bool authorization_market_order_totp = 7;
+  bool authorization_withdrawal_password = 8;
+  bool authorization_withdrawal_email = 9;
+  bool authorization_withdrawal_totp = 10;
+}
