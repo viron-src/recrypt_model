@@ -99,8 +99,8 @@ message ConfigureAuthorizationRequest {
     bool authorization_market_order_email = 7;
     bool authorization_market_order_totp = 8;
     bool authorization_withdrawal_password = 9;
-    bool authorization_withdrawal_Email = 10; // This will always be set as true by the backend.
-    bool authorization_withdrawal_Totp = 11;
+    bool authorization_withdrawal_email = 10; // This will always be set as true by the backend.
+    bool authorization_withdrawal_totp = 11;
   }
 }
 
