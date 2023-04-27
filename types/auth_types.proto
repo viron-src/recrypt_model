@@ -113,13 +113,13 @@ message GetAuthorizationConfigurationRequest {
 }
 
 message GetAuthorizationConfigurationResponse {
-  bool authorization_login_password = 2;
-  bool authorization_login_email = 3;
-  bool authorization_login_totp = 4;
-  bool authorization_market_order_password = 5;
-  bool authorization_market_order_email = 6;
-  bool authorization_market_order_totp = 7;
-  bool authorization_withdrawal_password = 8;
-  bool authorization_withdrawal_email = 9;
-  bool authorization_withdrawal_totp = 10;
+  bool authorization_login_password = 1;
+  bool authorization_login_email = 2;
+  bool authorization_login_totp = 3;
+  bool authorization_market_order_password = 4;
+  bool authorization_market_order_email = 5;
+  bool authorization_market_order_totp = 6;
+  bool authorization_withdrawal_password = 7;
+  bool authorization_withdrawal_email = 8;
+  bool authorization_withdrawal_totp = 9;
 }
