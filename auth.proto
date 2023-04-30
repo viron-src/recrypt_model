@@ -70,4 +70,10 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc GetAuthorizationConfiguration(types.GetAuthorizationConfigurationRequest) returns (types.GetAuthorizationConfigurationResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc ChangePassword(types.ChangePasswordRequest) returns (types.ChangePasswordResponse) {}
 }
