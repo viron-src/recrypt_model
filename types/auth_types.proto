@@ -55,7 +55,7 @@ message ConsumeTokenResponse {
   // If 1 then success.
   // If 2 then token iS OK but try again with password provided (verify email/password reset).
   int32 state = 1;
-  string affected = 2; // Only populated if state is 1 (email), else empty.
+  string affected = 2; // Only populated if state is 2 (email), else empty.
 }
 
 message SetGuardKeyCookieRequest {
@@ -122,6 +122,7 @@ message GetAuthorizationConfigurationResponse {
   bool authorization_withdrawal_password = 7;
   bool authorization_withdrawal_email = 8;
   bool authorization_withdrawal_totp = 9;
+  bool is_totp_enabled = 10;
 }
 
 message ChangePasswordRequest {
@@ -132,4 +133,11 @@ message ChangePasswordRequest {
 }
 
 message ChangePasswordResponse {
+}
+
+message ChangeTotpRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string secret = 3;
+  string backup_code = 4;
 }
