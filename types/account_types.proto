@@ -14,3 +14,13 @@ message CreateAccountResponse {
   bool email_sent = 1; // If false then email address is already in use or email verification already pending.
   string normalized_email = 2;
 }
+
+message CreateErrorReportRequest {
+  int64 account_seq = 1;
+  int64 session_seq = 2;
+  string contents = 3;
+  string recaptcha_token = 4;
+}
+
+message CreateErrorReportResponse {
+}

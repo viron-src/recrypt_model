@@ -17,4 +17,10 @@ service Account {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc Create (types.CreateAccountRequest) returns (types.CreateAccountResponse) {}
+
+  // Creates an error report. reCAPTCHA protected.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc CreateErrorReport (types.CreateErrorReportRequest) returns (types.CreateErrorReportResponse) {}
 }
