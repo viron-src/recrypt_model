@@ -76,4 +76,22 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangePassword(types.ChangePasswordRequest) returns (types.ChangePasswordResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc EnableTotp(types.EnableTotpRequest) returns (types.EnableTotpResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc EnableTotpConfirm(types.EnableTotpConfirmRequest) returns (types.EnableTotpConfirmResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc DisableTotp(types.DisableTotpRequest) returns (types.DisableTotpResponse) {}
 }
