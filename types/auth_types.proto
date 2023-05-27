@@ -141,7 +141,7 @@ message EnableTotpRequest {
 }
 
 message EnableTotpResponse {
-  string qr_code = 1;
+  bytes secret = 1;
 }
 
 message EnableTotpConfirmRequest {
