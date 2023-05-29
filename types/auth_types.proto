@@ -151,7 +151,7 @@ message EnableTotpConfirmRequest {
 }
 
 message EnableTotpConfirmResponse {
-  string backup_code = 1;
+  bytes recovery_code = 1;
 }
 
 message DisableTotpRequest {
