@@ -71,7 +71,7 @@ message ConfigureAuthorizationAuthenticateRequest {
 }
 
 message ConfigureAuthorizationAuthenticateResponse {
-  int64 request_seq = 1;
+  int64 auth_seq = 1;
   bool password = 2;
   bool email = 3;
   bool totp = 4;
@@ -79,7 +79,7 @@ message ConfigureAuthorizationAuthenticateResponse {
 
 message ConfigureAuthorizationAuthenticateValidateRequest {
   int64 session_seq = 1;
-  int64 request_seq = 2;
+  int64 auth_seq = 2;
   string recaptcha_token = 3;
   string password = 4;
   string email_code = 5;
@@ -92,7 +92,7 @@ message ConfigureAuthorizationAuthenticateValidateResponse {
 
 message ConfigureAuthorizationRequest {
   int64 session_seq = 1;
-  int64 request_seq = 2;
+  int64 auth_seq = 2;
   oneof action {
     bool authorization_login_password = 3; // This will always be set as true by the backend.
     bool authorization_login_email = 4;
@@ -128,7 +128,7 @@ message GetAuthorizationConfigurationResponse {
 
 message ChangePasswordRequest {
   int64 session_seq = 1;
-  int64 request_seq = 2;
+  int64 auth_seq = 2;
   string current_password = 3; // Min 8 characters. Max 72 characters.
   string new_password = 4; // Min 8 characters. Max 72 characters.
 }
