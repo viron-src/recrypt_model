@@ -1,6 +1,7 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
 package recrypt.types;
+import "google/protobuf/timestamp.proto";
 
 message SessionStateRequest {
   // Cookie data will be included by default for browser web requests at metadata.
@@ -30,6 +31,7 @@ message LoginResponse {
   // If 0 then failure.
   int32 result = 1;
   int64 session_seq = 2; // This will be positive non-zero when result is 1.
+  google.protobuf.Timestamp email_code_sent_time = 3;
 }
 
 message LogoutRequest {
