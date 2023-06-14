@@ -94,4 +94,10 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc DisableTotp(types.DisableTotpRequest) returns (types.DisableTotpResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc ChangeEmail(types.ChangeEmailRequest) returns (types.ChangeEmailResponse) {}
 }

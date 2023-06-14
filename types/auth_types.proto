@@ -164,3 +164,21 @@ message DisableTotpRequest {
 
 message DisableTotpResponse {
 }
+
+message ChangeEmailRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string new_email = 3;
+}
+
+message ChangeEmailResponse {
+}
+
+message ChangeEmailConfirmRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string email_code = 3;
+}
+
+message ChangeEmailConfirmResponse {
+}
