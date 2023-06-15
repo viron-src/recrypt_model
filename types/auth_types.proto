@@ -169,6 +169,7 @@ message ChangeEmailRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
   string new_email = 3;
+  string current_password = 4;
 }
 
 message ChangeEmailResponse {
@@ -178,6 +179,7 @@ message ChangeEmailConfirmRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
   string email_code = 3;
+  string current_password = 4;
 }
 
 message ChangeEmailConfirmResponse {
