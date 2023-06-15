@@ -183,4 +183,5 @@ message ChangeEmailConfirmRequest {
 }
 
 message ChangeEmailConfirmResponse {
+  string normalized_email = 1;
 }
