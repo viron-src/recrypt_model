@@ -7,5 +7,4 @@ import "google/protobuf/timestamp.proto";
 // System services.
 service System {
   rpc NodeTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
-  rpc CoreTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {}
 }

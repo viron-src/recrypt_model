@@ -1,0 +1,9 @@
+// Copyright © Viron Software ⨈
+syntax = "proto3";
+package recrypt;
+import "types/core_types.proto";
+
+// Trading services.
+service Core {
+  rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
+}

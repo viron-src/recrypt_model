@@ -1,0 +1,21 @@
+// Copyright © Viron Software ⨈
+syntax = "proto3";
+package recrypt.types;
+import "google/protobuf/timestamp.proto";
+
+message SystemFeedRequest {
+  int64 session_seq = 1;
+}
+
+message AccountMessage {
+  oneof message {
+    bool force_logout = 1;
+  }
+}
+
+message SystemFeedData {
+  oneof message {
+    bool ping = 1; /* true = linked to account stream, false = not linked to account stream. */
+    AccountMessage account = 2;
+  }
+}
