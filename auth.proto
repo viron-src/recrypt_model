@@ -106,4 +106,10 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangeEmailConfirm(types.ChangeEmailConfirmRequest) returns (types.ChangeEmailConfirmResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc ChangeAntiPhishingCode(types.ChangeAntiPhishingCodeRequest) returns (types.ChangeAntiPhishingCodeResponse) {}
 }

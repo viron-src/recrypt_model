@@ -185,3 +185,12 @@ message ChangeEmailConfirmRequest {
 message ChangeEmailConfirmResponse {
   string normalized_email = 1;
 }
+
+message ChangeAntiPhishingCodeRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string code = 3;
+}
+
+message ChangeAntiPhishingCodeResponse {
+}
