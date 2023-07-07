@@ -126,6 +126,7 @@ message GetAuthorizationConfigurationResponse {
   bool authorization_withdrawal_email = 8;
   bool authorization_withdrawal_totp = 9;
   bool is_totp_enabled = 10;
+  string anti_phishing_code = 11;
 }
 
 message ChangePasswordRequest {
