@@ -1,4 +1,5 @@
 // Copyright © Viron Software ⨈
+// Entire gRPC API surface for Recrypt Core Services.
 syntax = "proto3";
 package recrypt;
 import "types/core_types.proto";

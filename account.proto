@@ -1,5 +1,5 @@
 // Copyright © Viron Software ⨈
-// Entire gRPC API surface for Recrypt.
+// Entire gRPC API surface for Recrypt Account Services.
 syntax = "proto3";
 package recrypt;
 import "types/account_types.proto";
