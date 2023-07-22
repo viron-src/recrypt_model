@@ -15,7 +15,7 @@ message AccountMessage {
 
 message SystemFeedData {
   oneof message {
-    google.protobuf.Timestamp ping = 1;
+    bool ping = 1;
     AccountMessage account = 2;
   }
 }
