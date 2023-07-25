@@ -6,7 +6,7 @@ import "types/auth_types.proto";
 
 // Auth services.
 service Auth {
-  // AUTH KEY:
+  // Authentication types ---
   // Anonymous RPC - No authentication required.
   // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
   // API Key RPC - API key associated with the account.

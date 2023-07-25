@@ -4,7 +4,20 @@ syntax = "proto3";
 package recrypt;
 import "types/core_types.proto";
 
-// Trading services.
+// Core services.
 service Core {
+  // Authentication types ---
+  // Anonymous RPC - No authentication required.
+  // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
+  // API Key RPC - API key associated with the account.
+  // Restricted API Key RPC - API key associated with the account (with single IP restrictions).
+
+  // Internal: Undocumented.
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [X]                  [ ]       [ ]
   rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
+  // Internal: Used for determining latency.
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc Ping (types.PingRequest) returns (types.PingResponse) {}
 }
