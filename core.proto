@@ -2,6 +2,7 @@
 // Entire gRPC API surface for Recrypt Core Services.
 syntax = "proto3";
 package recrypt;
+import "google/protobuf/empty.proto";
 import "types/core_types.proto";
 
 // Core services.
