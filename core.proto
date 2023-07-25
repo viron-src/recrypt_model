@@ -19,5 +19,5 @@ service Core {
   // Internal: Used for determining latency.
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [ ]                  [ ]       [ ]
-  rpc Ping (types.PingRequest) returns (types.PingResponse) {}
+  rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 }
