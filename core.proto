@@ -21,4 +21,10 @@ service Core {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+
+  // Returns if a provided address is valid.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc ValidateAddress (types.ValidateAddressRequest) returns (google.protobuf.Empty) {}
 }

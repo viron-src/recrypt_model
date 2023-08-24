@@ -19,3 +19,8 @@ message SystemFeedData {
     AccountMessage account = 2;
   }
 }
+
+message ValidateAddressRequest {
+  string network = 1; // 3 to 4 characters.
+  string address = 2; // Maximum 512 characters.
+}
