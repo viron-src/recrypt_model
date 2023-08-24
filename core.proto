@@ -25,6 +25,6 @@ service Core {
   // Returns if a provided address is valid.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [ ]                  [ ]       [ ]
+  // [ ]         [X]                  [X]       [X]
   rpc ValidateAddress (types.ValidateAddressRequest) returns (google.protobuf.Empty) {}
 }

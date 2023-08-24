@@ -21,6 +21,7 @@ message SystemFeedData {
 }
 
 message ValidateAddressRequest {
-  string network = 1; // 3 to 4 characters.
-  string address = 2; // Minimum 8 characters, maximum 512 characters.
+  int64 session_seq = 1;
+  string network = 2; // 3 to 4 characters.
+  string address = 3; // Minimum 8 characters, maximum 512 characters.
 }
