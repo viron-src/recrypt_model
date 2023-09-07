@@ -128,6 +128,7 @@ message GetAuthorizationConfigurationResponse {
   bool is_totp_enabled = 10;
   string anti_phishing_code = 11;
   string grant_ready = 12;
+  bool granted = 13;
 }
 
 message ChangePasswordRequest {
