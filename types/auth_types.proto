@@ -28,7 +28,11 @@ message LoginRequest {
 message LoginResponse {
   // If 1 then there will be Set-Cookie in the header/metadata with the sessionkey.
   // If 2 then totp is required.
+  // If 3 then email is required.
+  // If 4 then email + totp is required.
   // If 0 then failure.
+  // If -1 then account locked.
+  // If -2 then account banned.
   int32 result = 1;
   int64 session_seq = 2; // This will be positive non-zero when result is 1.
   google.protobuf.Timestamp email_code_sent_time = 3;
