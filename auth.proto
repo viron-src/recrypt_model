@@ -75,6 +75,12 @@ service Auth {
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
+  rpc AcquireGrant(types.AcquireGrantRequest) returns (types.AcquireGrantResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
   rpc ChangePassword(types.ChangePasswordRequest) returns (types.ChangePasswordResponse) {}
 
   // Internal: Undocumented.

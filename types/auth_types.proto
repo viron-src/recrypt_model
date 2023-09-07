@@ -131,6 +131,14 @@ message GetAuthorizationConfigurationResponse {
   bool granted = 13;
 }
 
+message AcquireGrantRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+}
+
+message AcquireGrantResponse {
+}
+
 message ChangePasswordRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
