@@ -118,4 +118,10 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangeAntiPhishingCode(types.ChangeAntiPhishingCodeRequest) returns (types.ChangeAntiPhishingCodeResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc RegisterDeviceNotifications(types.RegisterDeviceNotificationsRequest) returns (types.RegisterDeviceNotificationsResponse) {}
 }

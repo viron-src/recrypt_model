@@ -209,3 +209,13 @@ message ChangeAntiPhishingCodeRequest {
 
 message ChangeAntiPhishingCodeResponse {
 }
+
+message RegisterDeviceNotificationsRequest {
+  int64 session_seq = 1;
+  string device_type = 2;
+  string device_token = 3;
+}
+
+message RegisterDeviceNotificationsResponse {
+  bool replaced = 1;
+}
