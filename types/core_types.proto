@@ -8,8 +8,9 @@ message SystemFeedRequest {
 }
 
 message FeedNotification {
-  string title = 1;
-  string message = 2;
+  int64 notification_seq = 1;
+  string title = 2;
+  string message = 3;
 }
 
 message SystemFeedData {
