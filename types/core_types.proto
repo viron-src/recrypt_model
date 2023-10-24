@@ -7,16 +7,15 @@ message SystemFeedRequest {
   int64 session_seq = 1;
 }
 
-message AccountMessage {
-  oneof message {
-    bool force_logout = 1;
-  }
+message FeedNotification {
+  string title = 1;
+  string message = 2;
 }
 
 message SystemFeedData {
   oneof message {
     google.protobuf.Timestamp ping = 1;
-    AccountMessage account = 2;
+    FeedNotification feed_notification = 2;
   }
 }
 
