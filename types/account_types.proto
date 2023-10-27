@@ -32,9 +32,10 @@ message TicketAttachment {
 message CreateTicketRequest {
   int64 session_seq = 1;
   string recaptcha_token = 2;
-  string message = 3; // 16 to 16384 characters in length
-  string priority = 4; // Can be 'High' or 'Normal'
-  repeated TicketAttachment attachments = 5; // Maximum 5 items.
+  string title = 3; // 10 to 128 characters in length
+  string message = 4; // 16 to 16384 characters in length
+  string priority = 5; // Can be 'High' or 'Normal'
+  repeated TicketAttachment attachments = 6; // Maximum 5 items.
 }
 
 message CreateTicketResponse {
