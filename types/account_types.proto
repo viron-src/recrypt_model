@@ -23,3 +23,19 @@ message CreateErrorReportRequest {
 
 message CreateErrorReportResponse {
 }
+
+message TicketAttachment {
+  string file_name = 5; // 5 to 64 characters in length.
+  bytes contents = 2; // Maximum 10 megabyte.
+}
+
+message CreateTicketRequest {
+  int64 session_seq = 1;
+  string recaptcha_token = 2;
+  string message = 3; // 16 to 16384 characters in length
+  string priority = 4; // Can be 'High' or 'Normal'
+  repeated TicketAttachment attachments = 5; // Maximum 5 items.
+}
+
+message CreateTicketResponse {
+}
