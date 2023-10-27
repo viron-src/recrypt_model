@@ -25,7 +25,7 @@ message CreateErrorReportResponse {
 }
 
 message TicketAttachment {
-  string file_name = 5; // 5 to 64 characters in length.
+  string file_name = 1; // 5 to 64 characters in length.
   bytes contents = 2; // Maximum 10 megabyte.
 }
 
