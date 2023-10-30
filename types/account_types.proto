@@ -36,7 +36,8 @@ message CreateTicketRequest {
   string message = 4; // 16 to 16384 characters in length
   string priority = 5; // Can be 'High' or 'Normal'
   repeated TicketAttachment attachments = 6; // Maximum 5 items.
-  string password = 7; // For tickets not associated with an account, a user supplied password is required.
+  string email = 7; // For tickets not associated with an account, a user supplied email is optional.
+  string password = 8; // For tickets not associated with an account, a user supplied password is required.
 }
 
 message CreateTicketResponse {
