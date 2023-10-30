@@ -40,4 +40,5 @@ message CreateTicketRequest {
 }
 
 message CreateTicketResponse {
+  int64 ticket_seq = 1;
 }
