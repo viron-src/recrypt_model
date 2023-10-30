@@ -29,6 +29,13 @@ message TicketAttachment {
   bytes contents = 2; // Maximum 10 megabyte.
 }
 
+message CreateSupportEmailAssociationRequest {
+  string email = 1;
+}
+
+message CreateSupportEmailAssociationResponse {
+}
+
 message CreateTicketRequest {
   int64 session_seq = 1;
   string recaptcha_token = 2;
@@ -37,7 +44,8 @@ message CreateTicketRequest {
   string priority = 5; // Can be 'High' or 'Normal'
   repeated TicketAttachment attachments = 6; // Maximum 5 items.
   string email = 7; // For tickets not associated with an account, a user supplied email is optional.
-  string password = 8; // For tickets not associated with an account, a user supplied password is required.
+  string email_code = 8; // Verifies to use a given email.
+  string password = 9; // For tickets not associated with an account, a user supplied password is required.
 }
 
 message CreateTicketResponse {
