@@ -34,6 +34,7 @@ message CreateSupportEmailAssociationRequest {
 }
 
 message CreateSupportEmailAssociationResponse {
+  bool already_available = 1;
 }
 
 message CreateTicketRequest {
