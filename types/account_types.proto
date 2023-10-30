@@ -46,7 +46,7 @@ message CreateTicketRequest {
   string priority = 5; // Can be 'High' or 'Normal'
   repeated TicketAttachment attachments = 6; // Maximum 5 items.
   string email = 7; // For tickets not associated with an account, a user supplied email is optional.
-  string email_code = 8; // Verifies to use a given email.
+  string email_support_key = 8; // Verifies to use a given email.
   string password = 9; // For tickets not associated with an account, a user supplied password is required.
 }
 
