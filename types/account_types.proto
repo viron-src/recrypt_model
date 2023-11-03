@@ -38,6 +38,16 @@ message CreateSupportEmailAssociationResponse {
   bool already_available = 1;
 }
 
+message VerifySupportEmailAssociationRequest {
+  string email = 1;
+  string recaptcha_token = 2;
+  string email_support_key = 3;
+}
+
+message VerifySupportEmailAssociationResponse {
+  bool valid = 1;
+}
+
 message CreateTicketRequest {
   int64 session_seq = 1;
   string recaptcha_token = 2;

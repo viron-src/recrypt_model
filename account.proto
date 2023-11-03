@@ -30,6 +30,12 @@ service Account {
   // [X]         [ ]                  [ ]       [ ]
   rpc CreateSupportEmailAssociation (types.CreateSupportEmailAssociationRequest) returns (types.CreateSupportEmailAssociationResponse) {}
 
+  // Verify a support email association key. This allows us to check the key only and avoid uploading all the attachment data just to get a bad response.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc VerifySupportEmailAssociation (types.VerifySupportEmailAssociationRequest) returns (types.VerifySupportEmailAssociationResponse) {}
+
   // Create a support ticket.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
