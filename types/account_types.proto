@@ -67,6 +67,8 @@ message CreateTicketResponse {
 message ListTicketsEntry {
   int64 seq = 1;
   string title = 2;
+  int32 priority = 3;
+  bool resolved = 4;
 }
 
 message ListTicketsRequest {
