@@ -63,3 +63,16 @@ message CreateTicketRequest {
 message CreateTicketResponse {
   int64 ticket_seq = 1;
 }
+
+message ListTicketsEntry {
+  int64 seq = 1;
+  string title = 2;
+}
+
+message ListTicketsRequest {
+  int64 session_seq = 1;
+}
+
+message ListTicketsResponse {
+  repeated ListTicketsEntry tickets = 1;
+}

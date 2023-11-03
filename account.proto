@@ -41,4 +41,10 @@ service Account {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [X]                  [ ]       [ ]
   rpc CreateTicket (types.CreateTicketRequest) returns (types.CreateTicketResponse) {}
+
+  // List tickets for given account.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc ListTickets (types.ListTicketsRequest) returns (types.ListTicketsResponse) {}
 }
