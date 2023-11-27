@@ -1,6 +1,7 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
 package recrypt.types;
+import "google/protobuf/timestamp.proto";
 
 message CreateAccountRequest {
   string email = 1; // Must be valid email. Min 3 characters. Max 254 characters. This string will be normalized.
@@ -77,4 +78,26 @@ message ListTicketsRequest {
 
 message ListTicketsResponse {
   repeated ListTicketsEntry tickets = 1;
+}
+
+message OpenTicketRequest {
+  int64 session_seq = 1;
+  string recaptcha_token = 2;
+  string password = 3; // For tickets not associated with an account, a user supplied password is required.
+  int64 ticket_seq = 4;
+}
+
+message TicketMessageEntry {
+  int64 ticket_message_seq = 1;
+  string source = 2; // Empty means myself.
+  string message = 3;
+  int32 elevated_special_action = 4;
+  google.protobuf.Timestamp timestamp = 5;
+}
+
+message OpenTicketResponse {
+  string title = 1;
+  int32 priority = 2;
+  google.protobuf.Timestamp timestamp = 3;
+  repeated TicketMessageEntry messages = 4;
 }
