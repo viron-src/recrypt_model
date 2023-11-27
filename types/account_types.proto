@@ -93,6 +93,7 @@ message TicketMessageEntry {
   string message = 3;
   int32 elevated_special_action = 4;
   google.protobuf.Timestamp timestamp = 5;
+  repeated string attachments = 6;
 }
 
 message OpenTicketResponse {
