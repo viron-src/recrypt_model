@@ -102,3 +102,15 @@ message OpenTicketResponse {
   google.protobuf.Timestamp timestamp = 3;
   repeated TicketMessageEntry messages = 4;
 }
+
+//message AddTicketMessageRequest {
+//  int64 session_seq = 1;
+//  string recaptcha_token = 2;
+//  string password = 3; // For tickets not associated with an account, a user supplied password is required.
+//  int64 ticket_seq = 4;
+//  string message = 5;
+//  repeated TicketAttachment attachments = 6; // Maximum 5 items.
+//}
+//
+//message AddTicketMessageResponse {
+//}
