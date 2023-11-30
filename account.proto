@@ -53,4 +53,10 @@ service Account {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [X]                  [ ]       [ ]
   rpc OpenTicket (types.OpenTicketRequest) returns (types.OpenTicketResponse) {}
+
+  // Downloads an attachment associated with a ticket.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [X]                  [ ]       [ ]
+  rpc DownloadTicketAttachment (types.DownloadTicketAttachmentRequest) returns (types.DownloadTicketAttachmentResponse) {}
 }

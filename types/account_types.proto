@@ -103,6 +103,18 @@ message OpenTicketResponse {
   repeated TicketMessageEntry messages = 4;
 }
 
+message DownloadTicketAttachmentRequest {
+  int64 session_seq = 1;
+  string recaptcha_token = 2;
+  string password = 3; // For tickets not associated with an account, a user supplied password is required.
+  int64 ticket_message_seq = 4;
+  string file_name = 5;
+}
+
+message DownloadTicketAttachmentResponse {
+  bytes contents = 1;
+}
+
 //message AddTicketMessageRequest {
 //  int64 session_seq = 1;
 //  string recaptcha_token = 2;
