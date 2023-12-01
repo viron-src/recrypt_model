@@ -56,9 +56,9 @@ message CreateTicketRequest {
   string message = 4; // 16 to 16384 characters in length
   string priority = 5; // Can be 'High' or 'Normal'
   repeated TicketAttachment attachments = 6; // Maximum 5 items.
-  string email = 7; // For tickets not associated with an account, a user supplied email is optional.
-  string email_support_key = 8; // Verifies to use a given email.
-  string password = 9; // For tickets not associated with an account, a user supplied password is required.
+  string email = 7; // For tickets not associated with an account, a user supplied email is required.
+  string email_support_key = 8; // Verifies to use a given email when not associated with an account.
+  string password = 9; // For tickets not associated with an account, a user supplied 'passphrase' is required.
 }
 
 message CreateTicketResponse {
@@ -83,7 +83,7 @@ message ListTicketsResponse {
 message OpenTicketRequest {
   int64 session_seq = 1;
   string recaptcha_token = 2;
-  string password = 3; // For tickets not associated with an account, a user supplied password is required.
+  string password = 3; // For tickets not associated with an account, a user supplied 'passphrase' is required.
   int64 ticket_seq = 4;
 }
 
@@ -106,7 +106,7 @@ message OpenTicketResponse {
 message DownloadTicketAttachmentRequest {
   int64 session_seq = 1;
   string recaptcha_token = 2;
-  string password = 3; // For tickets not associated with an account, a user supplied password is required.
+  string password = 3; // For tickets not associated with an account, a user supplied 'passphrase' is required.
   int64 ticket_message_seq = 4;
   string file_name = 5;
 }
@@ -118,7 +118,7 @@ message DownloadTicketAttachmentResponse {
 //message AddTicketMessageRequest {
 //  int64 session_seq = 1;
 //  string recaptcha_token = 2;
-//  string password = 3; // For tickets not associated with an account, a user supplied password is required.
+//  string password = 3; // For tickets not associated with an account, a user supplied 'passphrase' is required.
 //  int64 ticket_seq = 4;
 //  string message = 5;
 //  repeated TicketAttachment attachments = 6; // Maximum 5 items.
