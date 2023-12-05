@@ -60,7 +60,7 @@ service Account {
   // [X]         [X]                  [ ]       [ ]
   rpc DownloadTicketAttachment (types.DownloadTicketAttachmentRequest) returns (types.DownloadTicketAttachmentResponse) {}
 
-  // Add a message to a pre-existing ticket reCAPTCHA protected for unauthenticated users.
+  // Add a message to a pre-existing ticket. reCAPTCHA protected.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [X]         [X]                  [ ]       [ ]
