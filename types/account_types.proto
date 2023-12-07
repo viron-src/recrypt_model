@@ -59,6 +59,7 @@ message CreateTicketRequest {
   string email = 7; // For tickets not associated with an account, a user supplied email is required.
   string email_support_key = 8; // Verifies to use a given email when not associated with an account.
   string password = 9; // For tickets not associated with an account, a user supplied 'passphrase' is required.
+  string anti_phishing_code = 10;
 }
 
 message CreateTicketResponse {
