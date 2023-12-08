@@ -100,8 +100,9 @@ message TicketMessageEntry {
 message OpenTicketResponse {
   string title = 1;
   int32 priority = 2;
-  google.protobuf.Timestamp timestamp = 3;
-  repeated TicketMessageEntry messages = 4;
+  string correspondence_email = 3; // This will be "" if associated with an account.
+  google.protobuf.Timestamp timestamp = 4;
+  repeated TicketMessageEntry messages = 5;
 }
 
 message DownloadTicketAttachmentRequest {
