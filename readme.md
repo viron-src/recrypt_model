@@ -15,7 +15,7 @@ There are currently no API limits, however please be aware of some edge cases wh
 
 ## Retry on failure
 
-If you receive gRPC INTERNAL error with "vgw-db" as the message then this error can be retried. This is the only error that should be retried.
+If you receive gRPC UNAVAILABLE error with "vgw-db" as the message then this error can be retried. This is the only error that should be retried.
 
 This error can occasionally occur during maintenance. Implement exponential backoff upto 3 minutes; check the website for any system notifications if still occurring after this.
 
