@@ -23,7 +23,7 @@ message SystemFeedData {
   oneof message {
     google.protobuf.Timestamp ping = 1;
     FeedNotification feed_notification = 2;
-    FeedNotice feed_notices = 3;
+    FeedNotice feed_notice = 3;
   }
 }
 
