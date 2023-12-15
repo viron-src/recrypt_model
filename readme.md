@@ -19,7 +19,9 @@ If you receive gRPC UNAVAILABLE error with "vgw-db" as the message then this err
 
 This error can occasionally occur during maintenance. Implement exponential backoff upto 3 minutes; check the website for any system notifications if still occurring after this.
 
-We guarantee no downtime on all days except on Tuesdays at 18:00 to 18:30 AM UTC - during this time this error may appear and should last no longer than 1 minute. If this is not acceptable clear your orders before during this interval.
+We guarantee no downtime on all days except on Tuesdays at 18:00 to 18:30 AM UTC - during this time this error may appear and should last no longer than 1 minute. If this is not acceptable clear your market orders before during this interval.
+
+If there is no downtime notice banner on the website or news feed the day prior this means there is no downtime scheduled for that week.
 
 Any other gRPC error that is not documented on the request itself should be not possible when using the API correctly under normal operations.
 
