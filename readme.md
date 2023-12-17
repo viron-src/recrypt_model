@@ -29,9 +29,9 @@ Any other gRPC error that is not documented on the request itself should be not 
 
 If you require idempotency on any request that involves the transfer or trade of currency then an idempotency UUID field should be available for that request as documented in the protobuf files.
 
-Randomly generate this field for each request you want idempotent and re-use the field for the request if it failed with an undocumented error. Once the first gRPC OK response is received this means the transaction has successfully occurred and further requests will return OK - performing no further changes.
+Randomly generate this field for each request you want idempotent and re-use the field for the request if it failed with an undocumented error. Once the first gRPC OK response is received this means the transaction has successfully occurred and further requests with the same idempotency UUID will return OK - performing no further changes.
 
-Changing the payload of the request but keeping the idempotent field the same is undefined behaviour; there is no guarantee to know which payload was processed. Make sure to change idempotent field when changing any other field in the RPC. 
+Changing the payload of the request but keeping the idempotent field the same is undefined behaviour; there is no guarantee to know which payload was processed by the system. Make sure to change idempotent field when changing any other field in the RPC. 
 
 ## Success failures
 
@@ -45,13 +45,13 @@ If you receive gRPC DEADLINE EXCEEDED with "vgw-db" as the message then the tran
 
 ## Streaming RPC's
 
-It's possible for long-lived streaming RPCs to gracefully end with OK without requesting an end once every few days or longer. Simply re-connect in this scenario.
+It's possible for long-lived streaming RPCs to gracefully end with OK without requesting an end once every few days or longer due to load-balancing or system update events. Simply re-connect in this scenario.
 
 ## Backwards compatability
 
 We will never make a change that breaks backwards compatability within the API. New fields may be added to existing RPCs.
 
-If a pre-existing API becomes deprecated and then removed it will start returning NOT_FOUND.
+If a pre-existing API becomes deprecated and then removed it will start returning NOT_FOUND rather than UNIMPLEMENTED.
 
 ## Enjoy
 
