@@ -7,7 +7,7 @@ The public native gRPC API is available at: https://api.recrypt.net:8443
 
 Optionally you can use gRPC Web API at https://api.recrypt.net if running an integration from within the browser (not recommended)
 
-Visit https://t.recrypt.net/api to manage your API keys. This page also documents how to authenticate.
+Visit https://recrypt.net/api to manage your API keys. This page also documents how to authenticate.
 
 ## API Limits
 
