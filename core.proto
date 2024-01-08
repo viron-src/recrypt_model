@@ -41,5 +41,5 @@ service Core {
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [X]       [X]
-  rpc GetDepositAddresses (types.AllocateDepositAddressRequest) returns (types.AllocateDepositAddressResponse) {}
+  rpc GetDepositAddresses (types.GetDepositAddressesRequest) returns (types.GetDepositAddressesResponse) {}
 }
