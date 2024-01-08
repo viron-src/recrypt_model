@@ -44,4 +44,5 @@ message AllocateDepositAddressResponse {
 message GetDepositAddressesRequest {
   int64 session_seq = 1;
   int64 currency = 2;
+  repeated string addresses = 3;
 }
