@@ -27,4 +27,19 @@ service Core {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [X]       [X]
   rpc ValidateAddress (types.ValidateAddressRequest) returns (google.protobuf.Empty) {}
+
+  // Allocates a new deposit address for the given account/currency.
+  // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be up to 3 per account.
+  // API KEY MODE: WRITE
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [X]       [X]
+  rpc AllocateDepositAddress (types.AllocateDepositAddressRequest) returns (types.AllocateDepositAddressResponse) {}
+
+  // Retrieves all deposit addresses for the given account/currency.
+  // API KEY MODE: READ
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [X]       [X]
+  rpc GetDepositAddresses (types.AllocateDepositAddressRequest) returns (types.AllocateDepositAddressResponse) {}
 }
