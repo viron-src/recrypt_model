@@ -26,7 +26,7 @@ service Core {
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [X]       [X]
-  rpc ValidateAddress (types.ValidateAddressRequest) returns (google.protobuf.Empty) {}
+  rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
 
   // Allocates a new deposit address for the given account/currency.
   // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be more than 1 depending on the internal configuration.

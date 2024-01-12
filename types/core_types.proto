@@ -33,6 +33,10 @@ message ValidateAddressRequest {
   string address = 3; // Minimum 8 characters, maximum 128 characters.
 }
 
+message ValidateAddressResponse {
+  string balance = 1; // Will be "" if not applicable.
+}
+
 message AllocateDepositAddressRequest {
   int64 session_seq = 1;
   int64 currency_seq = 2;
