@@ -24,6 +24,7 @@ service Core {
 
   // Returns if a provided address is valid.
   //////---
+  // API KEY MODE: READ
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [X]       [X]
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
