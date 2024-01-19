@@ -126,4 +126,10 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc RegisterDeviceNotifications(types.RegisterDeviceNotificationsRequest) returns (types.RegisterDeviceNotificationsResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc LockAccount(types.LockAccountRequest) returns (types.LockAccountResponse) {}
 }

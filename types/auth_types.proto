@@ -219,3 +219,11 @@ message RegisterDeviceNotificationsRequest {
 message RegisterDeviceNotificationsResponse {
   bool replaced = 1;
 }
+
+message LockAccountRequest {
+  string email = 1;
+  string password = 2; // Min 8 characters. Max 72 characters.
+}
+
+message LockAccountResponse {
+}
