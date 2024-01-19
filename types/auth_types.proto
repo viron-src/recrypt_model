@@ -224,6 +224,7 @@ message LockAccountRequest {
   string email = 1;
   string password = 2; // Min 8 characters. Max 72 characters.
   bool trial_run = 3;
+  string recaptcha_token = 4;
 }
 
 message LockAccountResponse {
