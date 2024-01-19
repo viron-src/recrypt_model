@@ -223,7 +223,13 @@ message RegisterDeviceNotificationsResponse {
 message LockAccountRequest {
   string email = 1;
   string password = 2; // Min 8 characters. Max 72 characters.
+  bool trial_run = 3;
 }
 
 message LockAccountResponse {
+  string old_email = 1;
+  google.protobuf.Timestamp old_email_tstamp = 2;
+  string curr_email = 3;
+  google.protobuf.Timestamp curr_email_tstamp = 4;
+  google.protobuf.Timestamp password_changed_tstamp = 5;
 }
