@@ -22,7 +22,7 @@ service Core {
   // [X]         [ ]                  [ ]       [ ]
   rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 
-  // Returns if a provided address is valid.
+  // Returns if a provided address is valid for withdrawals.
   //////---
   // API KEY MODE: READ
   // Anonymous | Client Session Key | API Key | Restricted API Key
