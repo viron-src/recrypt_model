@@ -233,4 +233,5 @@ message LockAccountResponse {
   string curr_email = 3;
   google.protobuf.Timestamp curr_email_tstamp = 4;
   google.protobuf.Timestamp password_changed_tstamp = 5;
+  google.protobuf.Timestamp creation_tstamp = 6;
 }
