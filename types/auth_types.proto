@@ -228,10 +228,9 @@ message LockAccountRequest {
 }
 
 message LockAccountResponse {
-  string old_email = 1;
-  google.protobuf.Timestamp old_email_tstamp = 2;
-  string curr_email = 3;
-  google.protobuf.Timestamp curr_email_tstamp = 4;
-  google.protobuf.Timestamp password_changed_tstamp = 5;
-  google.protobuf.Timestamp creation_tstamp = 6;
+  string curr_email = 1;
+  string old_email = 2;
+  google.protobuf.Timestamp email_changed_tstamp = 3;
+  google.protobuf.Timestamp password_changed_tstamp = 4;
+  google.protobuf.Timestamp creation_tstamp = 5;
 }
