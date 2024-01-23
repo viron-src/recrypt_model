@@ -148,6 +148,7 @@ message ChangePasswordRequest {
   int64 auth_seq = 2;
   string current_password = 3; // Min 8 characters. Max 72 characters.
   string new_password = 4; // Min 8 characters. Max 72 characters.
+  bool revoke_api_keys = 5;
 }
 
 message ChangePasswordResponse {
