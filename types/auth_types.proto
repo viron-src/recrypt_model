@@ -195,6 +195,7 @@ message ChangeEmailConfirmRequest {
   int64 auth_seq = 2;
   string email_code = 3;
   string current_password = 4;
+  bool revoke_api_keys = 5;
 }
 
 message ChangeEmailConfirmResponse {
