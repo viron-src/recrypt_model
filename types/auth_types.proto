@@ -167,6 +167,7 @@ message EnableTotpConfirmRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
   string totp_code = 3;
+  bool revoke_api_keys = 4;
 }
 
 message EnableTotpConfirmResponse {
@@ -176,6 +177,7 @@ message EnableTotpConfirmResponse {
 message DisableTotpRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
+  bool revoke_api_keys = 3;
 }
 
 message DisableTotpResponse {
