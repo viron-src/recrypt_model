@@ -188,7 +188,8 @@ message ResetTotpConfirmRequest {
   int64 req_seq = 1;
   string email = 2;
   bytes recovery_code = 3;
-  string recaptcha_token = 4;
+  bool revoke_api_keys = 4;
+  string recaptcha_token = 5;
 }
 
 message ResetTotpConfirmResponse {
