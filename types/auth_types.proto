@@ -189,7 +189,6 @@ message ResetTotpConfirmRequest {
   string email = 2;
   bytes recovery_code = 3;
   bool revoke_api_keys = 4;
-  string recaptcha_token = 5;
 }
 
 message ResetTotpConfirmResponse {
