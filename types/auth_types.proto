@@ -194,6 +194,7 @@ message ResetTotpConfirmRequest {
 }
 
 message ResetTotpConfirmResponse {
+  bytes recovery_code = 1;
 }
 
 message DisableTotpRequest {
