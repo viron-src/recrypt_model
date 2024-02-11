@@ -100,6 +100,18 @@ service Auth {
   // Internal: Undocumented.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc ResetTotp(types.ResetTotpRequest) returns (types.ResetTotpResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [X]         [ ]                  [ ]       [ ]
+  rpc ResetTotpConfirm(types.ResetTotpConfirmRequest) returns (types.ResetTotpConfirmResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc DisableTotp(types.DisableTotpRequest) returns (types.DisableTotpResponse) {}
 

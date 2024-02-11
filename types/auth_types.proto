@@ -174,6 +174,26 @@ message EnableTotpConfirmResponse {
   bytes recovery_code = 1;
 }
 
+message ResetTotpRequest {
+  string email = 1;
+  bytes recovery_code = 2;
+  string recaptcha_token = 3;
+}
+
+message ResetTotpResponse {
+  int64 req_seq = 1;
+}
+
+message ResetTotpConfirmRequest {
+  int64 req_seq = 1;
+  string email = 2;
+  bytes recovery_code = 3;
+  string recaptcha_token = 4;
+}
+
+message ResetTotpConfirmResponse {
+}
+
 message DisableTotpRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
