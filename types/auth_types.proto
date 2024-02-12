@@ -183,6 +183,7 @@ message ResetTotpRequest {
 
 message ResetTotpResponse {
   int64 req_seq = 1;
+  bytes secret = 2;
 }
 
 message ResetTotpConfirmRequest {
