@@ -191,7 +191,8 @@ message ResetTotpConfirmRequest {
   string email = 2;
   string password = 3;
   bytes recovery_code = 4;
-  bool revoke_api_keys = 5;
+  string totp_code = 5;
+  bool revoke_api_keys = 6;
 }
 
 message ResetTotpConfirmResponse {
