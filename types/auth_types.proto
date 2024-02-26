@@ -263,3 +263,16 @@ message LockAccountResponse {
   google.protobuf.Timestamp password_changed_tstamp = 4;
   google.protobuf.Timestamp creation_tstamp = 5;
 }
+
+message GetSessionsRequest {
+  int64 session_seq = 1;
+}
+
+message GetSessionsResponse {
+  string agent = 1;
+  uint64 ip_address1 = 2;
+  uint64 ip_address2 = 3;
+  bool is_mobile = 4;
+  google.protobuf.Timestamp creation_tstamp = 5;
+  google.protobuf.Timestamp expiration_tstamp = 6;
+}
