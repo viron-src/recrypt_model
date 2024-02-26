@@ -277,7 +277,8 @@ message GetSessionsEntry {
   string agent = 2;
   uint64 ip_address1 = 3;
   uint64 ip_address2 = 4;
-  bool is_mobile = 5;
-  google.protobuf.Timestamp creation_tstamp = 6;
-  google.protobuf.Timestamp expiration_tstamp = 7;
+  string location = 5;
+  bool is_mobile = 6;
+  google.protobuf.Timestamp creation_tstamp = 7;
+  google.protobuf.Timestamp expiration_tstamp = 8;
 }
