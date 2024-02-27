@@ -150,4 +150,10 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc GetSessions(types.GetSessionsRequest) returns (types.GetSessionsResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc RevokeSession(types.RevokeSessionRequest) returns (types.RevokeSessionResponse) {}
 }
