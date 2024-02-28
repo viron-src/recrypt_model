@@ -35,7 +35,7 @@ Changing the payload of the request but keeping the idempotent field the same is
 
 ## Success failures
 
-In extremely rare cases its possible a transaction is executed within the exchange system but a gRPC error (such as UNAVAILABLE vgw-db mentioned above) is returned to your client.
+In extremely rare cases its possible a transaction is executed within the exchange system but a gRPC error (such as UNAVAILABLE vgw-db mentioned above or DEADLINE EXCEEDED) is returned to your client.
 
 Make use of idempotency fields mentioned above when interfacing with the system to provide highly available state synchronization between integration points.
 
