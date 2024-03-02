@@ -168,15 +168,13 @@ service Auth {
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
-  rpc ConfigureApiKeysAuthenticate(types.ConfigureApiKeysAuthenticateRequest) returns (types.ConfigureApiKeysAuthenticateResponse) {
-  }
+  rpc ConfigureApiKeysAuthenticate(types.ConfigureApiKeysAuthenticateRequest) returns (types.ConfigureApiKeysAuthenticateResponse) {}
 
   // Internal: Undocumented. reCAPTCHA protected.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
-  rpc ConfigureApiKeysAuthenticateValidate(types.ConfigureApiKeysAuthenticateValidateRequest) returns (types.ConfigureApiKeysAuthenticateValidateResponse) {
-  }
+  rpc ConfigureApiKeysAuthenticateValidate(types.ConfigureApiKeysAuthenticateValidateRequest) returns (types.ConfigureApiKeysAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
   //////---
