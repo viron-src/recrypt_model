@@ -293,6 +293,24 @@ message RevokeSessionRequest {
 message RevokeSessionResponse {
 }
 
+message GetApiKeysRequest {
+  int64 session_seq = 1;
+}
+
+message GetApiKeysResponse {
+  repeated GetApiKeyEntry keys = 1;
+}
+
+message GetApiKeyEntry {
+  int64 seq = 1;
+  bool write = 2;
+  uint32 ip_address1 = 3;
+  uint32 ip_address2 = 4;
+  uint32 ip_address3 = 5;
+  uint32 ip_address4 = 6;
+  google.protobuf.Timestamp creation_tstamp = 7;
+}
+
 message ConfigureApiKeysAuthenticateRequest {
   int64 session_seq = 1;
 }
@@ -315,24 +333,6 @@ message ConfigureApiKeysAuthenticateValidateRequest {
 
 message ConfigureApiKeysAuthenticateValidateResponse {
   // Set-Cookie in the header/metadata with the authkey if success.
-}
-
-message GetApiKeysRequest {
-  int64 session_seq = 1;
-}
-
-message GetApiKeysResponse {
-  repeated GetApiKeyEntry keys = 1;
-}
-
-message GetApiKeyEntry {
-  int64 seq = 1;
-  bool write = 2;
-  uint32 ip_address1 = 3;
-  uint32 ip_address2 = 4;
-  uint32 ip_address3 = 5;
-  uint32 ip_address4 = 6;
-  google.protobuf.Timestamp creation_tstamp = 7;
 }
 
 message CreateApiKeyRequest {

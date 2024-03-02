@@ -163,6 +163,7 @@ service Auth {
   // [ ]         [X]                  [ ]       [ ]
   rpc GetApiKeys(types.GetApiKeysRequest) returns (types.GetApiKeysResponse) {}
 
+  // ConfigureApiKeysAuthenticate and ConfigureApiKeysAuthenticateValidate must be called first before calling CreateApiKey or DeleteApiKey.
   // Internal: Undocumented.
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
