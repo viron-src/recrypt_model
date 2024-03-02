@@ -292,3 +292,67 @@ message RevokeSessionRequest {
 
 message RevokeSessionResponse {
 }
+
+message ConfigureApiKeysAuthenticateRequest {
+  int64 session_seq = 1;
+}
+
+message ConfigureApiKeysAuthenticateResponse {
+  int64 auth_seq = 1;
+  bool password = 2;
+  bool email = 3;
+  bool totp = 4;
+}
+
+message ConfigureApiKeysAuthenticateValidateRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string recaptcha_token = 3;
+  string password = 4;
+  string email_code = 5;
+  string totp_code = 6;
+}
+
+message ConfigureApiKeysAuthenticateValidateResponse {
+  // Set-Cookie in the header/metadata with the authkey if success.
+}
+
+message GetApiKeysRequest {
+  int64 session_seq = 1;
+}
+
+message GetApiKeysResponse {
+  repeated GetApiKeyEntry keys = 1;
+}
+
+message GetApiKeyEntry {
+  int64 seq = 1;
+  bool write = 2;
+  uint32 ip_address1 = 3;
+  uint32 ip_address2 = 4;
+  uint32 ip_address3 = 5;
+  uint32 ip_address4 = 6;
+  google.protobuf.Timestamp creation_tstamp = 7;
+}
+
+message CreateApiKeyRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  bool write = 3;
+  uint32 ip_address1 = 4;
+  uint32 ip_address2 = 5;
+  uint32 ip_address3 = 6;
+  uint32 ip_address4 = 7;
+}
+
+message CreateApiKeyResponse {
+}
+
+message DeleteApiKeyRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  int64 api_key_seq = 3;
+}
+
+message DeleteApiKeyResponse {
+}

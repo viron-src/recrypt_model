@@ -156,4 +156,36 @@ service Auth {
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc RevokeSession(types.RevokeSessionRequest) returns (types.RevokeSessionResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc GetApiKeys(types.GetApiKeysRequest) returns (types.GetApiKeysResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc ConfigureApiKeysAuthenticate(types.ConfigureApiKeysAuthenticateRequest) returns (types.ConfigureApiKeysAuthenticateResponse) {
+  }
+
+  // Internal: Undocumented. reCAPTCHA protected.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc ConfigureApiKeysAuthenticateValidate(types.ConfigureApiKeysAuthenticateValidateRequest) returns (types.ConfigureApiKeysAuthenticateValidateResponse) {
+  }
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc CreateApiKey(types.CreateApiKeyRequest) returns (types.CreateApiKeyResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc DeleteApiKey(types.DeleteApiKeyRequest) returns (types.DeleteApiKeyResponse) {}
 }
