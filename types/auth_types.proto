@@ -299,6 +299,7 @@ message GetApiKeysRequest {
 
 message GetApiKeysResponse {
   repeated GetApiKeyEntry keys = 1;
+  string anti_phishing_code = 2;
 }
 
 message GetApiKeyEntry {
