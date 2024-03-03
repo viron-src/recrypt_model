@@ -304,7 +304,7 @@ message GetApiKeysResponse {
 
 message GetApiKeysEntry {
   int64 seq = 1;
-  bool write = 2;
+  bool writable = 2;
   uint32 ip_address1 = 3;
   uint32 ip_address2 = 4;
   uint32 ip_address3 = 5;
@@ -339,7 +339,7 @@ message ConfigureApiKeysAuthenticateValidateResponse {
 message CreateApiKeyRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
-  bool write = 3;
+  bool writable = 3;
   uint32 ip_address1 = 4;
   uint32 ip_address2 = 5;
   uint32 ip_address3 = 6;
