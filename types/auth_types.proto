@@ -340,10 +340,7 @@ message GenerateApiKeyRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
   bool writable = 3;
-  uint32 ip_address1 = 4;
-  uint32 ip_address2 = 5;
-  uint32 ip_address3 = 6;
-  uint32 ip_address4 = 7;
+  string ip_address = 4;
 }
 
 message GenerateApiKeyResponse {
