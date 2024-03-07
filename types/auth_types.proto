@@ -336,7 +336,7 @@ message ConfigureApiKeysAuthenticateValidateResponse {
   // Set-Cookie in the header/metadata with the authkey if success.
 }
 
-message CreateApiKeyRequest {
+message GenerateApiKeyRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
   bool writable = 3;
@@ -346,7 +346,17 @@ message CreateApiKeyRequest {
   uint32 ip_address4 = 7;
 }
 
-message CreateApiKeyResponse {
+message GenerateApiKeyResponse {
+  string api_key_contents = 1;
+}
+
+message EnableApiKeyRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string api_key_contents = 3;
+}
+
+message EnableApiKeyResponse {
 }
 
 message DeleteApiKeyRequest {

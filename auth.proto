@@ -180,7 +180,13 @@ service Auth {
   //////---
   // Anonymous | Client Session Key | API Key | Restricted API Key
   // [ ]         [X]                  [ ]       [ ]
-  rpc CreateApiKey(types.CreateApiKeyRequest) returns (types.CreateApiKeyResponse) {}
+  rpc GenerateApiKey(types.GenerateApiKeyRequest) returns (types.GenerateApiKeyResponse) {}
+
+  // Internal: Undocumented.
+  //////---
+  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // [ ]         [X]                  [ ]       [ ]
+  rpc EnableApiKey(types.EnableApiKeyRequest) returns (types.EnableApiKeyResponse) {}
 
   // Internal: Undocumented.
   //////---
