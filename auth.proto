@@ -17,19 +17,19 @@ service Auth {
   // Retrieve some account information associated with the key.
   // API KEY MODE: READ
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [ ]         [X]                  [X]       [X]
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X]
   rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
 
   // Consumes a limit time token. e.g. verifying an email.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
 
   // This request sets a client session cookie (client session key) if successful. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
 
@@ -37,160 +37,160 @@ service Auth {
   // If using an API key this will expire the API key indefinitely.
   // API KEY MODE: READ
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X]       [X]
   rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
 
   // Mainly used for gRPC Web mobile frontends.
   // Provides a callback for properly setting secure guard key cookies from a HTTPS remote due to browser restrictions.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) returns (types.SetGuardKeyCookieResponse) {}
 
   // ConfigureAuthorizationAuthenticate and ConfigureAuthorizationAuthenticateValidate must be called first before calling ConfigureAuthorization.
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureAuthorizationAuthenticate(types.ConfigureAuthorizationAuthenticateRequest) returns (types.ConfigureAuthorizationAuthenticateResponse) {}
 
   // Internal: Undocumented. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateValidateRequest) returns (types.ConfigureAuthorizationAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureAuthorization(types.ConfigureAuthorizationRequest) returns (types.ConfigureAuthorizationResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc GetAuthorizationConfiguration(types.GetAuthorizationConfigurationRequest) returns (types.GetAuthorizationConfigurationResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc AcquireGrant(types.AcquireGrantRequest) returns (types.AcquireGrantResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangePassword(types.ChangePasswordRequest) returns (types.ChangePasswordResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc EnableTotp(types.EnableTotpRequest) returns (types.EnableTotpResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc EnableTotpConfirm(types.EnableTotpConfirmRequest) returns (types.EnableTotpConfirmResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc ResetTotp(types.ResetTotpRequest) returns (types.ResetTotpResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc ResetTotpConfirm(types.ResetTotpConfirmRequest) returns (types.ResetTotpConfirmResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc DisableTotp(types.DisableTotpRequest) returns (types.DisableTotpResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangeEmail(types.ChangeEmailRequest) returns (types.ChangeEmailResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangeEmailConfirm(types.ChangeEmailConfirmRequest) returns (types.ChangeEmailConfirmResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ChangeAntiPhishingCode(types.ChangeAntiPhishingCodeRequest) returns (types.ChangeAntiPhishingCodeResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc RegisterDeviceNotifications(types.RegisterDeviceNotificationsRequest) returns (types.RegisterDeviceNotificationsResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]       [ ]
   rpc LockAccount(types.LockAccountRequest) returns (types.LockAccountResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc GetSessions(types.GetSessionsRequest) returns (types.GetSessionsResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc RevokeSession(types.RevokeSessionRequest) returns (types.RevokeSessionResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc GetApiKeys(types.GetApiKeysRequest) returns (types.GetApiKeysResponse) {}
 
   // ConfigureApiKeysAuthenticate and ConfigureApiKeysAuthenticateValidate must be called first before calling CreateApiKey or DeleteApiKey.
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureApiKeysAuthenticate(types.ConfigureApiKeysAuthenticateRequest) returns (types.ConfigureApiKeysAuthenticateResponse) {}
 
   // Internal: Undocumented. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc ConfigureApiKeysAuthenticateValidate(types.ConfigureApiKeysAuthenticateValidateRequest) returns (types.ConfigureApiKeysAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc GenerateApiKey(types.GenerateApiKeyRequest) returns (types.GenerateApiKeyResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc EnableApiKey(types.EnableApiKeyRequest) returns (types.EnableApiKeyResponse) {}
 
   // Internal: Undocumented.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
+  // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]       [ ]
   rpc DeleteApiKey(types.DeleteApiKeyRequest) returns (types.DeleteApiKeyResponse) {}
 }
