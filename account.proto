@@ -10,59 +10,58 @@ service Account {
   // Anonymous RPC - No authentication required.
   // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
   // API Key RPC - API key associated with the account.
-  // Restricted API Key RPC - API key associated with the account (with single IP restrictions).
 
   // Creates a new account. reCAPTCHA protected. Requires valid email.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [ ]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
   rpc Create (types.CreateAccountRequest) returns (types.CreateAccountResponse) {}
 
   // Creates an error report. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [ ]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
   rpc CreateErrorReport (types.CreateErrorReportRequest) returns (types.CreateErrorReportResponse) {}
 
   // Create a support email association. This sends a code to the email that lasts for one week to verify ownership for support correspondence purposes. reCAPTCHA protected
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [ ]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
   rpc CreateSupportEmailAssociation (types.CreateSupportEmailAssociationRequest) returns (types.CreateSupportEmailAssociationResponse) {}
 
   // Verify a support email association key. This allows us to check the key only and avoid uploading all the attachment data just to get a bad response. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [ ]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
   rpc VerifySupportEmailAssociation (types.VerifySupportEmailAssociationRequest) returns (types.VerifySupportEmailAssociationResponse) {}
 
   // Create a support ticket. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [X]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [X]                  [ ]
   rpc CreateTicket (types.CreateTicketRequest) returns (types.CreateTicketResponse) {}
 
   // List tickets for given account.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [ ]         [X]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [ ]
   rpc ListTickets (types.ListTicketsRequest) returns (types.ListTicketsResponse) {}
 
   // Open a support ticket. reCAPTCHA protected for unauthenticated users.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [X]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [X]                  [ ]
   rpc OpenTicket (types.OpenTicketRequest) returns (types.OpenTicketResponse) {}
 
   // Downloads an attachment associated with a ticket. reCAPTCHA protected for unauthenticated users.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [X]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [X]                  [ ]
   rpc DownloadTicketAttachment (types.DownloadTicketAttachmentRequest) returns (types.DownloadTicketAttachmentResponse) {}
 
   // Add a message to a pre-existing ticket. reCAPTCHA protected.
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [X]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [X]                  [ ]
   rpc AddTicketMessage (types.AddTicketMessageRequest) returns (types.AddTicketMessageResponse) {}
 }

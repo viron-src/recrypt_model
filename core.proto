@@ -11,36 +11,35 @@ service Core {
   // Anonymous RPC - No authentication required.
   // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
   // API Key RPC - API key associated with the account.
-  // Restricted API Key RPC - API key associated with the account (with single IP restrictions).
 
   // Internal: Undocumented.
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [X]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [X]                  [ ]
   rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
   // Internal: Used for determining latency.
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [X]         [ ]                  [ ]       [ ]
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
   rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 
   // Returns if a provided address is valid for withdrawals.
   //////---
   // API KEY MODE: READ
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [ ]         [X]                  [X]       [X]
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X]
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
 
   // Allocates a new deposit address for the given account/currency.
   // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be more than 1 depending on the internal configuration.
   // API KEY MODE: WRITE
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [ ]         [X]                  [X]       [X]
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X]
   rpc AllocateDepositAddress (types.AllocateDepositAddressRequest) returns (types.AllocateDepositAddressResponse) {}
 
   // Retrieves all deposit addresses for the given account/currency.
   // API KEY MODE: READ
   //////---
-  // Anonymous | Client Session Key | API Key | Restricted API Key
-  // [ ]         [X]                  [X]       [X]
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X]
   rpc GetDepositAddresses (types.GetDepositAddressesRequest) returns (types.GetDepositAddressesResponse) {}
 }
