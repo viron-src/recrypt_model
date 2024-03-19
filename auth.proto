@@ -21,7 +21,7 @@ service Auth {
   rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
 
   // Consumes a limit time token. e.g. verifying an email.
-  //////---
+  //////--------------------------------------------------
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
