@@ -12,7 +12,7 @@ service Account {
   // API Key RPC - API key associated with the account.
 
   // Creates a new account. reCAPTCHA protected. Requires valid email.
-  //////--------------------------------------------------------------
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc Create (types.CreateAccountRequest) returns (types.CreateAccountResponse) {}

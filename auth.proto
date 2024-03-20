@@ -12,16 +12,14 @@ service Auth {
   // API Key RPC - API key associated with the account.
 
   // Mainly used for gRPC Web frontend. Since session cookies are hidden from the browser we make a request to determine
-  // our session state (if we are logged in or not). Can also be used by API keys to determine if the key is valid and
-  // Retrieve some account information associated with the key.
-  // API KEY MODE: READ
-  //////---
+  // our session state (if we are logged in or not).
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X]
+  // [ ]         [X]                  [ ]
   rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
 
-  // Consumes a limit time token. e.g. verifying an email.
-  //////--------------------------------------------------
+  // Consumes a time limited token. e.g. verifying an email.
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
