@@ -47,13 +47,13 @@ service Auth {
 
   // ConfigureAuthorizationAuthenticate and ConfigureAuthorizationAuthenticateValidate must be called first before calling ConfigureAuthorization.
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ConfigureAuthorizationAuthenticate(types.ConfigureAuthorizationAuthenticateRequest) returns (types.ConfigureAuthorizationAuthenticateResponse) {}
 
   // Internal: Undocumented. reCAPTCHA protected.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateValidateRequest) returns (types.ConfigureAuthorizationAuthenticateValidateResponse) {}
