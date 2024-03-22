@@ -23,23 +23,20 @@ service Core {
 
   // Returns if a provided address is valid for withdrawals.
   //////---
-  // API KEY MODE: READ
   // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X]
+  // [ ]         [X]                  [X] (Readonly)
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
 
   // Allocates a new deposit address for the given account/currency.
   // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be more than 1 depending on the internal configuration.
-  // API KEY MODE: WRITE
   //////---
   // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X]
+  // [ ]         [X]                  [X] (Write-enabled)
   rpc AllocateDepositAddress (types.AllocateDepositAddressRequest) returns (types.AllocateDepositAddressResponse) {}
 
   // Retrieves all deposit addresses for the given account/currency.
-  // API KEY MODE: READ
   //////---
   // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X]
+  // [ ]         [X]                  [X] (Readonly)
   rpc GetDepositAddresses (types.GetDepositAddressesRequest) returns (types.GetDepositAddressesResponse) {}
 }

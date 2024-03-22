@@ -31,11 +31,10 @@ service Auth {
   rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
 
   // This response will tell the browser to forget the cookie and invalidates the session key in the backend.
-  // If using an API key this will expire the API key indefinitely.
-  // API KEY MODE: READ
+  // If using an API key this will also revoke the API key.
   //////---
   // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X]
+  // [ ]         [X]                  [X] (Readonly)
   rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
 
   // Mainly used for gRPC Web mobile frontends.
@@ -83,13 +82,13 @@ service Auth {
   rpc ChangePassword(types.ChangePasswordRequest) returns (types.ChangePasswordResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc EnableTotp(types.EnableTotpRequest) returns (types.EnableTotpResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc EnableTotpConfirm(types.EnableTotpConfirmRequest) returns (types.EnableTotpConfirmResponse) {}
@@ -107,7 +106,7 @@ service Auth {
   rpc ResetTotpConfirm(types.ResetTotpConfirmRequest) returns (types.ResetTotpConfirmResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc DisableTotp(types.DisableTotpRequest) returns (types.DisableTotpResponse) {}
