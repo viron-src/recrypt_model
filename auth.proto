@@ -44,7 +44,9 @@ service Auth {
   // [X]         [ ]                  [ ]
   rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) returns (types.SetGuardKeyCookieResponse) {}
 
-  // ConfigureAuthorizationAuthenticate and ConfigureAuthorizationAuthenticateValidate must be called first before calling ConfigureAuthorization.
+  // ConfigureAuthorizationAuthenticate and ConfigureAuthorizationAuthenticateValidate must be called first before
+  // calling ConfigureAuthorization, AcquireGrant, ChangePassword, EnableTotp, EnableTotpConfirm, ResetTotp, ResetTotpConfirm,
+  // DisableTotp, ChangeEmail or ChangeEmailConfirm
   // Internal: Undocumented.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
@@ -159,21 +161,21 @@ service Auth {
   // [ ]         [X]                  [ ]
   rpc GetApiKeys(types.GetApiKeysRequest) returns (types.GetApiKeysResponse) {}
 
-  // ConfigureApiKeysAuthenticate and ConfigureApiKeysAuthenticateValidate must be called first before calling CreateApiKey or DeleteApiKey.
+  // ConfigureApiKeysAuthenticate and ConfigureApiKeysAuthenticateValidate must be called first before calling GenerateApiKey, EnableApiKey or DeleteApiKey.
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ConfigureApiKeysAuthenticate(types.ConfigureApiKeysAuthenticateRequest) returns (types.ConfigureApiKeysAuthenticateResponse) {}
 
   // Internal: Undocumented. reCAPTCHA protected.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ConfigureApiKeysAuthenticateValidate(types.ConfigureApiKeysAuthenticateValidateRequest) returns (types.ConfigureApiKeysAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc GenerateApiKey(types.GenerateApiKeyRequest) returns (types.GenerateApiKeyResponse) {}
