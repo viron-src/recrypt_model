@@ -181,13 +181,13 @@ service Auth {
   rpc GenerateApiKey(types.GenerateApiKeyRequest) returns (types.GenerateApiKeyResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc EnableApiKey(types.EnableApiKeyRequest) returns (types.EnableApiKeyResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc DeleteApiKey(types.DeleteApiKeyRequest) returns (types.DeleteApiKeyResponse) {}
