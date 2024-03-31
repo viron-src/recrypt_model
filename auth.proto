@@ -144,13 +144,13 @@ service Auth {
   rpc LockAccount(types.LockAccountRequest) returns (types.LockAccountResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc GetSessions(types.GetSessionsRequest) returns (types.GetSessionsResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc RevokeSession(types.RevokeSessionRequest) returns (types.RevokeSessionResponse) {}
