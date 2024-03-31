@@ -156,7 +156,7 @@ service Auth {
   rpc RevokeSession(types.RevokeSessionRequest) returns (types.RevokeSessionResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc GetApiKeys(types.GetApiKeysRequest) returns (types.GetApiKeysResponse) {}
