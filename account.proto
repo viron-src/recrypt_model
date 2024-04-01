@@ -24,7 +24,7 @@ service Account {
   rpc CreateErrorReport (types.CreateErrorReportRequest) returns (types.CreateErrorReportResponse) {}
 
   // Create a support email association. This sends a code to the email that lasts for one week to verify ownership for support correspondence purposes. reCAPTCHA protected
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc CreateSupportEmailAssociation (types.CreateSupportEmailAssociationRequest) returns (types.CreateSupportEmailAssociationResponse) {}
