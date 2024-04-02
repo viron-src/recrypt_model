@@ -30,13 +30,13 @@ service Account {
   rpc CreateSupportEmailAssociation (types.CreateSupportEmailAssociationRequest) returns (types.CreateSupportEmailAssociationResponse) {}
 
   // Verify a support email association key. This allows us to check the key only and avoid uploading all the attachment data just to get a bad response. reCAPTCHA protected.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc VerifySupportEmailAssociation (types.VerifySupportEmailAssociationRequest) returns (types.VerifySupportEmailAssociationResponse) {}
 
   // Create a support ticket. reCAPTCHA protected.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
   rpc CreateTicket (types.CreateTicketRequest) returns (types.CreateTicketResponse) {}
@@ -47,13 +47,13 @@ service Account {
   // [ ]         [X]                  [ ]
   rpc ListTickets (types.ListTicketsRequest) returns (types.ListTicketsResponse) {}
 
-  // Open a support ticket. reCAPTCHA protected for unauthenticated users.
-  //////---
+  // Open a support ticket. reCAPTCHA protected.
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
   rpc OpenTicket (types.OpenTicketRequest) returns (types.OpenTicketResponse) {}
 
-  // Downloads an attachment associated with a ticket. reCAPTCHA protected for unauthenticated users.
+  // Downloads an attachment associated with a ticket. reCAPTCHA protected.
   //////---
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
