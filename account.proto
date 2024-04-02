@@ -42,7 +42,7 @@ service Account {
   rpc CreateTicket (types.CreateTicketRequest) returns (types.CreateTicketResponse) {}
 
   // List tickets for given account.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ListTickets (types.ListTicketsRequest) returns (types.ListTicketsResponse) {}
@@ -54,7 +54,7 @@ service Account {
   rpc OpenTicket (types.OpenTicketRequest) returns (types.OpenTicketResponse) {}
 
   // Downloads an attachment associated with a ticket. reCAPTCHA protected.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
   rpc DownloadTicketAttachment (types.DownloadTicketAttachmentRequest) returns (types.DownloadTicketAttachmentResponse) {}
