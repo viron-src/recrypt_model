@@ -20,6 +20,7 @@ message CreateErrorReportRequest {
   int64 session_seq = 1;
   string contents = 2;
   string recaptcha_token = 3;
+  bool testing = 4; /* Unused */
 }
 
 message CreateErrorReportResponse {
