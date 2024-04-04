@@ -31,8 +31,7 @@ service Auth {
   rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
 
   // This response will tell the browser to forget the cookie and invalidates the session key in the backend.
-  // If using an API key this will also revoke the API key.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
