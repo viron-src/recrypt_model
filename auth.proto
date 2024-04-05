@@ -125,7 +125,7 @@ service Auth {
   rpc ChangeEmailConfirm(types.ChangeEmailConfirmRequest) returns (types.ChangeEmailConfirmResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ChangeAntiPhishingCode(types.ChangeAntiPhishingCodeRequest) returns (types.ChangeAntiPhishingCodeResponse) {}
