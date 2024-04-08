@@ -38,7 +38,7 @@ service Auth {
 
   // Mainly used for gRPC Web mobile frontends.
   // Provides a callback for properly setting secure guard key cookies from a HTTPS remote due to browser restrictions.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc SetGuardKeyCookie(types.SetGuardKeyCookieRequest) returns (types.SetGuardKeyCookieResponse) {}
@@ -59,13 +59,13 @@ service Auth {
   rpc ConfigureAuthorizationAuthenticateValidate(types.ConfigureAuthorizationAuthenticateValidateRequest) returns (types.ConfigureAuthorizationAuthenticateValidateResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ConfigureAuthorization(types.ConfigureAuthorizationRequest) returns (types.ConfigureAuthorizationResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc GetAuthorizationConfiguration(types.GetAuthorizationConfigurationRequest) returns (types.GetAuthorizationConfigurationResponse) {}
