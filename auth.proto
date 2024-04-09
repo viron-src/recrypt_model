@@ -71,7 +71,7 @@ service Auth {
   rpc GetAuthorizationConfiguration(types.GetAuthorizationConfigurationRequest) returns (types.GetAuthorizationConfigurationResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc AcquireGrant(types.AcquireGrantRequest) returns (types.AcquireGrantResponse) {}
