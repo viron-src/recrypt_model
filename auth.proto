@@ -113,13 +113,13 @@ service Auth {
   rpc DisableTotp(types.DisableTotpRequest) returns (types.DisableTotpResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ChangeEmail(types.ChangeEmailRequest) returns (types.ChangeEmailResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc ChangeEmailConfirm(types.ChangeEmailConfirmRequest) returns (types.ChangeEmailConfirmResponse) {}
