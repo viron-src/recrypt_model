@@ -16,7 +16,9 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
   rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
-  // Internal: Used for determining latency.
+
+  // Used for determining latency.
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
