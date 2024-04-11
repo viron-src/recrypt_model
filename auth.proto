@@ -95,13 +95,13 @@ service Auth {
   rpc EnableTotpConfirm(types.EnableTotpConfirmRequest) returns (types.EnableTotpConfirmResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc ResetTotp(types.ResetTotpRequest) returns (types.ResetTotpResponse) {}
 
   // Internal: Undocumented.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc ResetTotpConfirm(types.ResetTotpConfirmRequest) returns (types.ResetTotpConfirmResponse) {}
