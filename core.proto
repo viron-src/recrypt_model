@@ -24,7 +24,7 @@ service Core {
   rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 
   // Returns if a provided address is valid for withdrawals.
-  //////---
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
