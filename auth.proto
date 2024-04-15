@@ -16,25 +16,25 @@ service Auth {
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
-  rpc SessionState (types.SessionStateRequest) returns (types.SessionStateResponse) {}
+  rpc SessionState(types.SessionStateRequest) returns (types.SessionStateResponse) {}
 
   // Consumes a time limited token. e.g. verifying an email.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
-  rpc ConsumeToken (types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
+  rpc ConsumeToken(types.ConsumeTokenRequest) returns (types.ConsumeTokenResponse) {}
 
   // This request sets a client session cookie (client session key) if successful. reCAPTCHA protected.
   //////---
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
-  rpc Login (types.LoginRequest) returns (types.LoginResponse) {}
+  rpc Login(types.LoginRequest) returns (types.LoginResponse) {}
 
   // This response will tell the browser to forget the cookie and invalidates the session key in the backend.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
-  rpc Logout (types.LogoutRequest) returns (types.LogoutResponse) {}
+  rpc Logout(types.LogoutRequest) returns (types.LogoutResponse) {}
 
   // Mainly used for gRPC Web mobile frontends.
   // Provides a callback for properly setting secure guard key cookies from a HTTPS remote due to browser restrictions.
