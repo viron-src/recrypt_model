@@ -13,6 +13,7 @@ service Core {
   // API Key RPC - API key associated with the account.
 
   // Internal: Undocumented.
+  //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
   rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
