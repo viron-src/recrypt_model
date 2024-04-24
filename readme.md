@@ -23,7 +23,7 @@ We guarantee no downtime on all days except on Tuesdays at 18:00 to 18:30 AM UTC
 
 If there is no downtime notice banner on the website a few days prior this means there is no downtime scheduled for that week.
 
-Any other gRPC error that is not documented on the request itself should be not possible when using the API correctly under normal operations.
+Any other gRPC error that is not documented below or on the request itself should be not possible when using the API correctly under normal operations.
 
 ## Idempotency
 
@@ -35,13 +35,15 @@ Changing the payload of the request but keeping the idempotent field the same is
 
 ## Success failures
 
-In extremely rare cases its possible a transaction is executed within the exchange system but a gRPC error (such as UNAVAILABLE vgw-db mentioned above or DEADLINE EXCEEDED) is returned to your client.
+In extremely rare cases its possible a transaction is executed within the exchange system but a gRPC error (such as UNAVAILABLE with "vgw-db" as the message mentioned above or DEADLINE_EXCEEDED) is returned to your client.
 
 Make use of idempotency fields mentioned above when interfacing with the system to provide highly available state synchronization between integration points.
 
-## Timeouts
+## Internal timeouts
 
-If you receive gRPC DEADLINE EXCEEDED with "vgw-db" as the message then the transaction/request timed out. This should never occur under normal operations, but it's worth being aware of this error code during extraordinary events.
+If you receive gRPC DEADLINE_EXCEEDED with "vgw-db" as the message then the transaction/request timed out from within the database itself and in most cases the transaction or request was rolled back.
+
+This is different to DEADLINE_EXCEEDED with any other message mentioned above. DEADLINE_EXCEEDED should never occur under normal operations regardless, but it's worth being aware of this error code during extraordinary events.
 
 ## Streaming RPC's
 
