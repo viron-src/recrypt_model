@@ -13,6 +13,8 @@ Visit https://recrypt.net/api to manage your API keys. This page also documents 
 
 There are currently no API limits, however please be aware of some edge cases when interacting with this API; see below.
 
+NOTE: This will likely change in the future.
+
 ## Retry on failure
 
 If you receive gRPC UNAVAILABLE error with "vgw-db" as the message then this error can be retried. This is the only error that should be retried.
@@ -54,6 +56,12 @@ It's possible for long-lived streaming RPCs to gracefully end with OK without re
 We will never make a change that breaks backwards compatability within the API. New fields may be added to existing RPCs.
 
 If a pre-existing API becomes deprecated and then removed it will start returning NOT_FOUND rather than UNIMPLEMENTED.
+
+## Compliance questioning
+
+As part of regulatory compliance in rare cases if the system requires more user information before permitting a transaction then the UI will prompt for such information. In the case where an API is being used a gRPC error of ABORTED will be returned.
+
+Log into the website and respond to the provided question to stop this error.
 
 ## Enjoy
 
