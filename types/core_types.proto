@@ -69,5 +69,6 @@ message GetDepositsReceivedEntry {
   string value = 2; // Decimal
   string tx_id = 3;
   bool pending = 4;
-  google.protobuf.Timestamp tstamp = 5;
+  int32 confirmations = 5;
+  google.protobuf.Timestamp tstamp = 6;
 }
