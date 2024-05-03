@@ -30,16 +30,22 @@ service Core {
   // [ ]         [X]                  [X] (Readonly)
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
 
-  // Allocates a new deposit address for the given account/currency.
+  // Allocates a new deposit address for the given currency.
   // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be more than 1 depending on the internal configuration.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Write-enabled)
   rpc AllocateDepositAddress (types.AllocateDepositAddressRequest) returns (types.AllocateDepositAddressResponse) {}
 
-  // Retrieves all deposit addresses for the given account/currency.
+  // Retrieves all deposit addresses for the given currency.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc GetDepositAddresses (types.GetDepositAddressesRequest) returns (types.GetDepositAddressesResponse) {}
+
+  // Retrieves all received deposits including any pending deposits.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc GetDepositsReceived (types.GetDepositsReceivedRequest) returns (types.GetDepositsReceivedResponse) {}
 }

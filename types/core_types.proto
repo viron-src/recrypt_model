@@ -54,3 +54,20 @@ message GetDepositAddressesRequest {
 message GetDepositAddressesResponse {
   repeated string addresses = 1;
 }
+
+message GetDepositsReceivedRequest {
+  int64 session_seq = 1;
+}
+
+message GetDepositsReceivedResponse {
+  repeated GetDepositsReceivedEntry deposits = 1;
+  google.protobuf.Timestamp last_updated_tstamp = 2;
+}
+
+message GetDepositsReceivedEntry {
+  int64 currency_seq = 1;
+  string value = 2; // Decimal
+  string tx_id = 3;
+  bool pending = 4;
+  google.protobuf.Timestamp tstamp = 5;
+}
