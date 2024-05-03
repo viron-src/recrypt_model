@@ -67,6 +67,10 @@ message GetDepositsReceivedResponse {
 message GetDepositsReceivedEntry {
   int64 currency_seq = 1;
   string value = 2; // Decimal
+  // td_id has the following format for each currency:
+  // BTC/LTC/BCH/DOGE: [block-hash]-[transaction hash]-[output index]
+  // ETH: [block-hash]-[transaction hash]
+  // ADA: [block-number]-[transaction hash]-[output index]
   string tx_id = 3;
   bool pending = 4;
   int32 confirmations = 5;
