@@ -8,7 +8,7 @@ import "types/account_types.proto";
 service Account {
   // Authentication types ---
   // Anonymous RPC - No authentication required.
-  // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address.
+  // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address except for native mobile sessions.
   // API Key RPC - API key associated with the account.
 
   // Creates a new account. reCAPTCHA protected. Requires valid email.
