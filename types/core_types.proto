@@ -73,6 +73,7 @@ message GetDepositsReceivedEntry {
   // ADA: [block-number]-[transaction hash]-[output index]
   string tx_id = 3;
   bool pending = 4;
-  int32 confirmations = 5;
-  google.protobuf.Timestamp tstamp = 6;
+  bool blocked = 5;
+  int32 confirmations = 6;
+  google.protobuf.Timestamp tstamp = 7;
 }
