@@ -79,6 +79,7 @@ message GetDepositsReceivedEntry {
 }
 
 message GetBalancesRequest {
+  int64 session_seq = 1;
 }
 
 message GetBalancesResponse {
