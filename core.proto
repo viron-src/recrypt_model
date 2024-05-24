@@ -48,4 +48,10 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc GetDepositsReceived (types.GetDepositsReceivedRequest) returns (types.GetDepositsReceivedResponse) {}
+
+  // Retrieves the account balance for all supported currencies where the balance is greater than zero.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc GetBalances (types.GetBalancesRequest) returns (types.GetBalancesResponse) {}
 }
