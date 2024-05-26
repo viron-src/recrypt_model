@@ -50,6 +50,7 @@ service Core {
   rpc GetDepositsReceived (types.GetDepositsReceivedRequest) returns (types.GetDepositsReceivedResponse) {}
 
   // Retrieves the account balance for all supported currencies where the balance is greater than zero.
+  // This does not include any currency currently included as part of an order on any order book.
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
