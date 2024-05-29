@@ -55,4 +55,12 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc GetBalances (types.GetBalancesRequest) returns (types.GetBalancesResponse) {}
+
+  // Call this function to check if there is any upcoming, ongoing maintenance or downtime.
+  // Any scheduled maintenance downtime should be visible from this API at-least a few days prior.
+  // Please read readme.md: Section 'Retry on failure'.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
+  rpc MaintenanceCheck (types.MaintenanceCheckRequest) returns (types.MaintenanceCheckResponse) {}
 }

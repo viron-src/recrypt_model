@@ -90,3 +90,14 @@ message GetBalancesEntry {
   int64 currency_seq = 1;
   string balance = 2; // Decimal
 }
+
+message MaintenanceCheckRequest {
+}
+
+message MaintenanceCheckResponse {
+  // Please read readme.md: Section 'Retry on failure'.
+  // Most downtime only lasts 1 minute within a 30 minute timespan from event_tstamp.
+  bool upcoming_event = 1; // TRUE if any maintenance that'll result in downtime is upcoming.
+  bool ongoing_event = 2; // TRUE if an ongoing scheduled or unscheduled event is active.
+  google.protobuf.Timestamp event_tstamp = 3; // When upcoming_event or ongoing_event is true this will be set.
+}
