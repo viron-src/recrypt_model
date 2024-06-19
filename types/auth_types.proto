@@ -280,7 +280,7 @@ message GetSessionsEntry {
   uint32 ip_address3 = 5;
   uint32 ip_address4 = 6;
   string location = 7;
-  bool is_mobile = 8; // Is native mobile app session. Will be false for direct web browser sessions on mobiles or tablets.
+  bool is_mobile = 8; // native app session = true (long-lasting). else false; even for sessions within mobile/tablet web browser.
   google.protobuf.Timestamp creation_tstamp = 9;
   google.protobuf.Timestamp expiration_tstamp = 10;
 }
