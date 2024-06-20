@@ -21,6 +21,10 @@ message FeedNotice {
 }
 
 message GlobalCurrencyData {
+  repeated GlobalCurrencyDataEntry data = 1;
+}
+
+message GlobalCurrencyDataEntry {
   int64 seq = 1;
   string short_name = 2;
   string full_name = 3;
