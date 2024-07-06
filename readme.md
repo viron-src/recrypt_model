@@ -7,7 +7,17 @@ The public native gRPC API is available at: https://api.recrypt.net:8443
 
 Optionally you can use gRPC Web API at https://api.recrypt.net if running an integration from within the browser (not recommended)
 
-Visit https://recrypt.net/api to manage your API keys. This page also documents how to authenticate.
+Visit https://recrypt.net/api to manage your API keys. This page also documents how to authenticate in the next section.
+
+## Authenticating
+
+Use the API key generated at https://recrypt.net/api to authenticate by inserting gRPC metadata to the request with the key 'apikey' and value of the API key contents that you copied: https://grpc.io/docs/guides/metadata/
+
+The gRPC protobuf models self-document which requests are available for use by API keys and whether it requires a readonly key or write-enabled key.
+
+Attempting to use an IP restricted API key from an IP address that is not authorized will result in grpc error code UNAUTHENTICATED with message 'Session Key'.
+
+API keys do not expire. You are responsible for rotating keys yourself based on your own security requirements.
 
 ## API Limits
 
