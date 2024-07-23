@@ -73,11 +73,14 @@ message GetDepositAddressesResponse {
 
 message GetDepositsReceivedRequest {
   int64 session_seq = 1;
+  int32 page_index = 2;
+  int32 page_size = 3;
 }
 
 message GetDepositsReceivedResponse {
   repeated GetDepositsReceivedEntry deposits = 1;
   google.protobuf.Timestamp last_updated_tstamp = 2;
+  int32 total_rows = 3;
 }
 
 message GetDepositsReceivedEntry {
