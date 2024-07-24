@@ -41,6 +41,7 @@ message SystemFeedData {
     FeedNotification feed_notification = 2;
     FeedNotice feed_notice = 3;
     GlobalCurrencyData global_currency_data = 4;
+    GetDepositsReceivedEntry deposit_received = 5;
   }
 }
 
