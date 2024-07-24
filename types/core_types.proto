@@ -30,8 +30,9 @@ message GlobalCurrencyDataEntry {
   string full_name = 3;
   int32 friendly_decimal_places = 4;
   int32 all_decimal_places = 5;
-  string icon = 6; // SVG
-  repeated int32 network_identifiers = 7;
+  int32 required_confirmations = 6;
+  string icon = 7; // SVG
+  repeated int32 network_identifiers = 8;
 }
 
 message SystemFeedData {
