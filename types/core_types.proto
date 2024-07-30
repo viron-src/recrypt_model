@@ -71,6 +71,7 @@ message GetDepositAddressesRequest {
 
 message GetDepositAddressesResponse {
   repeated string addresses = 1;
+  string min_deposit = 2;
 }
 
 message GetDepositsReceivedRequest {
