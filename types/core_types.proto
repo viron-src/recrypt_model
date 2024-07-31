@@ -77,7 +77,7 @@ message GetDepositAddressesResponse {
 message GetDepositsReceivedRequest {
   int64 session_seq = 1;
   google.protobuf.Timestamp from_tstamp = 2; // May be null if paging is being used
-  google.protobuf.Timestamp to_tstamp = 3;
+  google.protobuf.Timestamp to_tstamp = 3; // Both null if showing latest data.
 }
 
 message GetDepositsReceivedResponse {
