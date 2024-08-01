@@ -97,6 +97,7 @@ message GetDepositsReceivedEntry {
   bool blocked = 5;
   int32 confirmations = 6;
   google.protobuf.Timestamp tstamp = 7;
+  bool is_new = 8; // Only used for live updates when returned from system feed.
 }
 
 message GetBalancesRequest {
