@@ -35,6 +35,10 @@ message GlobalCurrencyDataEntry {
   repeated int32 network_identifiers = 8;
 }
 
+message DepositDeleted {
+  string tx_id = 1;
+}
+
 message SystemFeedData {
   oneof message {
     google.protobuf.Timestamp ping = 1;
@@ -42,6 +46,7 @@ message SystemFeedData {
     FeedNotice feed_notice = 3;
     GlobalCurrencyData global_currency_data = 4;
     GetDepositsReceivedEntry deposit_received = 5;
+    DepositDeleted deposit_deleted = 6;
   }
 }
 
