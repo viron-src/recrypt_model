@@ -81,7 +81,7 @@ message GetDepositAddressesResponse {
 
 message GetDepositsReceivedRequest {
   int64 session_seq = 1;
-  google.protobuf.Timestamp start_tstamp = 2; // PAGING SUPPORT: Can be null. If provided start_tstamp must also be provided.
+  google.protobuf.Timestamp start_tstamp = 2; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
   google.protobuf.Timestamp end_tstamp = 3; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
 }
 
