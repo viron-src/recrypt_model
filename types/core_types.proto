@@ -111,6 +111,7 @@ message GetBalancesRequest {
 
 message GetBalancesResponse {
   repeated GetBalancesEntry balances = 1;
+  google.protobuf.Timestamp tstamp = 2;
 }
 
 message GetBalancesEntry {
