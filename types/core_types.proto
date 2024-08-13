@@ -86,6 +86,7 @@ message GetDepositsReceivedRequest {
 }
 
 message GetDepositsReceivedResponse {
+  // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if total_rows > 100.
   repeated GetDepositsReceivedEntry deposits = 1;
   int32 total_rows = 2;
 }
@@ -128,4 +129,24 @@ message MaintenanceCheckResponse {
   bool upcoming_event = 1; // TRUE if any maintenance that'll result in downtime is upcoming.
   bool ongoing_event = 2; // TRUE if an ongoing scheduled or unscheduled event is active.
   google.protobuf.Timestamp event_tstamp = 3; // When upcoming_event or ongoing_event is true this will be set.
+}
+
+message GetTransactionsRequest {
+  int64 session_seq = 1;
+  repeated int64 currency_seqs = 2; // Optional extra filter. Empty means all currencies.
+  google.protobuf.Timestamp start_tstamp = 3; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
+  google.protobuf.Timestamp end_tstamp = 4; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
+}
+
+message GetTransactionsResponse {
+  // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if total_rows > 100.
+  repeated GetTransactionsEntry transactions = 1;
+  int32 total_rows = 2;
+}
+
+message GetTransactionsEntry {
+  int64 seq = 1;
+  int32 type = 2;
+  string balance_change = 3; // Decimal
+  string system_note = 4;
 }

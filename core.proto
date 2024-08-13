@@ -63,4 +63,10 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc MaintenanceCheck (types.MaintenanceCheckRequest) returns (types.MaintenanceCheckResponse) {}
+
+  // Retrieves executed transactions.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc GetTransactions (types.GetTransactionsRequest) returns (types.GetTransactionsResponse) {}
 }
