@@ -146,8 +146,9 @@ message GetTransactionsResponse {
 
 message GetTransactionsEntry {
   int64 seq = 1;
-  int32 type = 2;
-  string balance_change = 3; // Decimal
-  string system_note = 4;
-  google.protobuf.Timestamp tstamp = 5;
+  int64 currency_seq = 2;
+  int32 type = 3;
+  string balance_change = 4; // Decimal
+  string system_note = 5;
+  google.protobuf.Timestamp tstamp = 6;
 }
