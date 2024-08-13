@@ -149,4 +149,5 @@ message GetTransactionsEntry {
   int32 type = 2;
   string balance_change = 3; // Decimal
   string system_note = 4;
+  google.protobuf.Timestamp tstamp = 5;
 }
