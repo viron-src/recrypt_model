@@ -142,7 +142,7 @@ message GetTransactionsResponse {
   // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if rows returned was not zero.
   repeated GetTransactionsEntry transactions = 1;
   int32 total_rows = 2; // Can be greater than 100. Represents all row count given current filters/paging.
-  google.protobuf.Timestamp tstamp = 3 ; // Evaluated 'as at' timestamp.
+  google.protobuf.Timestamp tstamp = 3; // Evaluated 'as at' timestamp.
 }
 
 message GetTransactionsEntry {
