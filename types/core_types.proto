@@ -86,9 +86,9 @@ message GetDepositsReceivedRequest {
 }
 
 message GetDepositsReceivedResponse {
-  // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if total_rows > 100.
+  // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if rows returned was not zero.
   repeated GetDepositsReceivedEntry deposits = 1;
-  int32 total_rows = 2;
+  int32 total_rows = 2; // Can be greater than 100. Represents all row count given current filters/paging.
 }
 
 message GetDepositsReceivedEntry {
@@ -139,9 +139,9 @@ message GetTransactionsRequest {
 }
 
 message GetTransactionsResponse {
-  // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if total_rows > 100.
+  // Maximum 100 rows returned. Take last entry tstamp and specify it as end_tstamp to continue if rows returned was not zero.
   repeated GetTransactionsEntry transactions = 1;
-  int32 total_rows = 2;
+  int32 total_rows = 2; // Can be greater than 100. Represents all row count given current filters/paging.
 }
 
 message GetTransactionsEntry {
