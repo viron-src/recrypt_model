@@ -171,13 +171,14 @@ enum OrderTimeInForce {
 }
 
 message OrderRequest {
-  string symbol = 1;
-  OrderSide side = 2;
-  OrderType type = 3;
-  optional OrderTimeInForce time_in_force = 4;
-  string quantity = 5; // Decimal
-  optional string price = 6; // Decimal
-  optional string quote_order_quantity = 7;
+  int64 session_seq = 1;
+  string symbol = 2;
+  OrderSide side = 3;
+  OrderType type = 4;
+  optional OrderTimeInForce time_in_force = 5;
+  string quantity = 6; // Decimal
+  optional string price = 7; // Decimal
+  optional string quote_order_quantity = 8;
 }
 
 enum OrderStatus {
