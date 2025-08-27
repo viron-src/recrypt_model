@@ -187,7 +187,7 @@ enum OrderStatus {
   PENDING = 2;
 }
 
-message OrderFills {
+message OrderFill {
   string price = 1; // DECIMAL
   string qty = 2; // DECIMAL
   string commission = 3; // DECIMAL
@@ -199,5 +199,5 @@ message OrderResponse {
   string symbol = 1;
   int64 order_id = 2;
   OrderStatus status = 3;
-  repeated OrderFills fills = 4;
+  repeated OrderFill fills = 4;
 }
