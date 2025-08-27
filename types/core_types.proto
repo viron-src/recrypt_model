@@ -153,3 +153,50 @@ message GetTransactionsEntry {
   string system_note = 5;
   google.protobuf.Timestamp tstamp = 6;
 }
+
+enum OrderSide {
+  BUY = 0;
+  SELL = 1;
+}
+
+enum OrderType {
+  LIMIT = 0;
+  MARKET = 1;
+}
+
+enum OrderTimeInForce {
+  GOOD_TIL_CANCELLED = 0;
+  IMMEDIATE_OR_CANCEL = 1;
+  FILL_OR_KILL = 2;
+}
+
+message OrderRequest {
+  string symbol = 1;
+  OrderSide side = 2;
+  OrderType type = 3;
+  optional OrderTimeInForce time_in_force = 4;
+  string quantity = 5; // Decimal
+  optional string price = 6; // Decimal
+  optional string quote_order_quantity = 7;
+}
+
+enum OrderStatus {
+  FILLED = 0;
+  PARTIALLY_FILLED = 1;
+  PENDING = 2;
+}
+
+message OrderFills {
+  string price = 1; // DECIMAL
+  string qty = 2; // DECIMAL
+  string commission = 3; // DECIMAL
+  string commission_asset = 4; // DECIMAL
+  int64 trade_id = 5;
+}
+
+message OrderResponse {
+  string symbol = 1;
+  int64 order_id = 2;
+  OrderStatus status = 3;
+  repeated OrderFills fills = 4;
+}
