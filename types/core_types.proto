@@ -158,7 +158,7 @@ message GetMarketsRequest {
 }
 
 message GetMarketsResponse {
-  repeated GetMarketsEntry transactions = 1;
+  repeated GetMarketsEntry markets = 1;
 }
 
 message GetMarketsEntry {
