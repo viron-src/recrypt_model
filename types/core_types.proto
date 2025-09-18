@@ -154,6 +154,21 @@ message GetTransactionsEntry {
   google.protobuf.Timestamp tstamp = 6;
 }
 
+message GetMarketsRequest {
+}
+
+message GetMarketsResponse {
+  repeated GetMarketsEntry transactions = 1;
+}
+
+message GetMarketsEntry {
+  int64 seq = 1;
+  int64 base_currency_seq = 2;
+  int64 quote_currency_seq = 3;
+  string maker_fee_percent = 4; // Decimal
+  string taker_fee_percent = 5; // Decimal
+}
+
 enum OrderSide {
   BUY = 0;
   SELL = 1;

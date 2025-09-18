@@ -70,6 +70,12 @@ service Core {
   // [ ]         [X]                  [X] (Readonly)
   rpc GetTransactions (types.GetTransactionsRequest) returns (types.GetTransactionsResponse) {}
 
+  // Retrieves available markets.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
+  rpc GetMarkets (types.GetMarketsRequest) returns (types.GetMarketsResponse) {}
+
   // Places an order for execution by the matching engine.
   //////---
   // Anonymous | Client Session Key | API Key
