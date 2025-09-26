@@ -3,19 +3,6 @@
 syntax = "proto3";
 package recrypt;
 
-enum Currency {
-  UNSPECIFIED = 0;
-  AUSTRALIAN_DOLLAR = 1;
-  BITCOIN = 2;
-  ETHEREUM = 3;
-}
-
-enum Market {
-  UNSPECIFIED = 0;
-  BTC_AUD = 1;
-  ETH_AUD = 2;
-}
-
 import "system.proto";
 import "account.proto";
 import "core.proto";
