@@ -2,7 +2,7 @@
 syntax = "proto3";
 package recrypt.types;
 import "google/protobuf/timestamp.proto";
-import "types/common_types.proto";
+import "common_types.proto";
 
 message SystemFeedRequest {
   int64 session_seq = 1;
