@@ -3,14 +3,14 @@ syntax = "proto3";
 package recrypt.types;
 
 enum Currency {
-  UNSPECIFIED = 0;
-  AUSTRALIAN_DOLLAR = 1;
-  BITCOIN = 2;
-  ETHEREUM = 3;
+  CURRENCY_UNSPECIFIED = 0;
+  CURRENCY_AUSTRALIAN_DOLLAR = 1;
+  CURRENCY_BITCOIN = 2;
+  CURRENCY_ETHEREUM = 3;
 }
 
 enum Market {
-  UNSPECIFIED = 0;
-  BTC_AUD = 1;
-  ETH_AUD = 2;
+  MARKET_UNSPECIFIED = 0;
+  MARKET_BTC_AUD = 1;
+  MARKET_ETH_AUD = 2;
 }
