@@ -1,0 +1,24 @@
+// Copyright © Viron Software ⨈
+syntax = "proto3";
+package recrypt.types;
+
+// These types aren't actually imported by other proto files at all for two reasons.
+// 1. enums are 32-bit while recrypt sequences/indices are 64-bit in nature.
+// 2. the open/close behaviour and irregularities between language implementations make it difficult: https://protobuf.dev/programming-guides/enum/
+
+// This is really just a self-documenting file for interacting with such fields directly.
+
+// currency_seq values
+enum Currency {
+  CURRENCY_UNSPECIFIED = 0;
+  CURRENCY_AUSTRALIAN_DOLLAR = 1;
+  CURRENCY_BITCOIN = 2;
+  CURRENCY_ETHEREUM = 3;
+}
+
+// market_seq values
+enum Market {
+  MARKET_UNSPECIFIED = 0;
+  MARKET_BTC_AUD = 1;
+  MARKET_ETH_AUD = 2;
+}
