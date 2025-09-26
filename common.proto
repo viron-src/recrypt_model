@@ -1,6 +1,6 @@
 // Copyright © Viron Software ⨈
 syntax = "proto3";
-package recrypt.types;
+package recrypt;
 
 // These types aren't actually imported by other proto files at all for two reasons.
 // 1. enums are 32-bit while recrypt sequences/indices are 64-bit in nature.
