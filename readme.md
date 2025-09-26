@@ -77,6 +77,10 @@ Log into the website and respond to the provided question to stop this error.
 
 Attempting to perform a transaction that exceeds account transaction limits will result in gRPC error FAILED_PRECONDITION. Make a ticket to support to increase your limit.
 
+## Sequences and Constants
+
+Refer to common.proto
+
 ## Enjoy
 
 The .proto files should be self documenting for the API surface which is intended to be available to API keys.
