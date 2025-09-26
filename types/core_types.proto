@@ -52,7 +52,7 @@ message SystemFeedData {
 
 message ValidateAddressRequest {
   int64 session_seq = 1;
-  int64 currency_seq = 2;
+  recrypt.Currency currency_seq = 2;
   int32 network_identifier = 3;
   string address = 4; // Minimum 8 characters, maximum 128 characters.
 }
@@ -63,7 +63,7 @@ message ValidateAddressResponse {
 
 message AllocateDepositAddressRequest {
   int64 session_seq = 1;
-  int64 currency_seq = 2;
+  recrypt.Currency currency_seq = 2;
 }
 
 message AllocateDepositAddressResponse {
@@ -71,7 +71,7 @@ message AllocateDepositAddressResponse {
 
 message GetDepositAddressesRequest {
   int64 session_seq = 1;
-  int64 currency_seq = 2;
+  recrypt.Currency currency_seq = 2;
 }
 
 message GetDepositAddressesResponse {
@@ -92,7 +92,7 @@ message GetDepositsReceivedResponse {
 }
 
 message GetDepositsReceivedEntry {
-  int64 currency_seq = 1;
+  recrypt.Currency currency_seq = 1;
   string value = 2; // Decimal
   // td_id has the following format for each currency:
   // BTC/LTC/BCH/DOGE: [block-hash]-[transaction hash]-[output index]
@@ -116,7 +116,7 @@ message GetBalancesResponse {
 }
 
 message GetBalancesEntry {
-  int64 currency_seq = 1;
+  recrypt.Currency currency_seq = 1;
   string balance = 2; // Decimal
 }
 
@@ -133,7 +133,7 @@ message MaintenanceCheckResponse {
 
 message GetTransactionsRequest {
   int64 session_seq = 1;
-  repeated int64 currency_seqs = 2; // Optional extra filter. Empty means all currencies.
+  repeated recrypt.Currency currency_seqs = 2; // Optional extra filter. Empty means all currencies.
   google.protobuf.Timestamp start_tstamp = 3; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
   google.protobuf.Timestamp end_tstamp = 4; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
 }
@@ -147,7 +147,7 @@ message GetTransactionsResponse {
 
 message GetTransactionsEntry {
   int64 seq = 1;
-  int64 currency_seq = 2;
+  recrypt.Currency currency_seq = 2;
   int32 type = 3;
   string balance_change = 4; // Decimal
   string system_note = 5;
@@ -163,8 +163,8 @@ message GetMarketsResponse {
 
 message GetMarketsEntry {
   int64 seq = 1;
-  int64 base_currency_seq = 2;
-  int64 quote_currency_seq = 3;
+  recrypt.Currency base_currency_seq = 2;
+  recrypt.Currency quote_currency_seq = 3;
   string maker_fee_percent = 4; // Decimal
   string taker_fee_percent = 5; // Decimal
 }
