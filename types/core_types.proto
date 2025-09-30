@@ -49,6 +49,14 @@ message SystemFeedRequest {
   bool request_global_currency_data = 2;
 }
 
+message SystemFeedSubscribeRequest {
+  int64 session_seq = 1;
+  repeated int64 market_seqs = 2; // enum Markets. Maximum three markets. If require more create more API keys.
+}
+
+message SystemFeedSubscribeResponse {
+}
+
 message FeedNotification {
   int64 dedupe_seq = 1;
   string title = 2;
@@ -91,13 +99,6 @@ message SystemFeedData {
   }
 }
 
-message SystemFeedSubscribeRequest {
-  int64 session_seq = 1;
-  repeated int64 market_seqs = 2; // enum Markets. Maximum three markets. If require more create more API keys.
-}
-
-message SystemFeedSubscribeResponse {
-}
 
 message ValidateAddressRequest {
   int64 session_seq = 1;
