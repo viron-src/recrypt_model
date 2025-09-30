@@ -21,6 +21,8 @@ service Core {
   // Adjust the live market data a SystemFeed RPC stream will return.
   // You can call this on an existing session multiple times that already has a SystemFeed running.
   // All sessions running a SystemFeed rpc (above) will start returning altered market data shortly after.
+  // NOTE: Calling SystemFeedSubscribe will push down latest state snapshot for all requested markets,
+  // and then only send incremental changes thereafter.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
