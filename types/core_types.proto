@@ -55,6 +55,8 @@ message SystemFeedSubscribeRequest {
 }
 
 message SystemFeedSubscribeResponse {
+  repeated int64 subscribed_market_seqs = 1; // enum Markets. List of markets subscribed to.
+  repeated int64 unsubscribed_market_seqs = 2; // enum Markets. List of markets that was just unsubscribed from.
 }
 
 message FeedNotification {
