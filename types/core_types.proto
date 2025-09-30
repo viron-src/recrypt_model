@@ -91,6 +91,14 @@ message SystemFeedData {
   }
 }
 
+message SystemFeedSubscribeRequest {
+  int64 session_seq = 1;
+  repeated int64 market_seqs = 2; // enum Markets. Maximum three markets. If require more create more API keys.
+}
+
+message SystemFeedSubscribeResponse {
+}
+
 message ValidateAddressRequest {
   int64 session_seq = 1;
   int64 currency_seq = 2; // enum Currency

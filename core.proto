@@ -12,11 +12,19 @@ service Core {
   // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address except for native mobile sessions.
   // API Key RPC - API key associated with the account.
 
-  // Internal: Undocumented.
+  // Used by frontend and API clients for receiving a live market data stream.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
-  // [X]         [X]                  [ ]
+  // [X]         [X]                  [X]
   rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
+
+  // Adjust the live market data a SystemFeed RPC stream will return.
+  // You can call this on an existing session multiple times that already has a SystemFeed running.
+  // All sessions running a SystemFeed rpc (above) will start returning altered market data shortly after.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc SystemFeedSubscribe (types.SystemFeedSubscribeRequest) returns (types.SystemFeedSubscribeResponse) {}
 
   // Used for determining latency.
   //////------------------------------------------/-//
