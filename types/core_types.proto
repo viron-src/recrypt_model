@@ -59,6 +59,7 @@ message SystemFeedSubscribeResponse {
   repeated int64 unsubscribed_market_seqs = 2; // enum Markets. List of markets that was just unsubscribed from.
 }
 
+// --- BEGIN SYSTEM FEED MESSAGE TYPES
 message FeedNotification {
   int64 dedupe_seq = 1;
   string title = 2;
@@ -90,6 +91,46 @@ message DepositDeleted {
   string tx_id = 1;
 }
 
+// MarketState is pushed through during:
+// 1. New SystemFeed connection, and associated API key was already was subscribed to certain markets.
+// 2. SystemFeedSubscribe was just called on the same API key.
+// 3. Database failover occurred and new whole state needed to be pushed.
+// In the event this message comes through, make sure to clear out existing in-memory order book data.
+message MarketState {
+  int64 market_seq = 1;
+  repeated MarketOrderBookAdded order_book = 2; // ALL buy/sell orders
+  repeated MarketMatch recent_matches = 3; // Most recent 50 settled trades.
+  repeated MarketPrice price = 4; // The latest price as part of this state.
+}
+
+message MarketOrderBookAdded {
+  int64 market_seq = 1;
+  int64 order_book_seq = 2;
+  string price = 3; // Decimal
+  string amount = 4; // Decimal
+  bool buy = 5;
+}
+
+message MarketOrderBookRemoved {
+  int64 market_seq = 1;
+  int64 order_book_seq = 2;
+}
+
+message MarketMatch {
+  int64 market_seq = 1;
+  int64 match_seq = 2;
+  string price = 3; // Decimal
+  string amount = 4; // Decimal
+  bool buy = 5;
+  google.protobuf.Timestamp tstamp = 6;
+}
+
+message MarketPrice {
+  int64 market_seq = 1;
+  string market_price = 2;
+  int64 epoch_second = 3;
+}
+
 message SystemFeedData {
   oneof message {
     google.protobuf.Timestamp ping = 1;
@@ -98,9 +139,15 @@ message SystemFeedData {
     GlobalCurrencyData global_currency_data = 4;
     GetDepositsReceivedEntry deposit_received = 5;
     DepositDeleted deposit_deleted = 6;
+
+    MarketState market_state = 7; // Refer to comment above MarketState type.
+    MarketOrderBookAdded market_order_added = 8; // Send for every order added for all subscribed markets.
+    MarketOrderBookRemoved market_order_removed = 9; // Sent for every order removed for all subscribed markets.
+    MarketMatch market_match = 10; // Sent every match for all subscribed markets.
+    MarketPrice market_price = 11; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
   }
 }
-
+// END SYSTEM FEED MESSAGE TYPES ---
 
 message ValidateAddressRequest {
   int64 session_seq = 1;
