@@ -266,6 +266,7 @@ message GetMarketsEntry {
   int64 quote_currency_seq = 3; // enum Currency
   string maker_fee_percent = 4; // Decimal
   string taker_fee_percent = 5; // Decimal
+  repeated string depth_aggs = 6; // Decimal
 }
 
 message OrderRequest {
