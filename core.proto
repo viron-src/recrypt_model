@@ -12,19 +12,19 @@ service Core {
   // Client Session Key RPC - Front-end session key. Source client IP address must be equal issuance client IP address except for native mobile sessions.
   // API Key RPC - API key associated with the account.
 
-  // Used by frontend and API clients for receiving a live market data stream.
+  // Used by frontend and API clients for receiving system events stream and live market data stream.
   // If the associated session or API key has subscribed to market data, an initial snapshot will be returned then incremental changes.
-  // Refer to SystemFeedSubscribe and core_types.proto SystemFeedData trading event types.
+  // Refer to SystemFeedSubscribe below on how to subscribe to market data events.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [X]
   rpc SystemFeed (types.SystemFeedRequest) returns (stream types.SystemFeedData) {}
 
   // Adjust the live market data a SystemFeed RPC stream will return.
-  // You can call this on an existing session multiple times that already has a SystemFeed running.
-  // All sessions running a SystemFeed rpc (above) will start returning altered market data shortly after.
-  // NOTE: Calling SystemFeedSubscribe will push down latest state snapshot for all requested markets on any active applicable SystemFeed's,
-  // and then only send incremental changes thereafter.
+  // You can call this on an existing session or API key multiple times that already has a SystemFeed running.
+  // All sessions running a SystemFeed rpc (above) will start returning requested market data shortly after as a stream.
+  // NOTE: Calling SystemFeedSubscribe will push down latest state snapshot for all requested markets on any active live streaming SystemFeed's,
+  // and then only send incremental changes thereafter, even if the same markets were requested.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
