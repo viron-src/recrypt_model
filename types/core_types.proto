@@ -132,6 +132,11 @@ message MarketPrice {
   int64 epoch_second = 3;
 }
 
+message FeedSessionInfo {
+  int64 anon_seq = 1;
+  string anon_key = 2;
+}
+
 message SystemFeedData {
   oneof message {
     google.protobuf.Timestamp ping = 1;
@@ -146,6 +151,8 @@ message SystemFeedData {
     MarketOrderBookRemoved market_order_removed = 9; // Sent for every order removed for all subscribed markets.
     MarketMatch market_match = 10; // Sent every match for all subscribed markets.
     MarketPrice market_price = 11; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
+
+    FeedSessionInfo session_info = 12; // This is only returned for anonymous system feed connections.
   }
 }
 // END SYSTEM FEED MESSAGE TYPES ---
