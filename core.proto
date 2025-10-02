@@ -27,7 +27,7 @@ service Core {
   // and then only send incremental changes thereafter, even if the same markets were requested.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X] (Readonly)
+  // [X]         [X]                  [X] (Readonly)
   rpc SystemFeedSubscribe (types.SystemFeedSubscribeRequest) returns (types.SystemFeedSubscribeResponse) {}
 
   // Used for determining latency.
