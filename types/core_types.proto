@@ -108,7 +108,7 @@ message MarketOrderBookAdded {
   int64 market_seq = 1;
   int64 order_book_seq = 2;
   string price = 3; // Decimal
-  string amount = 4; // Decimal
+  string quantity = 4; // Decimal
   int32 side = 5; // enum OrderSide
 }
 
@@ -121,7 +121,7 @@ message MarketMatch {
   int64 market_seq = 1;
   int64 match_seq = 2;
   string price = 3; // Decimal
-  string amount = 4; // Decimal
+  string quantity = 4; // Decimal
   int32 side = 5; // enum OrderSide
   google.protobuf.Timestamp tstamp = 6;
 }
