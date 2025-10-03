@@ -283,7 +283,7 @@ message OrderRequest {
   int32 side = 3; // enum OrderSide
   int32 type = 4; // enum OrderType
   optional int32 time_in_force = 5; // enum OrderTimeInForce
-  string quantity = 6; // Decimal
+  optional string quantity = 6; // Decimal
   optional string price = 7; // Decimal
   optional string quote_order_quantity = 8; // Decimal
 }
