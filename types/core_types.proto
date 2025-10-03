@@ -128,7 +128,7 @@ message MarketMatch {
 
 message MarketPrice {
   int64 market_seq = 1;
-  string market_price = 2;
+  string price = 2; // Decimal
   int64 epoch_second = 3;
 }
 
