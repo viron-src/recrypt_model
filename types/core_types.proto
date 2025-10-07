@@ -302,23 +302,23 @@ message OrderResponse {
   repeated OrderFill fills = 3;
 }
 
-message OrderCancelRequest {
+message CancelOrderRequest {
   int64 market_seq = 1; // enum Market
   int64 order_book_seq = 2;
 }
 
-message OrderCancelResponse {
+message CancelOrderResponse {
 }
 
-message OrderListRequest {
+message ListOrdersRequest {
   int64 market_seq = 1; // enum Market
 }
 
-message OrderListEntry {
-  int64 order_book_seq = 1;
-  // TODO - more detail here...
+message ListOrdersResponse {
+  repeated ListOrdersEntry orders = 1;
 }
 
-message OrderListResponse {
-  repeated OrderListEntry orders = 1;
+message ListOrdersEntry {
+  int64 order_book_seq = 1;
+  // TODO - more detail here...
 }

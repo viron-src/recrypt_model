@@ -98,11 +98,11 @@ service Core {
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Write-enabled)
-  rpc CancelOrder (types.OrderCancelRequest) returns (types.OrderCancelResponse) {}
+  rpc CancelOrder (types.CancelOrderRequest) returns (types.CancelOrderResponse) {}
 
   // List all orders on a market.
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X]
-  rpc ListOrders (types.OrderListRequest) returns (types.OrderListResponse) {}
+  rpc ListOrders (types.ListOrdersRequest) returns (types.ListOrdersResponse) {}
 }
