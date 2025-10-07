@@ -301,3 +301,24 @@ message OrderResponse {
   int32 status = 2; // enum OrderStatus
   repeated OrderFill fills = 3;
 }
+
+message OrderCancelRequest {
+  int64 market_seq = 1; // enum Market
+  int64 order_book_seq = 2;
+}
+
+message OrderCancelResponse {
+}
+
+message OrderListRequest {
+  int64 market_seq = 1; // enum Market
+}
+
+message OrderListEntry {
+  int64 order_book_seq = 1;
+  // TODO - more detail here...
+}
+
+message OrderListResponse {
+  repeated OrderListEntry orders = 1;
+}
