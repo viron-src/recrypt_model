@@ -303,15 +303,17 @@ message OrderResponse {
 }
 
 message CancelOrderRequest {
-  int64 market_seq = 1; // enum Market
-  int64 order_book_seq = 2;
+  int64 session_seq = 1;
+  int64 market_seq = 2; // enum Market
+  int64 order_book_seq = 3;
 }
 
 message CancelOrderResponse {
 }
 
 message ListOrdersRequest {
-  int64 market_seq = 1; // enum Market
+  int64 session_seq = 1;
+  int64 market_seq = 2; // enum Market
 }
 
 message ListOrdersResponse {
