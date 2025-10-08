@@ -112,6 +112,13 @@ message MarketOrderBookAdded {
   int32 side = 5; // enum OrderSide
 }
 
+// Occurs when an order gets partially fulfilled.
+message MarketOrderBookAdjusted {
+  int64 market_seq = 1;
+  int64 order_book_seq = 2;
+  string quantity = 3; // Decimal
+}
+
 message MarketOrderBookRemoved {
   int64 market_seq = 1;
   int64 order_book_seq = 2;
@@ -148,11 +155,12 @@ message SystemFeedData {
 
     MarketState market_state = 7; // Refer to comment above MarketState type.
     MarketOrderBookAdded market_order_book_added = 8; // Send for every order added for all subscribed markets.
-    MarketOrderBookRemoved market_order_book_removed = 9; // Sent for every order removed for all subscribed markets.
-    MarketMatch market_match = 10; // Sent every match for all subscribed markets.
-    MarketPrice market_price = 11; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
+    MarketOrderBookAdjusted market_order_book_adjusted = 9; // Send for every order added for all subscribed markets.
+    MarketOrderBookRemoved market_order_book_removed = 10; // Sent for every order removed for all subscribed markets.
+    MarketMatch market_match = 11; // Sent every match for all subscribed markets.
+    MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
-    AnonFeedSessionInfo anon_feed_session_info = 12; // This is only returned for anonymous system feed connections.
+    AnonFeedSessionInfo anon_feed_session_info = 13; // This is only returned for anonymous system feed connections.
   }
 }
 // END SYSTEM FEED MESSAGE TYPES ---
