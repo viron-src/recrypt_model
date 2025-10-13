@@ -89,6 +89,7 @@ service Core {
   rpc GetMarkets (types.GetMarketsRequest) returns (types.GetMarketsResponse) {}
 
   // Places an order for execution by the matching engine.
+  // Market orders can partially be filled and succeed if there is not enough liquidity. This implies the whole order book gets consumed given enough quantity.
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Write-enabled)
