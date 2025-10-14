@@ -109,7 +109,7 @@ message MarketOrderBookAdded {
   int64 order_book_seq = 2;
   string price = 3; // Decimal
   string quantity = 4; // Decimal
-  int32 side = 5; // enum OrderSide
+  OrderSide side = 5;
 }
 
 // Occurs when an order gets partially fulfilled.
@@ -129,7 +129,7 @@ message MarketMatch {
   int64 match_seq = 2;
   string price = 3; // Decimal
   string quantity = 4; // Decimal
-  int32 side = 5; // enum OrderSide
+  OrderSide side = 5;
   google.protobuf.Timestamp tstamp = 6;
 }
 
@@ -288,9 +288,9 @@ message GetMarketsEntry {
 message OrderRequest {
   int64 session_seq = 1;
   int64 market_seq = 2; // enum Market
-  int32 side = 3; // enum OrderSide
-  int32 type = 4; // enum OrderType
-  optional int32 time_in_force = 5; // enum OrderTimeInForce
+  OrderSide side = 3;
+  OrderType type = 4;
+  optional OrderTimeInForce time_in_force = 5;
   optional string quantity = 6; // Decimal
   optional string price = 7; // Decimal
   optional string quote_order_quantity = 8; // Decimal
@@ -306,7 +306,7 @@ message OrderFill {
 
 message OrderResponse {
   int64 order_id = 1;
-  int32 status = 2; // enum OrderStatus
+  OrderStatus status = 2;
   repeated OrderFill fills = 3;
 }
 
