@@ -223,6 +223,7 @@ message GetDepositsReceivedEntry {
 
 message GetBalancesRequest {
   int64 session_seq = 1;
+  bool exclude_order_book = 2;
 }
 
 message GetBalancesResponse {
