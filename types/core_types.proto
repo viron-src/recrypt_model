@@ -3,9 +3,9 @@ syntax = "proto3";
 package recrypt.types;
 import "google/protobuf/timestamp.proto";
 
-// These enum types aren't actually used by directly at all other than for providing constant values for two reasons.
-// 1. enums are 32-bit while recrypt sequences/indices are 64-bit in nature.
-// 2. the open/close behaviour and irregularities between language implementations make it difficult: https://protobuf.dev/programming-guides/enum/
+// The enum Currency and enum Market aren't used directly
+// since they are 64-bit keys in the backend and protobuf enums are 32-bit.
+// This is documented accordingly next to the field when values within those enums can be specified.
 
 // Use the enum list here for integers that refer to the enum name as a comment.
 // currency_seq int64 values
