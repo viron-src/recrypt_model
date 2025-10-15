@@ -90,6 +90,7 @@ service Core {
 
   // Places an order for execution by the matching engine.
   // Market orders can partially be filled and succeed if there is not enough liquidity. This implies the whole order book gets consumed given enough quantity.
+  // If there is no liquidity on the market side being purchased then the response will still succeed with no changes.
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Write-enabled)
