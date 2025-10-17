@@ -94,7 +94,7 @@ service Core {
   // If there is no liquidity on the market side being purchased then the response will still be gRPC OK with no changes (OrderStatus will be REJECTED).
   // MARKER ORDER ERRORS:
   // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'
-  // Too many decimal places:     gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-decimal-places' OR '|order-price-decimal-places' OR '|order-quote-order-quantity-decimal-places'
+  // Too many decimal places:     gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-decimal-places' OR '|order-quote-order-quantity-decimal-places'
   // Disabled or unknown market:  gRPC error code INVALID_ARGUMENT with trailing message '|unknown-market'
   // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'
   // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'
