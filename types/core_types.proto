@@ -310,7 +310,7 @@ message OrderResponse {
   OrderStatus status = 1;
   repeated OrderFill fills = 2;
   optional int64 order_id = 3; // Only provided for limit orders that did not get fully filled.
-  optional int64 transaction_id = 4; // Only provided for market orders.
+  optional int64 transaction_id = 4; // Only provided for market orders and status was not REJECTED.
 }
 
 message CancelOrderRequest {
