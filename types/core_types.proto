@@ -307,9 +307,10 @@ message OrderFill {
 }
 
 message OrderResponse {
-  int64 order_id = 1;
-  OrderStatus status = 2;
-  repeated OrderFill fills = 3;
+  OrderStatus status = 1;
+  repeated OrderFill fills = 2;
+  optional int64 order_id = 3; // Only provided for limit orders that did not get fully filled.
+  optional int64 transaction_id = 4; // Only provided for market orders.
 }
 
 message CancelOrderRequest {
