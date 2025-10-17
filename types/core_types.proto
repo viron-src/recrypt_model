@@ -303,7 +303,8 @@ message OrderFill {
   string quantity = 2; // Decimal
   string commission = 3; // Decimal
   int64 commission_currency_seq = 4; // enum Currency
-  int64 trade_seq = 5;
+  int64 order_seq = 5; // The pre-existing order seq that was matched against.
+  int64 trade_seq = 6; // New match detail record seq.
 }
 
 message OrderResponse {
