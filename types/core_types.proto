@@ -42,6 +42,7 @@ enum OrderStatus {
   FILLED = 0;
   PARTIALLY_FILLED = 1;
   PENDING = 2;
+  REJECTED = 3;
 }
 
 message SystemFeedRequest {
