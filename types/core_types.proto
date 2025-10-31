@@ -326,13 +326,35 @@ message CancelOrderResponse {
 message ListOrdersRequest {
   int64 session_seq = 1;
   int64 market_seq = 2; // enum Market
+  // At-least one of the following four booleans must be true.
+  bool list_open_orders = 3; // List any open pending LIMIT orders.
+  bool list_order_history_filled = 4; // List any filled LIMIT orders. Only the last 3 days of orders.
+  bool list_order_history_cancelled = 5; // List any cancelled LIMIT orders. Only the last 3 days of orders.
+  bool list_trades = 6; // List all completed trades, whether via LIMIT or MARKET execution. Only the last 3 days of trades.
 }
 
 message ListOrdersResponse {
-  repeated ListOrdersEntry orders = 1;
+  oneof item {
+    ListOrderEntry order = 1;
+    ListTradeEntry trade = 2;
+  }
 }
 
-message ListOrdersEntry {
+message ListOrderEntry {
   int64 order_book_seq = 1;
-  // TODO - more detail here...
+  OrderSide side = 2;
+  string original_quantity = 3;
+  string remaining_quantity = 4;
+  string price = 5;
+  OrderStatus status = 6;
+}
+
+message ListTradeEntry {
+  int64 trade_seq = 1;
+  optional int64 order_book_seq = 2; // Provided only if OrderType is LIMIT and order did not become FILLED at initial execution.
+  OrderSide side = 3;
+  OrderType type = 4;
+  string quantity = 5;
+  string price = 6;
+  google.protobuf.Timestamp tstamp = 7;
 }

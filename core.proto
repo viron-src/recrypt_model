@@ -123,7 +123,8 @@ service Core {
   // [ ]         [X]                  [X] (Write-enabled)
   rpc CancelOrder (types.CancelOrderRequest) returns (types.CancelOrderResponse) {}
 
-  // List all orders on a market.
+  // List all orders or trades on a market.
+  // Will always be sorted by timestamp (newest first). Refer to ListOrdersRequest in core_types.proto.
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X]
