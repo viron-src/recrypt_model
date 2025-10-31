@@ -334,13 +334,17 @@ message ListOrdersRequest {
 }
 
 message ListOrdersResponse {
+  repeated ListOrdersEntry entry = 1;
+}
+
+message ListOrdersEntry {
   oneof item {
-    ListOrderEntry order = 1;
-    ListTradeEntry trade = 2;
+    ListOrderItem order = 1;
+    ListTradeItem trade = 2;
   }
 }
 
-message ListOrderEntry {
+message ListOrderItem {
   int64 order_book_seq = 1;
   OrderSide side = 2;
   string original_quantity = 3;
@@ -349,7 +353,7 @@ message ListOrderEntry {
   OrderStatus status = 6;
 }
 
-message ListTradeEntry {
+message ListTradeItem {
   int64 trade_seq = 1;
   optional int64 order_book_seq = 2; // Provided only if OrderType is LIMIT and order did not become FILLED at initial execution.
   OrderSide side = 3;
