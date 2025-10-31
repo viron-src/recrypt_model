@@ -39,10 +39,18 @@ enum OrderTimeInForce {
 }
 // int32 values
 enum OrderStatus {
-  FILLED = 0;
-  PARTIALLY_FILLED = 1;
-  PENDING = 2;
-  REJECTED = 3;
+  STATUS_FILLED = 0;
+  STATUS_PARTIALLY_FILLED = 1;
+  STATUS_PENDING = 2;
+  STATUS_REJECTED = 3;
+}
+// int32 values
+enum OrderState {
+  STATE_OPEN = 0;
+  STATE_PARTIALLY_FILLED = 1;
+  STATE_FILLED = 2;
+  STATE_CANCELLED = 3;
+  STATE_EXPIRED = 4;
 }
 
 message SystemFeedRequest {
