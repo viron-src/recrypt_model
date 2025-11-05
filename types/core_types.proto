@@ -52,6 +52,11 @@ enum OrderState {
   STATE_CANCELLED = 3;
   STATE_EXPIRED = 4;
 }
+// int32 values
+enum OrderRole {
+  ROLE_MAKER = 0;
+  ROLE_TAKER = 1;
+}
 
 message SystemFeedRequest {
   int64 session_seq = 1;
@@ -367,7 +372,10 @@ message ListTradeItem {
   optional int64 order_book_seq = 2; // Provided only if OrderType is LIMIT and order did not become FILLED at initial execution.
   OrderSide side = 3;
   OrderType type = 4;
-  string quantity = 5;
+  OrderRole role = 5;
   string price = 6;
-  google.protobuf.Timestamp tstamp = 7;
+  string quantity = 7;
+  string commission = 8; // Decimal
+  int64 commission_currency_seq = 9; // enum Currency
+  google.protobuf.Timestamp tstamp = 10;
 }
