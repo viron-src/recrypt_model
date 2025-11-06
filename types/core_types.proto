@@ -344,6 +344,8 @@ message ListOrdersRequest {
   bool list_order_history_filled = 4; // List any filled LIMIT orders. Only the last 3 days of orders.
   bool list_order_history_cancelled = 5; // List any cancelled LIMIT orders. Only the last 3 days of orders.
   bool list_trades = 6; // List all completed trades, whether via LIMIT or MARKET execution. Only the last 3 days of trades.
+  google.protobuf.Timestamp start_tstamp = 7; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
+  google.protobuf.Timestamp end_tstamp = 8; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
 }
 
 message ListOrdersResponse {
