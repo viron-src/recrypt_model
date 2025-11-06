@@ -350,6 +350,7 @@ message ListOrdersRequest {
 
 message ListOrdersResponse {
   repeated ListOrdersEntry entry = 1;
+  int32 total_rows = 2; // Can be greater than 100. Represents all row count given current filters/paging.
 }
 
 message ListOrdersEntry {
