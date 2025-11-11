@@ -106,6 +106,10 @@ message DepositDeleted {
   string tx_id = 1;
 }
 
+message BalanceAdjusted {
+  int64 currency_seq = 1;
+}
+
 // MarketState is pushed through during:
 // 1. New SystemFeed connection, and associated API key was already was subscribed to certain markets.
 // 2. SystemFeedSubscribe was just called on the same API key.
@@ -156,10 +160,6 @@ message MarketPrice {
 message AnonFeedSessionInfo {
   int64 anon_seq = 1;
   string anon_key = 2;
-}
-
-message BalanceAdjusted {
-  int64 currency_seq = 1;
 }
 
 message SystemFeedData {
