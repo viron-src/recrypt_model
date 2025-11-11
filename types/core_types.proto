@@ -158,6 +158,10 @@ message AnonFeedSessionInfo {
   string anon_key = 2;
 }
 
+message BalanceAdjusted {
+  int64 currency_seq = 1;
+}
+
 message SystemFeedData {
   oneof message {
     google.protobuf.Timestamp ping = 1;
@@ -175,6 +179,8 @@ message SystemFeedData {
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
     AnonFeedSessionInfo anon_feed_session_info = 13; // This is only returned for anonymous system feed connections.
+
+    BalanceAdjusted balance_adjusted = 14;
   }
 }
 // END SYSTEM FEED MESSAGE TYPES ---
