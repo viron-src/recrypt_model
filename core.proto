@@ -129,4 +129,10 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X]
   rpc ListOrders (types.ListOrdersRequest) returns (types.ListOrdersResponse) {}
+
+  // Get fee structure of all available markets.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
+  rpc GetFeeStructure (types.GetFeeStructureRequest) returns (types.GetFeeStructureResponse) {}
 }
