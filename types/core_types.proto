@@ -400,16 +400,16 @@ message GetFeeStructureRequest {
 }
 
 message GetFeeStructureResponse {
-  repeated GetFeeStructureEntry markets = 1;
+  repeated GetFeeStructureMarketEntry markets = 1;
+  repeated GetFeeStructureDiscountEntry discounts = 2;
 }
 
-message GetFeeStructureEntry {
+message GetFeeStructureMarketEntry {
   int64 seq = 1; // enum Market
   int64 base_currency_seq = 2; // enum Currency
   int64 quote_currency_seq = 3; // enum Currency
   string maker_fee_percent = 4; // Decimal
   string taker_fee_percent = 5; // Decimal
-  repeated GetFeeStructureDiscountEntry discounts = 6;
 }
 
 message GetFeeStructureDiscountEntry {
