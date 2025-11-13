@@ -320,6 +320,7 @@ message OrderRequest {
   optional string quantity = 6; // Decimal
   optional string price = 7; // Decimal
   optional string quote_order_quantity = 8; // Decimal
+  optional string idempotency_key = 9; // Refer to readme.md.
 }
 
 message OrderFill {

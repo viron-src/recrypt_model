@@ -39,11 +39,13 @@ Any other gRPC error that is not documented below or on the request itself shoul
 
 ## Idempotency
 
-If you require idempotency on any request that involves the transfer or trade of currency then an idempotency UUID field should be available for that request as documented in the protobuf files.
+If you require idempotency on any request that involves the transfer or trade of currency then an 'idempotency_key' UUID/GUID field will be optionally available for that request as documented in the protobuf files.
 
-Randomly generate this field for each request you want idempotent and re-use the field for the request if it failed with an undocumented error. Once the first gRPC OK response is received this means the transaction has successfully occurred and further requests with the same idempotency UUID will return OK - performing no further changes.
+Randomly generate this field for each request you want idempotent and re-use the field for the request if it failed with an undocumented or unexpected error. Once the first gRPC status OK or gRPC status ALREADY_EXISTS response is received this means the request/transaction has successfully occurred once and further requests with the same idempotency key UUID will return ALREADY_EXISTS - performing no further changes.
 
-Changing the payload of the request but keeping the idempotent field the same is undefined behaviour; there is no guarantee to know which payload was processed by the system. Make sure to change idempotent field when changing any other field in the RPC. 
+Changing the payload of the request but keeping the idempotency key field the same is undefined behaviour; there is no guarantee to know which payload was processed by the system. Make sure to change idempotency key field when changing any other field in the RPC.
+
+The 'idempotency_key' field is global across the whole system and across all RPC's that support it, even between different accounts.
 
 ## Success failures
 
