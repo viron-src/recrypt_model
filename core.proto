@@ -105,8 +105,8 @@ service Core {
   // Limit orders can be either partially or fully filled at initial execution.
   // Any PARTIALLY_FILLED or PENDING orders can be listed via ListOrders API.
   // When time in force is GOOD_TIL_CANCELLED then: will insert into the order book if any quantities were not immediately matched.
-  // When time in force is FILL_OR_KILL then: failure to fill the entire order will abort and return STATUS_REJECTED.
-  // When time in force is IMMEDIATE_OR_CANCEL then: failure to fill any portion of the order will abort and return STATUS_REJECTED.
+  // When time in force is FILL_OR_KILL then: failure to fill the entire order will abort and return gRPC OK with OrderStatus STATUS_REJECTED.
+  // When time in force is IMMEDIATE_OR_CANCEL then: failure to fill any portion of the order will abort return gRPC OK with OrderStatus STATUS_REJECTED.
   // [-----LIMIT ORDER ERRORS------]:
   // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'. Typically occurs when trying to sell more quantity than available.
   // Too many decimal places:     gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-decimal-places' OR '|order-quote-order-quantity-decimal-places'. Validation check.
