@@ -92,7 +92,7 @@ service Core {
   //
   // [-----MARKET ORDER DOCUMENTATION-----]:
   // Market orders can partially be filled and be gRPC OK if there is not enough liquidity (OrderStatus will be PARTIALLY_FILLED).
-  // If there is no liquidity on the market side being purchased then the response will still be gRPC OK with no changes (OrderStatus will be REJECTED).
+  // If there is no liquidity on the market side being purchased then the response will still be gRPC OK with no changes (OrderStatus will be STATUS_REJECTED).
   // If the user runs out of quote funds while performing a buy the execution will still go through with all quote funds consumed (OrderStatus will be PARTIALLY_FILLED).
   // [-----MARKER ORDER ERRORS-----]:
   // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'. Typically occurs when trying to sell more quantity than available.
@@ -107,7 +107,6 @@ service Core {
   // When time in force is GOOD_TIL_CANCELLED then: will insert into the order book if any quantities were not immediately matched.
   // When time in force is FILL_OR_KILL then: failure to fill the entire order will abort and return gRPC OK with OrderStatus STATUS_REJECTED.
   // When time in force is IMMEDIATE_OR_CANCEL then: failure to fill any portion of the order will abort return gRPC OK with OrderStatus STATUS_REJECTED, otherwise any unfilled portion will be immediately cancelled.
-  // STATUS_REJECTED responses will not be visible in ListOrder history as no changes would have been performed.
   // [-----LIMIT ORDER ERRORS------]:
   // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'. Typically occurs when trying to sell more quantity than available.
   // Too many decimal places:     gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-decimal-places' OR '|order-quote-order-quantity-decimal-places'. Validation check.
@@ -115,6 +114,7 @@ service Core {
   // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check.
   // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check.
   //
+  // STATUS_REJECTED responses will not be visible in ListOrder history as no changes would have been performed.
   //////---
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Write-enabled)
