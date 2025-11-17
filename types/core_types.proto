@@ -373,15 +373,16 @@ message ListOrdersEntry {
 }
 
 message ListOrderItem {
-  int64 order_book_seq = 1;
-  OrderSide side = 2;
-  string original_quantity = 3;
-  string remaining_quantity = 4; // original_quantity minus remaining_quantity to get the filled quantity.
-  string price = 5;
-  OrderState state = 6;
-  google.protobuf.Timestamp created_tstamp = 7;
-  google.protobuf.Timestamp closed_tstamp = 8; // Market orders always have closed_tstamp equal to created_stamp. closed_tstamp can be null if the order is still open on the order book.
-  google.protobuf.Timestamp tstamp = 9; // This is the sorted field. For open orders this is created_tstamp, otherwise this would be closed_tstamp.
+  int64 seq = 1;
+  optional int64 order_book_seq = 2; // typically null for market orders, or limit orders which got fully filled at initial execution and did not require insertion into the order book.
+  OrderSide side = 3;
+  string original_quantity = 4;
+  string remaining_quantity = 5; // original_quantity minus remaining_quantity to get the filled quantity.
+  string price = 6;
+  OrderState state = 7;
+  google.protobuf.Timestamp created_tstamp = 8;
+  google.protobuf.Timestamp closed_tstamp = 9; // Market orders always have closed_tstamp equal to created_stamp. closed_tstamp can be null if the order is still open on the order book.
+  google.protobuf.Timestamp tstamp = 10; // This is the sorted field. For open orders this is created_tstamp, otherwise this would be closed_tstamp.
 }
 
 message ListTradeItem {
