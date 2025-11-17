@@ -373,8 +373,8 @@ message ListOrdersEntry {
 
 message ListOrderItem {
   int64 order_seq = 1; // Unique globally for all order requests.
-  OrderSide side = 2;
-  OrderType type = 3;
+  OrderType type = 2;
+  OrderSide side = 3;
   string original_quantity = 4;
   string remaining_quantity = 5; // original_quantity minus remaining_quantity to get the filled quantity.
   string price = 6;
