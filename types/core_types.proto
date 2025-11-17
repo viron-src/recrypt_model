@@ -376,7 +376,7 @@ message ListOrderItem {
   int64 order_book_seq = 1;
   OrderSide side = 2;
   string original_quantity = 3;
-  string remaining_quantity = 4;
+  string remaining_quantity = 4; // original_quantity minus remaining_quantity to get the filled quantity.
   string price = 5;
   OrderState state = 6;
   google.protobuf.Timestamp created_tstamp = 7;
