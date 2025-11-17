@@ -328,15 +328,14 @@ message OrderFill {
   string quantity = 2; // Decimal
   string commission = 3; // Decimal
   int64 commission_currency_seq = 4; // enum Currency
-  int64 order_seq = 5; // The pre-existing order seq that was matched against.
-  int64 trade_seq = 6; // New match detail record seq.
+  int64 order_seq = 5; // The pre-existing order seq that was matched against. This may refer to an order ID from another account.
+  int64 trade_seq = 6; // New match detail record seq. Refer to ListTradeItem.seq.
 }
 
 message OrderResponse {
   OrderStatus status = 1;
-  repeated OrderFill fills = 2;
-  optional int64 order_seq = 3; // Only provided for limit orders that did not get fully filled during initial execution.
-  optional int64 transaction_seq = 4; // Only provided for market orders and status was not REJECTED.
+  optional int64 order_seq = 2; // Provided when OrderStatus is not STATUS_REJECTED.
+  repeated OrderFill fills = 3;
 }
 
 message CancelOrderRequest {
