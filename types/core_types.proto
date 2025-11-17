@@ -373,8 +373,7 @@ message ListOrdersEntry {
 }
 
 message ListOrderItem {
-  int64 seq = 1;
-  optional int64 order_book_seq = 2; // typically null for market orders, or limit orders which got fully filled at initial execution and did not require insertion into the order book.
+  int64 order_seq = 1; // Unique globally for all order requests.
   OrderSide side = 3;
   string original_quantity = 4;
   string remaining_quantity = 5; // original_quantity minus remaining_quantity to get the filled quantity.
@@ -386,16 +385,16 @@ message ListOrderItem {
 }
 
 message ListTradeItem {
-  int64 trade_seq = 1;
-  optional int64 order_book_seq = 2; // Provided only if OrderType is LIMIT and order did not become FILLED at initial execution.
-  OrderSide side = 3;
-  OrderType type = 4;
-  OrderRole role = 5;
-  string price = 6;
-  string quantity = 7;
-  string commission = 8; // Decimal
-  int64 commission_currency_seq = 9; // enum Currency
-  google.protobuf.Timestamp tstamp = 10;
+  int64 trade_seq = 1; // Unique globally for all trades/matches.
+  int64 order_seq = 3; // Refers to ListOrderItem.seq.
+  OrderSide side = 4;
+  OrderType type = 5;
+  OrderRole role = 6;
+  string price = 7;
+  string quantity = 8;
+  string commission = 9; // Decimal
+  int64 commission_currency_seq = 10; // enum Currency
+  google.protobuf.Timestamp tstamp = 11;
 }
 
 message GetFeeStructureRequest {
