@@ -380,8 +380,8 @@ message ListOrderItem {
   string price = 5;
   OrderState state = 6;
   google.protobuf.Timestamp created_tstamp = 7;
-  google.protobuf.Timestamp closed_tstamp = 8; // Will be null if state is OPEN or PARTIALLY_FILLED
-  google.protobuf.Timestamp tstamp = 9; // This is the sorted field. For open orders (OPEN or PARTIALLY_FILLED) this is created_tstamp, otherwise this would be closed_tstamp.
+  google.protobuf.Timestamp closed_tstamp = 8; // Market orders always have closed_tstamp = created_stamp. closed_tstamp can be null if the order is still open on the order book.
+  google.protobuf.Timestamp tstamp = 9; // This is the sorted field. For open orders this is created_tstamp, otherwise this would be closed_tstamp.
 }
 
 message ListTradeItem {
