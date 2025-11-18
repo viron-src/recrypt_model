@@ -341,7 +341,7 @@ message OrderResponse {
 message CancelOrderRequest {
   int64 session_seq = 1;
   int64 market_seq = 2; // enum Market
-  int64 order_book_seq = 3;
+  int64 order_seq = 3;
 }
 
 message CancelOrderResponse {
