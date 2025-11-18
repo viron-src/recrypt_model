@@ -377,7 +377,7 @@ message ListOrderItem {
   OrderType type = 3;
   string original_quantity = 4;
   string remaining_quantity = 5; // original_quantity minus remaining_quantity to get the filled quantity.
-  optional string price = 6; // Price will be null/unspecified in some cases, e.g. market order.
+  optional string price = 6; // Price will be null/unspecified in some cases, e.g. market order. Refer to trade list for the prices that were matched.
   OrderState state = 7;
   google.protobuf.Timestamp created_tstamp = 8;
   google.protobuf.Timestamp closed_tstamp = 9; // Market orders always have closed_tstamp equal to created_stamp. closed_tstamp can be null if the order is still open on the order book.
