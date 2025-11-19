@@ -351,15 +351,17 @@ message ListOrdersRequest {
   int64 session_seq = 1;
   int64 market_seq = 2; // enum Market
   // At-least one of the following four booleans must be true.
-  bool list_open_orders = 3; // List any open pending LIMIT orders.
-  bool list_order_history_filled = 4; // List any filled LIMIT orders. Only the last 3 days of orders.
-  bool list_order_history_cancelled = 5; // List any cancelled LIMIT orders. Only the last 3 days of orders.
-  bool list_trades = 6; // List all completed trades, whether via LIMIT or MARKET execution. Only the last 3 days of trades.
+  bool list_open_orders = 3; // List any open pending orders.
+  bool list_order_history_filled = 4; // List any filled or partially filled orders.
+  bool list_order_history_cancelled = 5; // List any cancelled or expired orders.
+  bool list_trades = 6; // List all completed trades. There can be multiple trades from a single order.
   google.protobuf.Timestamp start_tstamp = 7; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
   google.protobuf.Timestamp end_tstamp = 8; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
 }
 
 message ListOrdersResponse {
+  // Only a maximum of 100 rows will be returned here. Refer to ListOrdersRequest start_tstamp and end_tstamp.
+  // If returned rows is equal to 100, consider setting end_tstamp to the last entry to page backwards in time.
   repeated ListOrdersEntry entry = 1;
   int32 total_rows = 2; // Can be greater than 100. Represents all row count given current filters/paging.
 }
