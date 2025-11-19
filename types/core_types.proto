@@ -386,15 +386,15 @@ message ListOrderItem {
 
 message ListTradeItem {
   int64 trade_seq = 1; // Unique globally for all trades/matches.
-  int64 order_seq = 3; // Refers to ListOrderItem.seq.
-  OrderSide side = 4;
-  OrderType type = 5;
-  OrderRole role = 6;
-  string price = 7;
-  string quantity = 8;
-  string commission = 9; // Decimal
-  int64 commission_currency_seq = 10; // enum Currency
-  google.protobuf.Timestamp tstamp = 11;
+  int64 order_seq = 2; // Refers to ListOrderItem.seq.
+  OrderSide side = 3;
+  OrderType type = 4;
+  OrderRole role = 5;
+  string price = 6;
+  string quantity = 7;
+  string commission = 8; // Decimal
+  int64 commission_currency_seq = 9; // enum Currency
+  google.protobuf.Timestamp tstamp = 10;
 }
 
 message GetFeeStructureRequest {
