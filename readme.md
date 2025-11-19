@@ -1,7 +1,7 @@
 **Viron Recrypt Model Repository**
 =======
 
-Public gRPC model used for interfacing with the Recrypt exchange.
+Public gRPC model used for interfacing with the Recrypt bank.
 
 The public native gRPC API is available at: https://api.recrypt.net:8443
 
@@ -49,7 +49,7 @@ The 'idempotency_key' field is global across the whole system and across all RPC
 
 ## Success failures
 
-In extremely rare cases its possible a transaction is executed within the exchange system but a gRPC error (such as UNAVAILABLE with "vgw-db" as the message mentioned above or DEADLINE_EXCEEDED) is returned to your client.
+In extremely rare cases its possible a transaction is executed within the bank system but a gRPC error (such as UNAVAILABLE with "vgw-db" as the message mentioned above or DEADLINE_EXCEEDED) is returned to your client.
 
 Make use of idempotency fields mentioned above when interfacing with the system to provide highly available state synchronization between integration points.
 
