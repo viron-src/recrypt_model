@@ -432,5 +432,5 @@ message GetUnallocatedBalancesResponse {
 
 message GetUnallocatedBalancesEntry {
   int64 currency_seq = 1; // enum Currency
-  int64 unallocated_available = 2; // Decimal
+  string unallocated_available = 2; // Decimal
 }
