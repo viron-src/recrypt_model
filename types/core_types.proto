@@ -427,6 +427,7 @@ message GetUnallocatedBalancesRequest {
 
 message GetUnallocatedBalancesResponse {
   repeated GetUnallocatedBalancesEntry balances = 1;
+  google.protobuf.Timestamp tstamp = 2; // Evaluated 'as at' timestamp.
 }
 
 message GetUnallocatedBalancesEntry {
