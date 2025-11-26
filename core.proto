@@ -138,4 +138,11 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
   rpc GetFeeStructure (types.GetFeeStructureRequest) returns (types.GetFeeStructureResponse) {}
+
+  // Get unallocated balances for given currencies that are ready to be used for order submission. Typically used by the market screen but can be useful via API key too.
+  // As it currently stands, unallocated means any balances not assigned to an open order on any order book, but this may change in time.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc GetUnallocatedBalances (types.GetUnallocatedBalancesRequest) returns (types.GetUnallocatedBalancesResponse) {}
 }

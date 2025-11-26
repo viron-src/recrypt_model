@@ -419,3 +419,17 @@ message GetFeeStructureDiscountEntry {
   string volume = 1; // Decimal
   string extra_discount_percent = 2; // Decimal
 }
+
+message GetUnallocatedBalancesRequest {
+  int64 session_seq = 1;
+  repeated int64 currency_seqs = 2;
+}
+
+message GetUnallocatedBalancesResponse {
+  repeated GetUnallocatedBalancesEntry balances = 1;
+}
+
+message GetUnallocatedBalancesEntry {
+  int64 currency_seq = 1; // enum Currency
+  int64 unallocated_available = 2; // Decimal
+}
