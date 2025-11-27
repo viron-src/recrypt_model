@@ -115,6 +115,11 @@ message OrderMatched {
   int64 currency_seq_2 = 2;
 }
 
+message OrderCancelled {
+  int64 currency_seq_1 = 1;
+  int64 currency_seq_2 = 2;
+}
+
 // MarketState is pushed through during:
 // 1. New SystemFeed connection, and associated API key was already was subscribed to certain markets.
 // 2. SystemFeedSubscribe was just called on the same API key.
@@ -177,6 +182,7 @@ message SystemFeedData {
     DepositDeleted deposit_deleted = 6;
     BalanceAdjusted balance_adjusted = 14;
     OrderMatched order_matched = 15;
+    OrderCancelled order_cancelled = 16;
 
     MarketState market_state = 7; // Refer to comment above MarketState type.
     MarketOrderBookAdded market_order_book_added = 8; // Send for every order added for all subscribed markets.
