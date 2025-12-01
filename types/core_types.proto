@@ -113,6 +113,7 @@ message BalanceAdjusted {
 message OrderMatched {
   int64 currency_seq_1 = 1;
   int64 currency_seq_2 = 2;
+  MarketMatch match = 3; // Used for live updating trade history tab.
 }
 
 message OrderCancelled {
