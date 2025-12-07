@@ -115,6 +115,8 @@ message OrderMatched {
   int64 currency_seq_2 = 2;
   int64 market_seq = 3;
   ListTradeItem trade = 4; // Used for live updating trade history tab.
+  ListOrderItem order_update = 5; // null if order_closed is specified.
+  ListOrderItem order_closed = 6; // null if order was not closed.
 }
 
 message OrderCancelled {
