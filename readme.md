@@ -79,7 +79,7 @@ Log into the website and respond to the provided question to stop this error.
 
 Attempting to perform a transaction that exceeds account transaction limits will result in gRPC error FAILED_PRECONDITION. Make a ticket to support to increase your limit.
 
-## Maintenance Mode
+## Maintenance mode
 
 When the system is in maintenance, every gRPC response will become UNAVAILABLE with no error message contained.
 
