@@ -19,7 +19,7 @@ Attempting to use an IP restricted API key from an IP address that is not author
 
 API keys do not expire. You are responsible for rotating keys yourself based on your own security requirements.
 
-## API Limits
+## API limits
 
 There are currently no API limits, however please be aware of some edge cases when interacting with this API; see below.
 
