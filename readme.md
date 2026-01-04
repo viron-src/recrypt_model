@@ -29,9 +29,9 @@ NOTE: This will likely change in the future.
 
 If you receive gRPC UNAVAILABLE error with "vgw-db" as the message then this error can be retried. This is the only error that should be retried.
 
-This error can occasionally occur during maintenance. Implement exponential backoff upto 3 minutes; check the website for any system notifications if still occurring after this.
+This error can occasionally occur during rollover maintenance. Implement exponential backoff upto 3 minutes; check the website for any system notifications if still occurring after this.
 
-We guarantee no downtime on all days except on Tuesdays at 18:00 to 18:30 AM UTC - during this time this error may appear and should last no longer than 1 minute. If this is not acceptable clear your market orders before during this interval.
+Rollover maintenance is scheduled for Tuesdays at 18:00 to 18:30 AM UTC - during this time this error may appear and should last no longer than 1 minute. If this is not acceptable clear your market orders before during this interval.
 
 If there is no downtime notice banner on the website a few days prior this means there is no downtime scheduled for that week. You can additionally use Core::MaintenanceCheck RPC to automate this.
 
@@ -79,9 +79,25 @@ Log into the website and respond to the provided question to stop this error.
 
 Attempting to perform a transaction that exceeds account transaction limits will result in gRPC error FAILED_PRECONDITION. Make a ticket to support to increase your limit.
 
-## Maintenance mode
+## Maintenance Mode vs Rollover Maintenance
 
-When the system is in maintenance, every gRPC response will become UNAVAILABLE with no error message contained.
+When the system is in rollover maintenance, there should only be downtime of 1 minute maximum. Refer to Retry on failure section above.
+
+When the system is in maintenance mode. Every gRPC response will become UNAVAILABLE with no error message contained. Maintenance mode can last for extended period of time.
+
+## Entire Code Table Lookup
+
+| gRPC Code         | Message Contents | Quick Detail                                               |
+|-------------------|------------------|------------------------------------------------------------|
+| UNAUTHENTICATED   | Session key      | Check API key and restricted IP                            |
+| UNAVAILABLE       | vgw-db           | Rolling maintenance, retry request                         |
+| ALREADY_EXISTS    | *                | idempotency_key already used, no changes made              |
+| DEADLINE_EXCEEDED | vgw-db           | Transaction timed out                                      |
+| NOT_FOUND         | *                | API was deprecated and removed                             |
+| UNIMPLEMENTED     | *                | API not implemented                                        |
+| CANCELLED         | *                | Maintance mode, refer to X account https://x.com/RecryptCS |
+
+\* = any contents
 
 ## Enjoy
 
