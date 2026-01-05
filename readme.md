@@ -83,19 +83,19 @@ Attempting to perform a transaction that exceeds account transaction limits will
 
 When the system is in rollover maintenance, there should only be downtime of 1 minute maximum. Refer to Retry on failure section above.
 
-When the system is in maintenance mode. Every gRPC response will become ABORTED with no error message contained. Maintenance mode can last for extended period of time. See https://x.com/RecryptCS for updates.
+When the system is in maintenance mode. Every gRPC response will become UNAVAILABLE with no error message contained. Maintenance mode can last for extended period of time. See https://x.com/RecryptCS for updates.
 
 ## Entire Code Table Lookup
 
 | gRPC Code           | Message Contents | Quick Detail                                               |
 |---------------------|------------------|------------------------------------------------------------|
 | UNAUTHENTICATED     | Session key      | Check API key and restricted IP                            |
-| UNAVAILABLE         | vgw-db           | Rolling maintenance, retry request                         |
+| UNAVAILABLE         | vgw-db           | Rolling maintenance, retry request soon                    |
+| UNAVAILABLE         | *                | Maintance mode, refer to X account https://x.com/RecryptCS |
 | ALREADY_EXISTS      | *                | idempotency_key already used, no changes made              |
 | DEADLINE_EXCEEDED   | vgw-db           | Transaction timed out                                      |
 | NOT_FOUND           | *                | API was deprecated and removed                             |
 | UNIMPLEMENTED       | *                | API not implemented                                        |
-| ABORTED             | *                | Maintance mode, refer to X account https://x.com/RecryptCS |
 | FAILED_PRECONDITION | *                | See Compliance questioning section above                   |
 
 \* = any contents
