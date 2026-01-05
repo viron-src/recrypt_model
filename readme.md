@@ -71,7 +71,7 @@ If a pre-existing API becomes deprecated and then removed it will start returnin
 
 ## Compliance questioning
 
-As part of regulatory compliance in rare cases if the system requires more user information before permitting a transaction then the UI will prompt for such information. In the case where an API is being used a gRPC error of ABORTED will be returned.
+As part of regulatory compliance in rare cases if the system requires more user information before permitting a transaction then the UI will prompt for such information. In the case where an API is being used a gRPC error of FAILED_PRECONDITION will be returned.
 
 Log into the website and respond to the provided question to stop this error.
 
@@ -83,19 +83,20 @@ Attempting to perform a transaction that exceeds account transaction limits will
 
 When the system is in rollover maintenance, there should only be downtime of 1 minute maximum. Refer to Retry on failure section above.
 
-When the system is in maintenance mode. Every gRPC response will become UNAVAILABLE with no error message contained. Maintenance mode can last for extended period of time.
+When the system is in maintenance mode. Every gRPC response will become ABORTED with no error message contained. Maintenance mode can last for extended period of time. See https://x.com/RecryptCS for updates.
 
 ## Entire Code Table Lookup
 
-| gRPC Code         | Message Contents | Quick Detail                                               |
-|-------------------|------------------|------------------------------------------------------------|
-| UNAUTHENTICATED   | Session key      | Check API key and restricted IP                            |
-| UNAVAILABLE       | vgw-db           | Rolling maintenance, retry request                         |
-| ALREADY_EXISTS    | *                | idempotency_key already used, no changes made              |
-| DEADLINE_EXCEEDED | vgw-db           | Transaction timed out                                      |
-| NOT_FOUND         | *                | API was deprecated and removed                             |
-| UNIMPLEMENTED     | *                | API not implemented                                        |
-| CANCELLED         | *                | Maintance mode, refer to X account https://x.com/RecryptCS |
+| gRPC Code           | Message Contents | Quick Detail                                               |
+|---------------------|------------------|------------------------------------------------------------|
+| UNAUTHENTICATED     | Session key      | Check API key and restricted IP                            |
+| UNAVAILABLE         | vgw-db           | Rolling maintenance, retry request                         |
+| ALREADY_EXISTS      | *                | idempotency_key already used, no changes made              |
+| DEADLINE_EXCEEDED   | vgw-db           | Transaction timed out                                      |
+| NOT_FOUND           | *                | API was deprecated and removed                             |
+| UNIMPLEMENTED       | *                | API not implemented                                        |
+| ABORTED             | *                | Maintance mode, refer to X account https://x.com/RecryptCS |
+| FAILED_PRECONDITION | *                | See Compliance questioning section above                   |
 
 \* = any contents
 
