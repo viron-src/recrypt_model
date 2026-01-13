@@ -67,7 +67,6 @@ message SystemFeedSubscribeRequest {
   int64 session_seq = 1;
   repeated int64 market_seqs = 2; // enum Markets. Maximum three markets. If require more create more API keys.
   bool anonymous = 3; // Unless you're trying to reverse engineer how the frontend works set this as false always.
-  string anonymous_key = 4; // Unless you're trying to reverse engineer how the frontend works set this as empty always.
 }
 
 message SystemFeedSubscribeResponse {
