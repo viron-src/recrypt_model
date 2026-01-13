@@ -67,6 +67,7 @@ message SystemFeedSubscribeRequest {
   int64 session_seq = 1;
   repeated int64 market_seqs = 2; // enum Markets. Maximum three markets. If require more create more API keys.
   bool anonymous = 3; // Unless you're trying to reverse engineer how the frontend works set this as false always.
+  string anonymous_key = 4; // Unless you're trying to reverse engineer how the frontend works set this as empty always.
 }
 
 message SystemFeedSubscribeResponse {
@@ -207,7 +208,7 @@ message SystemFeedData {
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
     // This is returned for anonymous system feed connections. Refer to SystemFeedSubscribe.
-    // For actual sessions using system feed this is also returned with anon_seq of zero and anon_key of empty string and can be safely ignored.
+    // For actual sessions using system feed this is also returned at the start of the stream with anon_seq of zero and anon_key of empty string and can be safely ignored.
     AnonFeedSessionInfo anon_feed_session_info = 13;
   }
 }
