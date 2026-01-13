@@ -206,7 +206,9 @@ message SystemFeedData {
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
-    AnonFeedSessionInfo anon_feed_session_info = 13; // This is only returned for anonymous system feed connections.
+    // This is returned for anonymous system feed connections. Refer to SystemFeedSubscribe.
+    // For actual sessions using system feed this is also returned with anon_seq of zero and anon_key of empty string and can be safely ignored.
+    AnonFeedSessionInfo anon_feed_session_info = 13;
   }
 }
 // END SYSTEM FEED MESSAGE TYPES ---
