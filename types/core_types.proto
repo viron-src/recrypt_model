@@ -177,7 +177,7 @@ message MarketMatch {
 
 message MarketPrice {
   int64 market_seq = 1;
-  string price = 2; // Decimal. If zero, no trades have ever occurred.
+  string price = 2; // Decimal. If zero, no trades have ever occurred on this market.
   int64 epoch_second = 3;
 }
 
