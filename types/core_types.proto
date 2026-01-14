@@ -135,9 +135,9 @@ message OrderPlaced {
 }
 
 // MarketState is pushed through during:
-// 1. New SystemFeed connection, and associated API key was already was subscribed to certain markets.
-// 2. SystemFeedSubscribe was just called on the same API key.
-// 3. Database failover occurred and new whole state needed to be pushed.
+// 1. New SystemFeed connection, and associated API key was already was subscribed to certain markets (after SubscriptionInfo).
+// 2. SystemFeedSubscribe was just called on the same API key. The state of just-subscribed markets will be re-sent.
+// 3. Database failover occurred and new whole state needed to be pushed again.
 // In the event this message comes through, make sure to clear out existing in-memory order book data.
 message MarketState {
   int64 market_seq = 1;
@@ -210,8 +210,11 @@ message SystemFeedData {
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
-    AnonFeedSessionInfo anon_feed_session_info = 13; // This is only returned at start of a anonymous system feed connections. Refer to SystemFeedSubscribe.
-    SubscriptionInfo subscription_info = 18; // This is return at start of all system feed stream (after AnonFeedSessionInfo if applicable) returning a list of markets already subscribed to.
+    // This is only returned at start of a anonymous system feed connections. Unless you're trying to reverse engineer how the frontend works ignore this message.
+    AnonFeedSessionInfo anon_feed_session_info = 13;
+    // This is return at start of all system feed stream returning a list of markets that are already subscribed to.
+    // When re-using the same API key, previously subscribed markets are persistent.
+    SubscriptionInfo subscription_info = 18;
   }
 }
 // END SYSTEM FEED MESSAGE TYPES ---
