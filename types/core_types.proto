@@ -143,6 +143,7 @@ message MarketState {
   int64 market_seq = 1;
   repeated MarketOrderBookAdded order_book = 2; // ALL buy/sell orders
   repeated MarketMatch recent_matches = 3; // Most recent 50 settled trades.
+  repeated MarketMatch recent_matches_myself = 5; // Most recent 50 settled trades (filtered by your account).
   repeated MarketPrice price = 4; // The latest price as part of this state.
 }
 
@@ -209,6 +210,7 @@ message SystemFeedData {
     MarketOrderBookRemoved market_order_book_removed = 10; // Sent for every order removed for all subscribed markets.
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
+    MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
 
     // This is only returned at start of an anonymous system feed connection. Unless you're trying to reverse engineer how the frontend works ignore this message.
     AnonFeedSessionInfo anon_feed_session_info = 13;
