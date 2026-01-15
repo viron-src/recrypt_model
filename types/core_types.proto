@@ -210,7 +210,7 @@ message SystemFeedData {
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
-    // This is only returned at start of an anonymous system feed connections. Unless you're trying to reverse engineer how the frontend works ignore this message.
+    // This is only returned at start of an anonymous system feed connection. Unless you're trying to reverse engineer how the frontend works ignore this message.
     AnonFeedSessionInfo anon_feed_session_info = 13;
     // This is return at start of all system feed stream returning a list of markets that are already subscribed to.
     SubscriptionInfo subscription_info = 18;
