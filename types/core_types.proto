@@ -135,7 +135,7 @@ message OrderPlaced {
 }
 
 // MarketState is pushed through during:
-// 1. New SystemFeed connection, and associated API key was already was subscribed to certain markets (after SubscriptionInfo).
+// 1. New SystemFeed connection and an associated API key was already was subscribed to certain markets previously.
 // 2. SystemFeedSubscribe was just called on the same API key. The state of just-subscribed markets will be re-sent.
 // 3. Database failover occurred and new whole state needed to be pushed again.
 // In the event this message comes through, make sure to clear out existing in-memory order book data.
