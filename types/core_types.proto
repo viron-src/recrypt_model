@@ -141,7 +141,7 @@ message OrderPlaced {
 // In the event this message comes through, make sure to clear out existing in-memory order book data.
 message MarketState {
   int64 market_seq = 1;
-  repeated MarketOrderBookAdded order_book = 2; // ALL buy/sell orders
+  repeated MarketOrderBookAdded order_book = 2; // ALL buy/sell orders. Order by BUY's then SELLS. Descending price for both.
   repeated MarketMatch recent_matches = 3; // Most recent 50 settled trades.
   repeated MarketMatch recent_matches_myself = 5; // Most recent 50 settled trades (filtered by your account).
   repeated MarketPrice price = 4; // The latest price as part of this state.
@@ -205,8 +205,8 @@ message SystemFeedData {
     OrderPlaced order_placed = 17;
 
     MarketState market_state = 7; // Refer to comment above MarketState type.
-    MarketOrderBookAdded market_order_book_added = 8; // Send for every order added for all subscribed markets.
-    MarketOrderBookAdjusted market_order_book_adjusted = 9; // Placeholder. Currently unused.
+    MarketOrderBookAdded market_order_book_added = 8; // Sent for every order added for all subscribed markets.
+    MarketOrderBookAdjusted market_order_book_adjusted = 9; // Sent for every order updated for all subscribed markets.
     MarketOrderBookRemoved market_order_book_removed = 10; // Sent for every order removed for all subscribed markets.
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
