@@ -209,8 +209,8 @@ message SystemFeedData {
     MarketOrderBookAdjusted market_order_book_adjusted = 9; // Send for every order added for all subscribed markets.
     MarketOrderBookRemoved market_order_book_removed = 10; // Sent for every order removed for all subscribed markets.
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
-    MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
     MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
+    MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
 
     // This is only returned at start of an anonymous system feed connection. Unless you're trying to reverse engineer how the frontend works ignore this message.
     AnonFeedSessionInfo anon_feed_session_info = 13;
