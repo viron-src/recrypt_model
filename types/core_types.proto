@@ -206,7 +206,7 @@ message SystemFeedData {
 
     MarketState market_state = 7; // Refer to comment above MarketState type.
     MarketOrderBookAdded market_order_book_added = 8; // Send for every order added for all subscribed markets.
-    MarketOrderBookAdjusted market_order_book_adjusted = 9; // Send for every order added for all subscribed markets.
+    MarketOrderBookAdjusted market_order_book_adjusted = 9; // Placeholder. Currently unused.
     MarketOrderBookRemoved market_order_book_removed = 10; // Sent for every order removed for all subscribed markets.
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
