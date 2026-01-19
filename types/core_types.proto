@@ -144,7 +144,7 @@ message MarketState {
   repeated MarketOrderBookAdded order_book = 2; // ALL buy/sell orders. Order by BUY's then SELLS. Descending price for both.
   repeated MarketMatch recent_matches = 3; // Most recent 50 settled trades.
   repeated MarketMatch recent_matches_myself = 5; // Most recent 50 settled trades (filtered by your account).
-  repeated MarketPrice price = 4; // The latest price as part of this state.
+  MarketPrice price = 4; // The latest price as part of this state.
 }
 
 message MarketOrderBookAdded {
@@ -180,6 +180,7 @@ message MarketPrice {
   int64 market_seq = 1;
   string price = 2; // Decimal. If zero, no trades have ever occurred on this market.
   int64 epoch_second = 3;
+  bool trend_up = 4;
 }
 
 message AnonFeedSessionInfo {
