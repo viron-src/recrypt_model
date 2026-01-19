@@ -221,7 +221,7 @@ message SystemFeedData {
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
-    MarketStats market_stats = 20; // Sent every minute for all subscribed markets.
+    MarketStats market_stats = 20; // Sent every 30 to 60 seconds for all subscribed markets.
 
     // This is only returned at start of an anonymous system feed connection. Unless you're trying to reverse engineer how the frontend works ignore this message.
     AnonFeedSessionInfo anon_feed_session_info = 13;
