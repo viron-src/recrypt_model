@@ -145,6 +145,7 @@ message MarketState {
   repeated MarketMatch recent_matches = 3; // Most recent 50 settled trades.
   repeated MarketMatch recent_matches_myself = 5; // Most recent 50 settled trades (filtered by your account).
   MarketPrice price = 4; // The latest price as part of this state.
+  MarketStats stats = 6;
 }
 
 message MarketOrderBookAdded {
@@ -183,6 +184,13 @@ message MarketPrice {
   bool trend_up = 4;
 }
 
+message MarketStats {
+  string hour24High = 1; // Decimal
+  string hour24Low = 2; // Decimal
+  string hour24VolBase = 3; // Decimal
+  string hour24VolQuote = 4; // Decimal
+}
+
 message AnonFeedSessionInfo {
   int64 anon_seq = 1;
   string anon_key = 2;
@@ -212,6 +220,7 @@ message SystemFeedData {
     MarketMatch market_match = 11; // Sent every match for all subscribed markets.
     MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
+    MarketStats market_stats = 20; // Sent every minute for all subscribed markets.
 
     // This is only returned at start of an anonymous system feed connection. Unless you're trying to reverse engineer how the frontend works ignore this message.
     AnonFeedSessionInfo anon_feed_session_info = 13;
