@@ -360,8 +360,8 @@ message GetMarketsEntry {
   string maker_fee_percent = 4; // Decimal
   string taker_fee_percent = 5; // Decimal
   repeated string depth_aggs = 6; // Decimal
-  string price = 7;
-  string hour24price = 8;
+  string price = 7; // Decimal
+  string hour24price = 8; // Decimal
 }
 
 message OrderRequest {
