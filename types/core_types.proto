@@ -195,6 +195,12 @@ message MarketStats {
   string min15volquote = 8; // Decimal
 }
 
+message MarketStatsMini {
+  int64 market_seq = 1;
+  string price = 2;
+  string hour24price = 3;
+}
+
 message AnonFeedSessionInfo {
   int64 anon_seq = 1;
   string anon_key = 2;
@@ -225,6 +231,7 @@ message SystemFeedData {
     MarketMatch market_match_myself = 19; // Sent every match (filtered by your account only) for all subscribed markets.
     MarketPrice market_price = 12; // Sent every price change for all subscribed markets. There can me multiple prices per epoch second.
     MarketStats market_stats = 20; // Sent every 30 to 60 seconds for all subscribed markets.
+    MarketStatsMini market_stats_mini = 21; // Unless you're trying to reverse engineer how the frontend works ignore this message.
 
     // This is only returned at start of an anonymous system feed connection. Unless you're trying to reverse engineer how the frontend works ignore this message.
     AnonFeedSessionInfo anon_feed_session_info = 13;
@@ -353,6 +360,8 @@ message GetMarketsEntry {
   string maker_fee_percent = 4; // Decimal
   string taker_fee_percent = 5; // Decimal
   repeated string depth_aggs = 6; // Decimal
+  string price = 7;
+  string hour24price = 8;
 }
 
 message OrderRequest {
