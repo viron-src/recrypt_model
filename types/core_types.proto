@@ -185,11 +185,11 @@ message MarketPrice {
 }
 
 message MarketStats {
-  string hour24Price = 1; // Decimal
-  string hour24High = 2; // Decimal
-  string hour24Low = 3; // Decimal
-  string hour24VolBase = 4; // Decimal
-  string hour24VolQuote = 5; // Decimal
+  string hour24price = 1; // Decimal
+  string hour24high = 2; // Decimal
+  string hour24low = 3; // Decimal
+  string hour24volbase = 4; // Decimal
+  string hour24volquote = 5; // Decimal
 }
 
 message AnonFeedSessionInfo {
