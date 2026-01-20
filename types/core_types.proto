@@ -191,6 +191,8 @@ message MarketStats {
   string hour24low = 4; // Decimal
   string hour24volbase = 5; // Decimal
   string hour24volquote = 6; // Decimal
+  string min15volbase = 7; // Decimal
+  string min15volquote = 8; // Decimal
 }
 
 message AnonFeedSessionInfo {
