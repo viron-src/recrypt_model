@@ -497,11 +497,11 @@ message MarketCandle {
   string low = 6; // Decimal
 }
 
-message GetCandlePricesRequest {
+message GetCandlesticksRequest {
   int64 market_seq = 1;
   int64 epoch_interval = 2; // Supported values are 604800 (1 week), 86400 (1 day), 10800 (3 hour), 3600 (1 hour), 900 (15 minute), 300 (5 minute)
 }
 
-message GetCandlePricesResponse {
+message GetCandlesticksResponse {
   repeated MarketCandle candles = 1;
 }

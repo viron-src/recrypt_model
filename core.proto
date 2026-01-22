@@ -100,6 +100,7 @@ service Core {
   // Disabled or unknown market:  gRPC error code INVALID_ARGUMENT with trailing message '|unknown-market'. Validation check.
   // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check.
   // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check.
+  // Order self:                  gRPC error code INVALID_ARGUMENT with trailing message '|order-self'. Attempt make a against itself on same account.
   //
   // [-----LIMIT ORDER DOCUMENTATION-----]:
   // Limit orders can be either partially or fully filled at initial execution.
@@ -113,6 +114,7 @@ service Core {
   // Disabled or unknown market:  gRPC error code INVALID_ARGUMENT with trailing message '|unknown-market'. Validation check.
   // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check.
   // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check.
+  // Order self:                  gRPC error code INVALID_ARGUMENT with trailing message '|order-self'. Attempt make a against itself on same account.
   //
   // STATUS_REJECTED responses will not be visible in ListOrder history as no changes would have been performed.
   //////---
@@ -146,11 +148,11 @@ service Core {
   // [ ]         [X]                  [X] (Readonly)
   rpc GetUnallocatedBalances (types.GetUnallocatedBalancesRequest) returns (types.GetUnallocatedBalancesResponse) {}
 
-  // Retrieves candle prices for the most recent 1000 candlesticks.
-  // Refer to GetCandlePricesRequest type for more information.
+  // Retrieves prices for the most recent 100 candlesticks.
+  // Refer to GetCandlesticksRequest type for more information.
   // Avoid polling this API. Use SystemFeed to hook into latest price updates and continue populating yourself.
   //////---
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
-  rpc GetCandlePrices (types.GetCandlePricesRequest) returns (types.GetCandlePricesResponse) {}
+  rpc GetCandlesticks (types.GetCandlesticksRequest) returns (types.GetCandlesticksResponse) {}
 }
