@@ -488,7 +488,7 @@ message GetUnallocatedBalancesEntry {
   string unallocated_available = 2; // Decimal
 }
 
-message MarketCandle {
+message Candlestick {
   int64 epoch_start = 1;
   int64 epoch_end = 2;
   string start = 3; // Decimal
@@ -503,5 +503,5 @@ message GetCandlesticksRequest {
 }
 
 message GetCandlesticksResponse {
-  repeated MarketCandle candles = 1;
+  repeated Candlestick candles = 1;
 }
