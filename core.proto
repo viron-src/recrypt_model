@@ -145,4 +145,12 @@ service Core {
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc GetUnallocatedBalances (types.GetUnallocatedBalancesRequest) returns (types.GetUnallocatedBalancesResponse) {}
+
+  // Retrieves candle prices for the most recent 1000 candlesticks.
+  // Refer to GetCandlePricesRequest type for more information.
+  // Avoid polling this API. Use SystemFeed to hook into latest price updates and continue populating yourself.
+  //////---
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
+  rpc GetCandlePrices (types.GetCandlePricesRequest) returns (types.GetCandlePricesResponse) {}
 }

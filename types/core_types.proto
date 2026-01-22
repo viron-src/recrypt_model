@@ -487,3 +487,21 @@ message GetUnallocatedBalancesEntry {
   int64 currency_seq = 1; // enum Currency
   string unallocated_available = 2; // Decimal
 }
+
+message MarketCandle {
+  int64 epoch_start = 1;
+  int64 epoch_end = 2;
+  string start = 3; // Decimal
+  string end = 4; // Decimal
+  string high = 5; // Decimal
+  string low = 6; // Decimal
+}
+
+message GetCandlePricesRequest {
+  int64 market_seq = 1;
+  int64 epoch_interval = 2; // Supported values are 604800 (1 week), 86400 (1 day), 10800 (3 hour), 3600 (1 hour), 900 (15 minute), 300 (5 minute)
+}
+
+message GetCandlePricesResponse {
+  repeated MarketCandle candles = 1;
+}
