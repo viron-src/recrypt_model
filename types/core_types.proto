@@ -499,7 +499,7 @@ message Candlestick {
 
 message GetCandlesticksRequest {
   int64 market_seq = 1;
-  int32 epoch_interval = 2; // Supported values are 604800 (1 week), 86400 (1 day), 10800 (3 hour), 3600 (1 hour), 900 (15 minute), 300 (5 minute)
+  int32 epoch_interval = 2; // Supported values are 604800 (1 week), 86400 (1 day), 10800 (3 hour), 3600 (1 hour), 900 (15 minute), 300 (5 minute), 1 (1 second)
 }
 
 message GetCandlesticksResponse {
