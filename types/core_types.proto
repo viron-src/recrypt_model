@@ -146,7 +146,7 @@ message MarketState {
   repeated MarketMatch recent_matches_myself = 5; // Most recent 50 settled trades (filtered by your account).
   MarketPrice price = 4; // The latest price as part of this state.
   MarketStats stats = 6;
-  repeated Candlestick candles = 7; // This will only be provided for front-end feeds. It will be empty during API usage. Refer to GetCandlesticks API then use pushed price updates.
+  repeated Candlestick candles = 7; // This will only be provided for front-end feeds at 1 second interval. It will be empty during API usage. Refer to GetCandlesticks API then use pushed price updates.
 }
 
 message MarketOrderBookAdded {
