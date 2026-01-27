@@ -171,7 +171,7 @@ message MarketOrderBookRemoved {
 
 message MarketMatch {
   int64 market_seq = 1;
-  int64 match_seq = 2; // Since 27 Jan 2026: this is transaction seq and can be multiple instances grouped by price and time.
+  int64 match_seq = 2; // Since 27 Jan 2026: this is transaction seq and can be multiple of same sequence grouped by price and time.
   string price = 3; // Decimal
   string quantity = 4; // Decimal
   OrderSide side = 5;
