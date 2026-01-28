@@ -174,7 +174,7 @@ message MarketMatch {
   int64 match_seq = 2; // Since 27 Jan 2026: this is transaction seq and can be multiple of same sequence grouped by price and time.
   string price = 3; // Decimal
   string quantity = 4; // Decimal
-  OrderSide side = 5;
+  OrderSide side = 5; // The side of the order of which the match was triggered.
   google.protobuf.Timestamp tstamp = 6;
 }
 
