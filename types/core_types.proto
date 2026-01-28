@@ -176,6 +176,7 @@ message MarketMatch {
   string quantity = 4; // Decimal
   OrderSide side = 5; // The side of the order of which the match was triggered.
   google.protobuf.Timestamp tstamp = 6;
+  bool trend_up = 7; // Relative to previous match price.
 }
 
 message MarketPrice {
