@@ -135,8 +135,7 @@ message OrderPlaced {
 }
 
 message FeeDiscountUpdate {
-  string maker_fee_percent_discount = 1;
-  string taker_fee_percent_discount = 2;
+  string fee_percent_discount = 1;
 }
 
 // MarketState is pushed through during:
