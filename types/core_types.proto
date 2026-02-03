@@ -444,6 +444,7 @@ message ListOrderItem {
   google.protobuf.Timestamp created_tstamp = 8;
   google.protobuf.Timestamp closed_tstamp = 9; // Market orders always have closed_tstamp equal to created_stamp. closed_tstamp can be null if the order is still open on the order book.
   google.protobuf.Timestamp tstamp = 10; // This is the sorted field. For open orders this is created_tstamp, otherwise this would be closed_tstamp.
+  bool quantity_is_quote_currency = 11; // This will be true for example when placing a market order with quote_order_quantity rather than quantity. original_quantity and remaining_quantity will represent quote currency rather than base currency with also potentially different decimal places.
 }
 
 message ListTradeItem {
