@@ -89,31 +89,47 @@ service Core {
   rpc GetMarkets (types.GetMarketsRequest) returns (types.GetMarketsResponse) {}
 
   // Places an order for execution by the matching engine.
-  //
   // [-----MARKET ORDER DOCUMENTATION-----]:
+  // KEY:
+  // quantity = base (i.e. bitcoins)
+  // quote_order_quantity = quote (i.e. dollars)
+  //
   // Market orders can partially be filled and be gRPC OK if there is not enough liquidity (OrderStatus will be PARTIALLY_FILLED).
-  // If there is no liquidity on the market side being purchased then the response will still be gRPC OK with no changes (OrderStatus will be STATUS_REJECTED).
-  // If the user runs out of quote funds while performing a buy the execution will still go through with all quote funds consumed (OrderStatus will be PARTIALLY_FILLED).
+  //
+  // If there is no liquidity on the market side being purchased then the response will still be gRPC OK with transaction aborted
+  //     (OrderStatus will be STATUS_REJECTED). No liquidity means zero liquidity available at all. If matched against at-least other
+  //     order then OrderStatus will be either PARTIALLY_FILLED or FILLED.
+  //
+  // NOTE: Performing a market buy with quantity rather than quote_order_quantity then results are subject to current market state.
+  //     If the user runs out of quote funds while performing this then all quote funds are consumed and final expected quantity
+  //     may not be reached (OrderStatus will be PARTIALLY_FILLED).
+  //
+  // NOTE: Performing a market sell with quote_order_quantity rather than quantity then results are subject to current market state.
+  //     If the user runs out of quantity funds while performing this then all quantity funds are consumed and final expected
+  //     quote may not be reached (OrderStatus will be PARTIALLY_FILLED).
+  //
   // [-----MARKER ORDER ERRORS-----]:
-  // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'. Typically occurs when trying to sell more quantity than available.
+  // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'. Typically occurs when trying to buy/sell more than available in account funding.
   // Too many decimal places:     gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-decimal-places' OR '|order-quote-order-quantity-decimal-places'. Validation check.
   // Disabled or unknown market:  gRPC error code INVALID_ARGUMENT with trailing message '|unknown-market'. Validation check.
-  // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check.
-  // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check.
+  // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check (i.e. need more bitcoin amount).
+  // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check (i.e. need more dollar value).
   // Order self:                  gRPC error code INVALID_ARGUMENT with trailing message '|order-self'. Attempt make a against itself on same account.
   //
   // [-----LIMIT ORDER DOCUMENTATION-----]:
   // Limit orders can be either partially or fully filled at initial execution.
-  // Any PARTIALLY_FILLED or PENDING orders can be listed via ListOrders API.
-  // When time in force is GOOD_TIL_CANCELLED then: will insert into the order book if any quantities were not immediately matched.
+  // Any PARTIALLY_FILLED or PENDING orders can then be listed via ListOrders API.
+  //
+  // When time in force is GOOD_TIL_CANCELLED then: will insert into the order book if any quantities were not immediately matched (this is the standard limit order time in force).
   // When time in force is FILL_OR_KILL then: failure to fill the entire order will abort and return gRPC OK with OrderStatus STATUS_REJECTED.
   // When time in force is IMMEDIATE_OR_CANCEL then: failure to fill any portion of the order will abort return gRPC OK with OrderStatus STATUS_REJECTED, otherwise any unfilled portion will be immediately cancelled.
+  //
   // [-----LIMIT ORDER ERRORS------]:
   // Not enough money:            gRPC error code INVALID_ARGUMENT with trailing message '|insufficient-funds'. Typically occurs when trying to sell more quantity than available.
   // Too many decimal places:     gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-decimal-places' OR '|order-quote-order-quantity-decimal-places'. Validation check.
   // Disabled or unknown market:  gRPC error code INVALID_ARGUMENT with trailing message '|unknown-market'. Validation check.
-  // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check.
-  // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check.
+  // Base quantity to small:      gRPC error code INVALID_ARGUMENT with trailing message '|order-quantity-too-small'. Min value size check (i.e. need more bitcoin amount).
+  // Notional quantity too small: gRPC error code INVALID_ARGUMENT with trailing message '|order-notional-too-small'. Min value size check (i.e. need more dollar value).
   // Order self:                  gRPC error code INVALID_ARGUMENT with trailing message '|order-self'. Attempt make a against itself on same account.
   //
   // STATUS_REJECTED responses will not be visible in ListOrder history as no changes would have been performed.

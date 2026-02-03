@@ -376,10 +376,10 @@ message OrderRequest {
   int64 market_seq = 2; // enum Market
   OrderSide side = 3;
   OrderType type = 4;
-  optional OrderTimeInForce time_in_force = 5;
-  optional string quantity = 6; // Decimal
-  optional string price = 7; // Decimal
-  optional string quote_order_quantity = 8; // Decimal
+  optional OrderTimeInForce time_in_force = 5; // Required for OrderType limit orders, otherwise leave unset.
+  optional string quantity = 6; // Decimal // Required for OrderType limit orders. For OrderType market orders either quantity or quote_order_quantity must be set.
+  optional string price = 7; // Decimal // Required for OrderType limit orders otherwise leave unset.
+  optional string quote_order_quantity = 8; // Decimal. // Leave unset for OrderType limit orders. For OrderType market orders either quantity or quote_order_quantity must be set.
   optional string idempotency_key = 9; // Refer to readme.md.
 }
 
