@@ -381,7 +381,6 @@ message OrderRequest {
   optional string price = 7; // Decimal // Required for OrderType limit orders otherwise leave unset.
   optional string quote_order_quantity = 8; // Decimal. // Leave unset for OrderType limit orders. For OrderType market orders either quantity or quote_order_quantity must be set.
   optional string idempotency_key = 9; // Refer to readme.md.
-  optional int64 auth_seq = 10; // Only used by front-end, leave as unspecified;
 }
 
 message OrderFill {
