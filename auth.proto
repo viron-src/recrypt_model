@@ -190,4 +190,17 @@ service Auth {
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc DeleteApiKey(types.DeleteApiKeyRequest) returns (types.DeleteApiKeyResponse) {}
+
+  // OrderAuthenticate and OrderAuthenticateValidate must be called first before calling Order in the Core services API.
+  // Internal: Undocumented.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [ ]
+  rpc OrderAuthenticate(types.OrderAuthenticateRequest) returns (types.OrderAuthenticateResponse) {}
+
+  // Internal: Undocumented. reCAPTCHA protected.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [ ]
+  rpc OrderAuthenticateValidate(types.OrderAuthenticateValidateRequest) returns (types.OrderAuthenticateValidateResponse) {}
 }

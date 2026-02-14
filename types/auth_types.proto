@@ -336,6 +336,30 @@ message ConfigureApiKeysAuthenticateValidateResponse {
   // Set-Cookie in the header/metadata with the authkey if success.
 }
 
+message OrderAuthenticateRequest {
+  int64 session_seq = 1;
+}
+
+message OrderAuthenticateResponse {
+  int64 auth_seq = 1;
+  bool password = 2;
+  bool email = 3;
+  bool totp = 4;
+}
+
+message OrderAuthenticateValidateRequest {
+  int64 session_seq = 1;
+  int64 auth_seq = 2;
+  string recaptcha_token = 3;
+  string password = 4;
+  string email_code = 5;
+  string totp_code = 6;
+}
+
+message OrderAuthenticateValidateResponse {
+  // Set-Cookie in the header/metadata with the authkey if success.
+}
+
 message GenerateApiKeyRequest {
   int64 session_seq = 1;
   int64 auth_seq = 2;
