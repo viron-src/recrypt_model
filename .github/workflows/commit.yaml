@@ -2,6 +2,8 @@
 
 name: Commit
 
+permissions: {}
+
 on:
   push:
     branches: [main]
