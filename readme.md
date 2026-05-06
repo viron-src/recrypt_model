@@ -1,7 +1,7 @@
 **Viron Recrypt Model Repository**
 =======
 
-Public gRPC model used for interfacing with the Recrypt bank.
+Public gRPC model used for interfacing with Recrypt.
 
 The public native gRPC API is available at: https://api.recrypt.net:8443
 
