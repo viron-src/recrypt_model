@@ -335,6 +335,7 @@ message GetTransactionsRequest {
   repeated int64 currency_seqs = 2; // enum Currency. Optional extra filter. Empty means all currencies.
   google.protobuf.Timestamp start_tstamp = 3; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
   google.protobuf.Timestamp end_tstamp = 4; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
+  bool using_frontend_total_cache = 5; // Only applicable when 'start_tstamp' and 'end_tstamp' are both specified. Can speed up the operation, total_rows will become 0.
 }
 
 message GetTransactionsResponse {
@@ -418,6 +419,7 @@ message ListOrdersRequest {
   bool list_trades = 6; // List all completed trades. There can be multiple trades from a single order.
   google.protobuf.Timestamp start_tstamp = 7; // PAGING SUPPORT: Can be null. If provided 'end_tstamp' must also be provided.
   google.protobuf.Timestamp end_tstamp = 8; // PAGING SUPPORT: Can be null. Both null if showing latest data, otherwise showing rows before 'end_tstamp'.
+  bool using_frontend_total_cache = 9; // Only applicable when 'start_tstamp' and 'end_tstamp' are both specified. Can speed up the operation, total_rows will become 0.
 }
 
 message ListOrdersResponse {
