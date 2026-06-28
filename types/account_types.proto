@@ -15,6 +15,7 @@ message CreateAccountRequest {
 message CreateAccountResponse {
   bool email_sent = 1; // If false then email address is already in use or email verification already pending.
   string normalized_email = 2;
+  bool locked = 3;
 }
 
 message CreateErrorReportRequest {
