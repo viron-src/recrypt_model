@@ -64,4 +64,11 @@ service Account {
   // Anonymous | Client Session Key | API Key
   // [X]         [X]                  [ ]
   rpc AddTicketMessage (types.AddTicketMessageRequest) returns (types.AddTicketMessageResponse) {}
+
+  // Internal: Undocumented. reCAPTCHA protected.
+  // This will be deleted after apple approves production app.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [X]         [ ]                  [ ]
+  rpc AddPublicTestflight (types.AddPublicTestflightRequest) returns (types.AddPublicTestflightResponse) {}
 }
