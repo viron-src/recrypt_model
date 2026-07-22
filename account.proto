@@ -70,5 +70,5 @@ service Account {
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [X]         [ ]                  [ ]
-  rpc AddPublicTestflight (types.AddPublicTestflightRequest) returns (types.AddPublicTestflightResponse) {}
+  rpc AddPublicTestFlight (types.AddPublicTestFlightRequest) returns (types.AddPublicTestFightResponse) {}
 }
