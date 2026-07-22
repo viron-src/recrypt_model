@@ -9,6 +9,8 @@ Optionally you can use gRPC Web API at https://api.recrypt.net if running an int
 
 Visit https://recrypt.net/api to manage your API keys. This page also documents how to authenticate in the next section.
 
+_Usage of 'VGW' means Viron Gateway here._
+
 ## Authenticating
 
 Use the API key generated at https://recrypt.net/api to authenticate by inserting gRPC metadata to the request with the key 'apikey' and value of the API key contents that you copied: https://grpc.io/docs/guides/metadata/
@@ -49,7 +51,7 @@ The 'idempotency_key' field is global across the whole system and across all RPC
 
 ## Success failures
 
-In extremely rare cases its possible a transaction is executed within the bank system but a gRPC error (such as UNAVAILABLE with "vgw-db" as the message mentioned above or DEADLINE_EXCEEDED) is returned to your client.
+In extremely rare cases its possible a transaction is executed within the system but a gRPC error (such as UNAVAILABLE with "vgw-db" as the message mentioned above or DEADLINE_EXCEEDED) is returned to your client.
 
 Make use of idempotency fields mentioned above when interfacing with the system to provide highly available state synchronization between integration points.
 
