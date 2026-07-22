@@ -54,7 +54,6 @@ message ConsumeTokenRequest {
   string token_key = 2; // Must be a 64-character hexadecimal string.
   oneof op {
     string password = 3; // Min 8 characters. Max 64 characters. Requires zxcvbn score of atleast 3.
-    bool test_flight_request = 4;
   }
 }
 
