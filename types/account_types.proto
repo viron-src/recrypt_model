@@ -129,13 +129,16 @@ message AddTicketMessageRequest {
   repeated TicketAttachment attachments = 6; // Maximum 5 items.
 }
 
-/* This will be deleted after apple approves production app */
-message AddPublicTestflightRequest {
-  string email = 1; // Must be valid email. Min 3 characters. Max 254 characters. This string will be normalized.
-  string recaptcha_token = 2; /* This is provided by the recaptcha frontend .*/
+message AddTicketMessageResponse {
 }
 
-/* This will be deleted after apple approves production app */
+// This will be deleted after apple approves production app
+message AddPublicTestflightRequest {
+  string email = 1; // Must be valid email. Min 3 characters. Max 254 characters. This string will be normalized.
+  string recaptcha_token = 2; // This is provided by the recaptcha frontend
+}
+
+// This will be deleted after apple approves production app
 message AddPublicTestflightResponse {
   string normalized_email = 1;
 }
