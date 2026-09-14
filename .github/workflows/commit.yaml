@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-26.04 # GitHub Hosted Job Runner
     name: Commit
     environment: discord-hook
     steps:
