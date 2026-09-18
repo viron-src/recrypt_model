@@ -259,6 +259,16 @@ message ValidateAddressResponse {
   string balance = 1; // Will be "" if not applicable.
 }
 
+message ValidateInternalTransferRequest {
+  int64 session_seq = 1;
+  string email = 2; // Must be valid email and not same email as current account. Min 3 characters. Max 254 characters.
+}
+
+message ValidateInternalTransferResponse {
+  int64 target_account_seq = 1;
+  repeated GetBalancesEntry balances = 2;
+}
+
 message AllocateDepositAddressRequest {
   int64 session_seq = 1;
   int64 currency_seq = 2; // enum Currency

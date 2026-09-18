@@ -42,6 +42,12 @@ service Core {
   // [ ]         [X]                  [X] (Readonly)
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
 
+  // Returns if a provided email is valid for internal transfer.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc ValidateInternalTransfer (types.ValidateInternalTransferRequest) returns (types.ValidateInternalTransferResponse) {}
+
   // Allocates a new deposit address for the given currency.
   // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be more than 1 depending on the internal configuration.
   //////------------------------------------------/-//
