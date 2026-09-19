@@ -203,4 +203,17 @@ service Auth {
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [ ]
   rpc OrderAuthenticateValidate(types.OrderAuthenticateValidateRequest) returns (types.OrderAuthenticateValidateResponse) {}
+
+  // WithdrawAuthenticate and WithdrawAuthenticateValidate must be called first before calling InternalTransfer/CryptoWithdraw/BankWithdraw in the Core services API.
+  // Internal: Undocumented.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [ ]
+  rpc WithdrawAuthenticate(types.WithdrawAuthenticateRequest) returns (types.WithdrawAuthenticateResponse) {}
+
+  // Internal: Undocumented. reCAPTCHA protected.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [ ]
+  rpc WithdrawAuthenticateValidate(types.WithdrawAuthenticateValidateRequest) returns (types.WithdrawAuthenticateValidateResponse) {}
 }
