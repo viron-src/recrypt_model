@@ -269,6 +269,19 @@ message ValidateInternalTransferResponse {
   repeated GetBalancesEntry balances = 2;
 }
 
+message InternalTransferRequest {
+  int64 session_seq = 1;
+  optional int64 auth_seq = 2; // Only used by front-end, leave as unspecified.
+  int64 target_account_seq = 3; // Specify both as final check, as target email can change during the workflow.
+  string target_account_email = 4; // Specify both as final check, as target email can change during the workflow.
+  int64 currency_seq = 5; // enum Currency
+  string quantity = 6; // Decimal
+}
+
+message InternalTransferResponse {
+  int64 transaction_seq = 1;
+}
+
 message AllocateDepositAddressRequest {
   int64 session_seq = 1;
   int64 currency_seq = 2; // enum Currency

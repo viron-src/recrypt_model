@@ -191,7 +191,7 @@ service Auth {
   // [ ]         [X]                  [ ]
   rpc DeleteApiKey(types.DeleteApiKeyRequest) returns (types.DeleteApiKeyResponse) {}
 
-  // OrderAuthenticate and OrderAuthenticateValidate must be called first before calling Order in the Core services API for the frontend.
+  // OrderAuthenticate and OrderAuthenticateValidate must be called first before calling Order in the Core services API for the frontend if applicable based on account security settings.
   // Internal: Undocumented.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
