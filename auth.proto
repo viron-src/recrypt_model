@@ -191,7 +191,7 @@ service Auth {
   // [ ]         [X]                  [ ]
   rpc DeleteApiKey(types.DeleteApiKeyRequest) returns (types.DeleteApiKeyResponse) {}
 
-  // OrderAuthenticate and OrderAuthenticateValidate must be called first before calling Order in the Core services API.
+  // OrderAuthenticate and OrderAuthenticateValidate must be called first before calling Order in the Core services API for the frontend.
   // Internal: Undocumented.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
@@ -204,7 +204,7 @@ service Auth {
   // [ ]         [X]                  [ ]
   rpc OrderAuthenticateValidate(types.OrderAuthenticateValidateRequest) returns (types.OrderAuthenticateValidateResponse) {}
 
-  // WithdrawAuthenticate and WithdrawAuthenticateValidate must be called first before calling InternalTransfer/CryptoWithdraw/BankWithdraw in the Core services API.
+  // WithdrawAuthenticate and WithdrawAuthenticateValidate must be called first before calling InternalTransfer/CryptoWithdraw/BankWithdraw in the Core services API for the frontend.
   // Internal: Undocumented.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
