@@ -42,7 +42,7 @@ service Core {
   // [ ]         [X]                  [X] (Readonly)
   rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
 
-  // Returns if a provided email is valid for internal transfer.
+  // Returns account seq, and available currency for transfer if the email is a valid Recrypt account.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)

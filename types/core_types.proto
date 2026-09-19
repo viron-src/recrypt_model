@@ -261,7 +261,7 @@ message ValidateAddressResponse {
 
 message ValidateInternalTransferRequest {
   int64 session_seq = 1;
-  string email = 2; // Must be valid email and not same email as current account. Min 3 characters. Max 254 characters.
+  string target_email = 2; // Must be valid email and not same email as current account. Min 3 characters. Max 254 characters.
 }
 
 message ValidateInternalTransferResponse {
