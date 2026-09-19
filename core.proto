@@ -36,23 +36,41 @@ service Core {
   // [X]         [ ]                  [ ]
   rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 
-  // Returns if a provided address is valid for withdrawals.
-  //////------------------------------------------/-//
-  // Anonymous | Client Session Key | API Key
-  // [ ]         [X]                  [X] (Readonly)
-  rpc ValidateAddress (types.ValidateAddressRequest) returns (types.ValidateAddressResponse) {}
-
-  // Returns account seq, and available currency for transfer if the email is a valid Recrypt account.
+  // Returns account seq, and available currency for the transfer if the email is a valid Recrypt account.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Readonly)
   rpc ValidateInternalTransfer (types.ValidateInternalTransferRequest) returns (types.ValidateInternalTransferResponse) {}
 
-  // Performs the internal transfer of currency between two Recrypt accounts.
+  // WITHDRAWAL FUNCTION: Performs the internal transfer of currency between two Recrypt accounts.
   //////------------------------------------------/-//
   // Anonymous | Client Session Key | API Key
   // [ ]         [X]                  [X] (Write-enabled)
   rpc InternalTransfer (types.InternalTransferRequest) returns (types.InternalTransferResponse) {}
+
+  // Returns if address is valid, and available currency for the transfer.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc ValidateCryptoWithdraw (types.ValidateCryptoWithdrawRequest) returns (types.ValidateCryptoWithdrawResponse) {}
+
+  // WITHDRAWAL FUNCTION: Withdraws currency by submitting a transaction to a decentralized network.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Write-enabled)
+  rpc CryptoWithdraw (types.CryptoWithdrawRequest) returns (types.CryptoWithdrawResponse) {}
+
+  // Checks if a provided bank details is valid for withdrawals, and available currency for the transfer.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Readonly)
+  rpc ValidateBankWithdraw (types.ValidateBankWithdrawRequest) returns (types.ValidateBankWithdrawResponse) {}
+
+  // WITHDRAWAL FUNCTION: Withdraws currency by submitting a transaction to a centralized network.
+  //////------------------------------------------/-//
+  // Anonymous | Client Session Key | API Key
+  // [ ]         [X]                  [X] (Write-enabled)
+  rpc BankWithdraw (types.BankWithdrawRequest) returns (types.BankWithdrawResponse) {}
 
   // Allocates a new deposit address for the given currency.
   // For fiat currencies there may only be 1 address per account, for cryptocurrencies there may be more than 1 depending on the internal configuration.

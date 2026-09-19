@@ -248,17 +248,6 @@ message SystemFeedData {
 }
 // END SYSTEM FEED MESSAGE TYPES ---
 
-message ValidateAddressRequest {
-  int64 session_seq = 1;
-  int64 currency_seq = 2; // enum Currency
-  int32 network_identifier = 3;
-  string address = 4; // Minimum 8 characters, maximum 128 characters.
-}
-
-message ValidateAddressResponse {
-  string balance = 1; // Will be "" if not applicable.
-}
-
 message ValidateInternalTransferRequest {
   int64 session_seq = 1;
   string target_email = 2; // Must be valid email and not same email as current account. Min 3 characters. Max 254 characters.
@@ -280,6 +269,30 @@ message InternalTransferRequest {
 
 message InternalTransferResponse {
   int64 transaction_seq = 1;
+}
+
+message ValidateCryptoWithdrawRequest {
+}
+
+message ValidateCryptoWithdrawResponse {
+}
+
+message CryptoWithdrawRequest {
+}
+
+message CryptoWithdrawResponse {
+}
+
+message ValidateBankWithdrawRequest {
+}
+
+message ValidateBankWithdrawResponse {
+}
+
+message BankWithdrawRequest {
+}
+
+message BankWithdrawResponse {
 }
 
 message AllocateDepositAddressRequest {
