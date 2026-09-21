@@ -273,7 +273,7 @@ message InternalTransferResponse {
 
 message ValidateCryptoWithdrawRequest {
   int64 session_seq = 1;
-  string target_address = 2;
+  string target_address = 2; // Min 16 characters. Max 256 characters.
 }
 
 message ValidateCryptoWithdrawResponse {
@@ -283,7 +283,7 @@ message ValidateCryptoWithdrawResponse {
 message CryptoWithdrawRequest {
   int64 session_seq = 1;
   optional int64 auth_seq = 2; // Only used by front-end, leave as unspecified.
-  string target_address = 3;
+  string target_address = 3; // Min 16 characters. Max 256 characters.
   int64 currency_seq = 4; // enum Currency
   string quantity = 5; // Decimal
 }
@@ -295,18 +295,18 @@ message CryptoWithdrawResponse {
 message ValidateBankWithdrawRequest {
   int64 session_seq = 1;
   oneof target {
-    BECSDetails bank_account = 2;
-    string pay_id_mobile_number = 3; // Full +61 international code
+    BECSDetails becs_account = 2;
+    string pay_id_mobile_number = 3; // Full +61 international code.
     string pay_id_email_address = 4; // Must be valid email. Min 3 characters. Max 254 characters.
-    string pay_id_abn = 5; // 11 digits
-    string pay_id_acn = 6; // 9 digits
-    string pay_id_organization_id = 7; // Min 3 Characters. Max 256 characters.
+    string pay_id_abn = 5; // 11 digits.
+    string pay_id_acn = 6; // 9 digits.
+    string pay_id_organization_id = 7; // Min 3 characters. Max 256 characters.
   }
 }
 
 message BECSDetails {
-  string bsb = 1; // 6 digits
-  string account_number = 2;
+  string bsb = 1; // 6 digits.
+  string account_number = 2; // Min 1 digit. Max 32 digits.
 }
 
 message ValidateBankWithdrawResponse {
@@ -317,11 +317,11 @@ message BankWithdrawRequest {
   int64 session_seq = 1;
   optional int64 auth_seq = 2; // Only used by front-end, leave as unspecified.
   oneof target {
-    BECSDetails bank_account = 3;
-    string pay_id_mobile_number = 4; // Full +61 international code
+    BECSDetails becs_account = 3;
+    string pay_id_mobile_number = 4; // Full +61 international code.
     string pay_id_email_address = 5; // Must be valid email. Min 3 characters. Max 254 characters.
-    string pay_id_abn = 6; // 11 digits
-    string pay_id_acn = 7; // 9 digits
+    string pay_id_abn = 6; // 11 digits.
+    string pay_id_acn = 7; // 9 digits.
     string pay_id_organization_id = 8; // Min 3 Characters. Max 256 characters.
   }
   int64 currency_seq = 9; // enum Currency
